@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "strapi build",
+    "dev": "strapi develop",
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi"
