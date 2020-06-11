@@ -1,0 +1,73 @@
+############################
+# OS X
+############################
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+
+############################
+# Linux
+############################
+
+*~
+
+
+############################
+# Windows
+############################
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+
+############################
+# Logs and databases
+############################
+
+/logs
+*.log
+
+
+############################
+# Node.js
+############################
+
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lib-cov
+lcov.info
+pids
+results
+.node_history
+.yarn-integrity
+
+
+############################
+# Tests
+############################
+
+testApp
+coverage
+
+
+############################
+# Misc
+############################
+
+.env
+.cache
+.idea
