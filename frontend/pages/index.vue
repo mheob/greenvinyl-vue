@@ -1,25 +1,23 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">100HERZ GmbH</h1>
-      <h2 class="subtitle">My hunky-dory Nuxt.js project</h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+  <main class="min-h-screen bg-green-100 lg:pt-24">
+    <div class="container flex items-center justify-center text-center">
+      <div>
+        <Brand />
+        <h1 class="h-64 title">100HERZ GmbH</h1>
+        <h2 class="h-64 subtitle">My hunky-dory Nuxt.js project</h2>
+        <p class="h-64 mt-16 text-4xl font-light text-indigo-700">My first Test environment.</p>
       </div>
-      <p class="mt-16 text-4xl font-light text-indigo-700">My first Test environment.</p>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
-import Logo from "~/components/Logo.vue"
+import Brand from "~/components/Icons/Brand.vue"
 
 export default Vue.extend({
   components: {
-    Logo
+    Brand
   }
 })
 </script>
@@ -49,9 +47,5 @@ export default Vue.extend({
   font-weight: 300;
   font-size: 42px;
   word-spacing: 5px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
