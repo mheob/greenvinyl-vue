@@ -1,0 +1,17 @@
+body {
+  font-family: Fira Sans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@screen lg {
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
