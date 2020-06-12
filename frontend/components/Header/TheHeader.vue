@@ -11,8 +11,8 @@
 <script lang="ts">
 import Vue from "vue"
 import Brand from "~/components/Icons/Brand.vue"
-import TheMainNavigation from "~/components/Navigation/TheMainNavigation.vue"
-import TheCarts from "~/components/Navigation/TheCarts.vue"
+import TheMainNavigation from "~/components/Header/TheMainNavigation.vue"
+import TheCarts from "~/components/Header/TheCarts.vue"
 
 export default Vue.extend({
   components: {
