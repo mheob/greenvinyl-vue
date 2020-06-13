@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <TheHeader />
-    <main class="min-h-screen bg-green-100 lg:pt-24">
+    <main class="pt-8 bg-green-100 lg:pt-24">
       <nuxt />
     </main>
     <TheFooter />

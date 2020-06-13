@@ -29,7 +29,8 @@ module.exports = {
     }
   },
   variants: {
-    borderWidth: ["responsive", "hover", "focus", "active"]
+    borderWidth: ["responsive", "hover", "focus", "active"],
+    translate: ["responsive", "hover", "focus", "active"]
   },
   plugins: []
 }
