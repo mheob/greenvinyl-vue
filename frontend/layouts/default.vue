@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator"
-import TheHeader from "~/components/Header/TheHeader.vue"
-import TheFooter from "~/components/Footer/TheFooter.vue"
+import TheHeader from "@/components/Header/TheHeader.vue"
+import TheFooter from "@/components/Footer/TheFooter.vue"
 
 @Component({
   components: {
