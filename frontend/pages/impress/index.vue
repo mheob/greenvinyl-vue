@@ -1,5 +1,5 @@
 <template>
-  <article class="container">
+  <article class="container wysiwyg">
     <div class="max-w-4xl">
       <h1>Impressum</h1>
       <h2>Angaben gemäß §&nbsp;5&nbsp;TMG</h2>
@@ -162,51 +162,3 @@
     </div>
   </article>
 </template>
-
-<style scoped>
-h1 {
-  font-size: 2.25rem;
-  line-height: 1.25;
-}
-
-h2 {
-  margin-top: 2rem;
-  font-size: 1.5rem;
-}
-
-h3 {
-  margin-top: 2rem;
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
-}
-
-h3:first-child {
-  margin-top: 0;
-}
-
-p {
-  margin-top: 1rem;
-}
-
-a {
-  color: #007d52;
-}
-
-a:hover {
-  opacity: 0.5;
-}
-
-@screen lg {
-  h1 {
-    font-size: 4rem;
-  }
-
-  h2 {
-    font-size: 1.875rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-}
-</style>
