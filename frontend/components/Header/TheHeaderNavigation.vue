@@ -1,8 +1,8 @@
 <template>
   <nav class="flex my-5 space-x-4 text-sm lg:my-0 lg:text-base lg:space-x-10">
-    <a href="/#greenvinyl-base">Produkte</a>
-    <a href="/retailer">Händlersuche</a>
-    <a href="/kontakt">Kontakt</a>
+    <nuxt-link to="/#greenvinyl-base">Produkte</nuxt-link>
+    <nuxt-link to="/retailer">Händlersuche</nuxt-link>
+    <nuxt-link to="/contact">Kontakt</nuxt-link>
   </nav>
 </template>
 

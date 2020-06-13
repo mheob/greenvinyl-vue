@@ -2,7 +2,7 @@
   <a v-if="isAnchor" class="btn" :class="[classes, buttonStyleClass, buttonBrightnessClass]" :href="to">
     <slot></slot>
   </a>
-  <button v-else :href="to" class="btn" :class="[classes, buttonStyleClass, buttonBrightnessClass]">
+  <button v-else class="btn" :class="[classes, buttonStyleClass, buttonBrightnessClass]">
     <slot></slot>
   </button>
 </template>
@@ -26,6 +26,7 @@ export default {
       type: String, // (NULL, dark, light)
       default: null
     },
+    // TODO: Check if the link is internal --> than "nuxt-link"
     to: {
       type: String,
       default: "/"

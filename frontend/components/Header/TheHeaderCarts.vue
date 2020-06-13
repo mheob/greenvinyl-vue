@@ -1,6 +1,6 @@
 <template>
   <nav class="flex space-x-6">
-    <a class="relative flex hover:opacity-75" href="/gratismuster" title="Muster anfordern">
+    <nuxt-link class="relative flex hover:opacity-75" to="/samples" title="Muster anfordern">
       <span class="bg-yellow-500 bubble">0</span>
       <svg class="w-8 h-8 text-gray-700 fill-current" xmlns="http://www.w3.org/2000/svg">
         <!-- eslint-disable max-len -->
@@ -9,8 +9,8 @@
         />
         <!-- eslint-enable max-len -->
       </svg>
-    </a>
-    <a class="relative flex hover:opacity-75" href="/reservation" title="Produkte reservieren">
+    </nuxt-link>
+    <nuxt-link class="relative flex hover:opacity-75" to="/reservation" title="Produkte reservieren">
       <span class="bg-green-500 bubble">0</span>
       <svg class="w-8 h-8 text-gray-700 fill-current" xmlns="http://www.w3.org/2000/svg">
         <!-- eslint-disable max-len -->
@@ -22,7 +22,7 @@
         />
         <!-- eslint-enable max-len -->
       </svg>
-    </a>
+    </nuxt-link>
   </nav>
 </template>
 
