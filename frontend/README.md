@@ -1,6 +1,6 @@
 # @100herz-strapi/frontend
 
-> My hunky-dory Nuxt.js project
+> Greenvinyl port to vuejs and strapi
 
 ## Build Setup
 
