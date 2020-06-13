@@ -11,3 +11,9 @@
     </div>
   </nav>
 </template>
+
+<style scoped>
+a:hover {
+  opacity: 0.5;
+}
+</style>
