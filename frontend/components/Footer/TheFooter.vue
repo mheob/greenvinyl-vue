@@ -1,9 +1,7 @@
 <template>
-  <footer class="py-10 text-sm text-white bg-green-500">
+  <footer class="py-10 text-sm text-white bg-green-900">
     <div class="container flex flex-col items-center justify-between lg:flex-row">
-      <div class="w-56">
-        <BrandLogo />
-      </div>
+      <a href="/"><BrandLogo width-class="w-56"/></a>
       <TheFooterNavigation />
     </div>
   </footer>

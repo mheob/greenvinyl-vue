@@ -1,7 +1,7 @@
 <template>
   <header class="w-full py-5 bg-white shadow-sm lg:fixed lg:h-20">
     <div class="container flex flex-col items-center justify-between lg:flex-row">
-      <a class="w-64" href="/"><BrandLogo use-brand-color/></a>
+      <a href="/"><BrandLogo use-brand-color width-class="w-64"/></a>
       <TheHeaderNavigation />
       <TheHeaderCarts />
     </div>

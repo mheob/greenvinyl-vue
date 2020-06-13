@@ -1,7 +1,7 @@
 <template>
   <svg
     class="fill-current"
-    :class="{ 'text-green-500': useBrandColor }"
+    :class="[{ 'text-green-500': useBrandColor }, widthClass]"
     xmlns="http://www.w3.org/2000/svg"
     viewbox="0 0 311.9 47.56"
   >
@@ -84,6 +84,10 @@ export default {
     useBrandColor: {
       type: Boolean,
       default: false
+    },
+    widthClass: {
+      type: String,
+      default: "w-auto"
     }
   }
 }
