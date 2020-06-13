@@ -78,8 +78,6 @@
 
 <script>
 export default {
-  name: "BrandLogo",
-
   props: {
     useBrandColor: {
       type: Boolean,

@@ -4,6 +4,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  transition: 200ms;
+}
+
 .container {
   padding-right: 1rem;
   padding-left: 1rem;
