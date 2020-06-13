@@ -1,20 +1,13 @@
+const globalConfig = require("../.eslintrc")
+
 module.exports = {
-  root: true,
   env: {
     browser: true,
     node: true
   },
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
-  ],
-  plugins: [
-    'prettier'
-  ],
-  // add your custom rules here
+  extends: [...globalConfig.extends, "@nuxtjs/eslint-config-typescript", "prettier/vue", "plugin:nuxt/recommended"],
+  plugins: [...globalConfig.plugins],
   rules: {
+    ...globalConfig.rules
   }
 }
