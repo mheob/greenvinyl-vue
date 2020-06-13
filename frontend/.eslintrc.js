@@ -5,9 +5,8 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: [...globalConfig.extends, "@nuxtjs/eslint-config-typescript", "prettier/vue", "plugin:nuxt/recommended"],
+  parserOptions: { parser: "babel-eslint" },
+  extends: [...globalConfig.extends, "@nuxtjs", "prettier/vue", "plugin:nuxt/recommended"],
   plugins: [...globalConfig.plugins],
-  rules: {
-    ...globalConfig.rules
-  }
+  rules: { ...globalConfig.rules }
 }

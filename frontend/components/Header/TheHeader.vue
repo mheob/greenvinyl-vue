@@ -1,25 +1,24 @@
 <template>
-  <header class="w-full h-20 py-5 bg-white shadow-sm lg:fixed">
+  <header class="w-full py-5 bg-white shadow-sm lg:fixed lg:h-20">
     <div class="container flex flex-col items-center justify-between lg:flex-row">
-      <a class="w-64" href="/"><Brand /></a>
-      <TheMainNavigation />
-      <TheCarts />
+      <a class="w-64" href="/"><BrandLogo use-brand-color/></a>
+      <TheHeaderNavigation />
+      <TheHeaderCarts />
     </div>
   </header>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
-import Brand from "~/components/Icons/Brand.vue"
-import TheMainNavigation from "~/components/Header/TheMainNavigation.vue"
-import TheCarts from "~/components/Header/TheCarts.vue"
+<script>
+import BrandLogo from "@/components/Icons/BrandLogo"
+import TheHeaderNavigation from "@/components/Header/TheHeaderNavigation"
+import TheHeaderCarts from "@/components/Header/TheHeaderCarts"
 
-@Component({
+export default {
+  name: "TheHeader",
   components: {
-    Brand,
-    TheMainNavigation,
-    TheCarts
+    BrandLogo,
+    TheHeaderNavigation,
+    TheHeaderCarts
   }
-})
-export default class TheHeader extends Vue {}
+}
 </script>

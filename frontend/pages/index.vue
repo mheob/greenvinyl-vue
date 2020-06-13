@@ -1,24 +1,17 @@
 <template>
-  <main class="min-h-screen bg-green-100 lg:pt-24">
-    <div class="container flex items-center justify-center text-center">
-      <div>
-        <Brand />
-        <h1 class="h-64 title">100HERZ GmbH</h1>
-        <h2 class="h-64 subtitle">My hunky-dory Nuxt.js project</h2>
-        <p class="h-64 mt-16 text-4xl font-light text-indigo-700">My first Test environment.</p>
-      </div>
+  <div class="container flex items-center justify-center text-center">
+    <div>
+      <BrandLogo use-brand-color />
+      <h1 class="h-64 title">100HERZ GmbH</h1>
+      <h2 class="h-64 subtitle">My hunky-dory Nuxt.js project</h2>
+      <p class="h-64 mt-16 text-4xl font-light text-indigo-700">My first Test environment.</p>
     </div>
-  </main>
+  </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
-import Brand from "~/components/Icons/Brand.vue"
-
-@Component({
-  components: { Brand }
-})
-export default class Root extends Vue {}
+<script>
+import BrandLogo from "@/components/Icons/BrandLogo"
+export default { components: { BrandLogo } }
 </script>
 
 <style scoped>

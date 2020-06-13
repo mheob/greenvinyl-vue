@@ -1,7 +1,7 @@
 <template>
   <svg
-    class="text-green-500 fill-current "
-    data-name="Ebene 1"
+    class="fill-current"
+    :class="{ 'text-green-500': useBrandColor }"
     xmlns="http://www.w3.org/2000/svg"
     viewbox="0 0 311.9 47.56"
   >
@@ -76,9 +76,15 @@
   </svg>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+<script>
+export default {
+  name: "BrandLogo",
 
-@Component
-export default class Brand extends Vue {}
+  props: {
+    useBrandColor: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
 </script>
