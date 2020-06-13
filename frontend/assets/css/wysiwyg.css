@@ -1,0 +1,63 @@
+.wysiwyg h1 {
+  font-size: 2.25rem;
+  line-height: 1.25;
+}
+
+.wysiwyg h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.wysiwyg h3 {
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.wysiwyg h3:first-child {
+  margin-top: 0;
+}
+
+.wysiwyg p {
+  margin-top: 1rem;
+}
+
+.wysiwyg a {
+  color: #007d52;
+}
+
+.wysiwyg a:hover {
+  opacity: 0.5;
+}
+
+.wysiwyg ul,
+.wysiwyg ol {
+  margin-top: 1rem;
+  margin-left: 1.25rem;
+  list-style-position: outside;
+}
+
+.wysiwyg ul {
+  list-style-type: disc;
+}
+.wysiwyg ol {
+  list-style-type: decimal;
+}
+
+.wysiwyg li {
+  padding-left: 0.75rem;
+}
+
+@screen lg {
+  .wysiwyg h1 {
+    font-size: 4rem;
+  }
+
+  .wysiwyg h2 {
+    font-size: 1.875rem;
+  }
+
+  .wysiwyg h3 {
+    font-size: 1.5rem;
+  }
+}

@@ -4,7 +4,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: "CLASSEN Greenvinyl – Der erste Vinyl-Bodenbelag mit dem Blauen Engel",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -14,7 +14,15 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "stylesheet",
+        href:
+          // eslint-disable-next-line max-len
+          "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap"
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -23,7 +31,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~assets/css/main.css", "~assets/css/wysiwyg.css"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -32,7 +40,8 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    "@nuxt/typescript-build",
+    // Doc: https://github.com/nuxt-community/eslint-module
+    "@nuxtjs/eslint-module",
     // Doc: https://github.com/nuxt-community/stylelint-module
     "@nuxtjs/stylelint-module",
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
@@ -60,7 +69,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     extend(config, ctx) {}
   }
 }
