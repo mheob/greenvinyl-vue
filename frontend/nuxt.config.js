@@ -63,6 +63,13 @@ export default {
    ** Build configuration
    */
   build: {
+    babel: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      presets({ isServer }) {
+        // Doc: https://github.com/nuxt-community/nuxt-property-decorator
+        return [["@nuxt/babel-preset-app", { loose: true }]]
+      }
+    },
     /*
      ** You can extend webpack config here
      */

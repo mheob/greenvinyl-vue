@@ -12,14 +12,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "nuxt-property-decorator"
 import Brand from "~/components/Icons/Brand.vue"
 
-export default Vue.extend({
-  components: {
-    Brand
-  }
+@Component({
+  components: { Brand }
 })
+export default class Root extends Vue {}
 </script>
 
 <style scoped>
