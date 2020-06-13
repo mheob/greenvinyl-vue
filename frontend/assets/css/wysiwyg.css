@@ -30,6 +30,24 @@
   opacity: 0.5;
 }
 
+.wysiwyg ul,
+.wysiwyg ol {
+  margin-top: 1rem;
+  margin-left: 1.25rem;
+  list-style-position: outside;
+}
+
+.wysiwyg ul {
+  list-style-type: disc;
+}
+.wysiwyg ol {
+  list-style-type: decimal;
+}
+
+.wysiwyg li {
+  padding-left: 0.75rem;
+}
+
 @screen lg {
   .wysiwyg h1 {
     font-size: 4rem;
