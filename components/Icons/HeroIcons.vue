@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from "vue"
+import Vue from "vue"
 
 export enum Icon {
   CLOCK,
@@ -51,10 +51,10 @@ export default Vue.extend({
       default: ""
     },
     type: {
-      type: Number,
+      type: Number as () => Icon,
       default: null,
       required: true
-    } as PropOptions<Icon>,
+    },
     widthClass: {
       type: String,
       default: "w-auto"

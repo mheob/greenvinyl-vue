@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from "vue"
+import Vue from "vue"
 
 import HeroIcons from "@/components/Icons/HeroIcons.vue"
 
@@ -34,9 +34,9 @@ export default Vue.extend({
 
   props: {
     list: {
-      type: Array,
+      type: Array as () => List[],
       default: null
-    } as PropOptions<List[]>,
+    },
     title: {
       type: String,
       default: null,

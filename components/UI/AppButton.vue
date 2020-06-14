@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from "vue"
+import Vue from "vue"
 
 export enum Variant {
   BUTTON = "",
@@ -41,11 +41,11 @@ export default Vue.extend({
     variant: {
       type: String,
       default: ""
-    } as PropOptions<Variant>,
+    },
     brightness: {
-      type: String,
+      type: String as () => Brightness,
       default: ""
-    } as PropOptions<Brightness>,
+    },
     // TODO: Check if the link is internal --> than "nuxt-link"
     to: {
       type: String,
