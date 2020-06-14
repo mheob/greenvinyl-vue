@@ -1,11 +1,13 @@
 <template>
-  <div class="text-2xl error-page">
-    <h1>
+  <div class="my-12 text-2xl text-center">
+    <h1 class="mb-12 text-5xl">
       Oops …<br />
       an error occurred :(<br />
       We're sorry about that!
     </h1>
-    <p>Go back to <a href="/">safety, running page</a>!</p>
+    <p class="text-2xl">
+      Go back to <a class="text-red-600 hover:text-red-800 active:text-red-800" href="/">safety, running page</a>!
+    </p>
   </div>
 </template>
 
@@ -13,30 +15,3 @@
 import Vue from "vue"
 export default Vue.extend({})
 </script>
-
-<style scoped>
-.error-page {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.error-page h1 {
-  margin-bottom: 3rem;
-  font-size: 3rem;
-}
-
-.error-page p {
-  font-size: 1.5rem;
-}
-
-.error-page a {
-  color: red;
-  text-decoration: none;
-}
-
-.error-page a:hover,
-.error-page a:active {
-  color: salmon;
-}
-</style>
