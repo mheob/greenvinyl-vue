@@ -167,7 +167,7 @@ export default Vue.extend({
           icon: Icon.CLOCK,
           content:
             // eslint-disable-next-line max-len
-            "(Mo&ndash;Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)<span class='inline-block mt-4 text-xs'>Diese Rufnummer ist aus dem deutschen Festnetz kostenlos.</span>"
+            "(Mo&ndash;Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)<span class='inline-block mt-2 text-xs'>Diese Rufnummer ist aus dem deutschen Festnetz kostenlos.</span>"
         }
       ]
     }
