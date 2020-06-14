@@ -1,3 +1,5 @@
+const customForms = require("@tailwindcss/custom-forms")
+
 /*
  ** TailwindCSS Configuration File
  **
@@ -26,11 +28,43 @@ module.exports = {
       borderWidth: {
         3: "3px"
       }
-    }
+    },
+    customForms: theme => ({
+      default: {
+        "input, textarea, select": {
+          borderColor: theme("colors.white"),
+          borderRadius: theme("borderRadius.sm"),
+          backgroundColor: theme("colors.white"),
+          boxShadow: theme("boxShadow.default"),
+          "&:hover": {
+            boxShadow: theme("boxShadow.md")
+          },
+          "&:focus": {
+            borderColor: theme("colors.gray.300"),
+            boxShadow: theme("boxShadow.md")
+          }
+        },
+        "checkbox, radio": {
+          borderRadius: theme("borderRadius.sm"),
+          backgroundColor: theme("colors.white"),
+          width: theme("spacing.6"),
+          height: theme("spacing.6"),
+          boxShadow: theme("boxShadow.default"),
+          "&:hover:not(:checked)": {
+            boxShadow: theme("boxShadow.md")
+          },
+          "&:checked, &:focus": {
+            borderColor: theme("colors.gray.300"),
+            color: theme("colors.green.800"),
+            boxShadow: theme("boxShadow.md")
+          }
+        }
+      }
+    })
   },
   variants: {
     borderWidth: ["responsive", "hover", "focus", "active"],
     translate: ["responsive", "hover", "focus", "active"]
   },
-  plugins: []
+  plugins: [customForms]
 }
