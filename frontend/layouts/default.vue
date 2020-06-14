@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <TheHeader />
-    <main class="py-12 bg-green-100 lg:pt-24">
+    <main class="py-12 bg-green-100 lg:pt-40 lg:pb-20">
       <nuxt />
     </main>
     <TheFooter />

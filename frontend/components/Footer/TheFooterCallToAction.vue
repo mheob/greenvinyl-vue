@@ -7,18 +7,18 @@
       </h2>
       <p class="mt-5 font-thin lg:text-lg">(Mo-Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)</p>
       <div class="mt-10 space-y-4 lg:space-x-4">
-        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" button-brightness="light" to="/retailer">
+        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" brightness="light" to="/retailer">
           Händler suchen
         </AppButton>
         <AppButton
           classes="inline-block shadow-md w-3/4 lg:w-auto"
-          button-style="outline"
-          button-brightness="light"
+          variant="outline"
+          brightness="light"
           to="/#greenvinyl-base"
         >
           Produkte anzeigen
         </AppButton>
-        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" button-brightness="light" to="/kontakt">
+        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" brightness="light" to="/kontakt">
           Infos anfordern
         </AppButton>
       </div>

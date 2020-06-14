@@ -12,7 +12,8 @@ a {
   border-bottom-width: 3px;
 }
 
-a:hover {
+a:hover,
+.nuxt-link-active {
   border-color: #007d52;
 }
 </style>

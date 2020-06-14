@@ -22,3 +22,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+header {
+  z-index: 55;
+}
+</style>
