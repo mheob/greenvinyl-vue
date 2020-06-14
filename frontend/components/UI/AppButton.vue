@@ -1,28 +1,25 @@
 <template>
-  <a v-if="isAnchor" class="btn" :class="[classes, buttonStyleClass, buttonBrightnessClass]" :href="to">
-    <slot></slot>
-  </a>
-  <button v-else class="btn" :class="[classes, buttonStyleClass, buttonBrightnessClass]">
-    <slot></slot>
-  </button>
+  <button v-if="isButton" class="btn" :class="[variantClass, brightnessClass, classes]"><slot></slot></button>
+
+  <a v-else class="btn" :class="[variantClass, brightnessClass, classes]" :href="to"><slot></slot></a>
 </template>
 
 <script>
 export default {
   props: {
-    isAnchor: {
+    isButton: {
       type: Boolean,
-      default: true
+      default: false
     },
     classes: {
       type: String,
       default: ""
     },
-    buttonStyle: {
-      type: String, // (NULL, outline, link)
+    variant: {
+      type: String, // (NULL => button, outline, link)
       default: null
     },
-    buttonBrightness: {
+    brightness: {
       type: String, // (NULL, dark, light)
       default: null
     },
@@ -34,21 +31,25 @@ export default {
   },
 
   computed: {
-    buttonStyleClass() {
-      return this.buttonStyle ? "btn-" + this.buttonStyle : ""
+    variantClass() {
+      return this.variant ? "btn-" + this.variant : ""
     },
-    buttonBrightnessClass() {
-      if (!this.buttonBrightness) {
+    brightnessClass() {
+      if (!this.brightness) {
         return
       }
 
-      return `btn-${this.buttonStyle ? this.buttonStyle + "-" : ""}-${this.buttonBrightness}`
+      return `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
     }
   }
 }
 </script>
 
 <style scoped>
+:active {
+  outline: none;
+}
+
 .btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;
