@@ -93,8 +93,9 @@
 
         <p class="mt-5">
           Gemäß geltendem Datenschutz möchten wir Sie über unsere Datenverarbeitung aufklären. Dies entnehmen Sie bitte
-          der <a class="underline hover:opacity-50" href="/datenschutz">Datenschutzerklärung</a>. Sollten Sie mit der
-          Verarbeitung gemäß unserer Datenschutzerklärung einverstanden sein, aktivieren sie bitte das Auswahlkästchen.
+          der <nuxt-link class="underline hover:opacity-50" to="/privacy">Datenschutzerklärung</nuxt-link>. Sollten Sie
+          mit der Verarbeitung gemäß unserer Datenschutzerklärung einverstanden sein, aktivieren sie bitte das
+          Auswahlkästchen.
         </p>
 
         <AppButton classes="mt-5" :brightness="Brightness.DARK" is-button type="submit">Abschicken</AppButton>

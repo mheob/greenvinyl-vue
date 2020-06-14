@@ -1,6 +1,6 @@
 <template>
   <div v-if="type === 'checkbox'" class="form-element-checkbox" :class="classesElement">
-    <label>
+    <label class="cursor-pointer">
       <input
         :id="idString"
         class="form-checkbox"
