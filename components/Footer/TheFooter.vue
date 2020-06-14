@@ -13,6 +13,7 @@
 
 <script lang="ts">
 import Vue from "vue"
+
 import TheFooterCallToAction from "@/components/Footer/TheFooterCallToAction.vue"
 import TheFooterNavigation from "@/components/Footer/TheFooterNavigation.vue"
 import BrandLogo from "@/components/Icons/BrandLogo.vue"

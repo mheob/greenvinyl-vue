@@ -60,9 +60,8 @@ export default Vue.extend({
       default: "text"
     }
   },
-
   computed: {
-    idString() {
+    idString(): string {
       return `form-input-${this.name}`
     }
   }

@@ -97,7 +97,7 @@
           Verarbeitung gemäß unserer Datenschutzerklärung einverstanden sein, aktivieren sie bitte das Auswahlkästchen.
         </p>
 
-        <AppButton classes="mt-5" brightness="dark" is-button type="submit">Abschicken</AppButton>
+        <AppButton classes="mt-5" :brightness="Brightness.DARK" is-button type="submit">Abschicken</AppButton>
       </form>
     </section>
 
@@ -115,9 +115,10 @@
 <script lang="ts">
 import Vue from "vue"
 
-import AppButton from "@/components/UI/AppButton.vue"
 import FormInput from "@/components/Form/FormInput.vue"
 import FormSideBox from "@/components/Form/FormSideBox.vue"
+import { Icon } from "@/components/Icons/HeroIcons.vue"
+import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
 export default Vue.extend({
   components: {
@@ -127,40 +128,42 @@ export default Vue.extend({
   },
   data() {
     return {
+      Brightness,
+      Variant,
       address: [
         {
           id: "1",
-          icon: "location-marker",
+          icon: Icon.LOCATION_MARKER,
           content:
             "W. Classen GmbH &amp; Co. KG<br />Werner-von­-Siemens­-Straße 18–20,<br />56759 Kaisersesch (Germany)"
         },
         {
           id: "2",
-          icon: "phone",
+          icon: Icon.PHONE,
           content: "<a class='whitespace-no-wrap hover:opacity-50' href='tel:+4926539800'>+49 2653 980 0</a>"
         },
         {
           id: "3",
-          icon: "printer",
+          icon: Icon.PRINTER,
           content: "<span class='whitespace-no-wrap'>+49 2653 980 4484</span>"
         },
         {
           id: "4",
-          icon: "mail",
+          icon: Icon.MAIL,
           content: "<a class='hover:opacity-50' href='mailto:info@classen.de'>info@classen.de</a>"
         }
       ],
       callUs: [
         {
           id: "1",
-          icon: "phone",
+          icon: Icon.PHONE,
           content:
             // eslint-disable-next-line max-len
             "<a class='whitespace-no-wrap hover:opacity-50' href='tel:08001133313'>0800 11 33 313</a>"
         },
         {
           id: "2",
-          icon: "clock",
+          icon: Icon.CLOCK,
           content:
             // eslint-disable-next-line max-len
             "(Mo&ndash;Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)<span class='inline-block mt-4 text-xs'>Diese Rufnummer ist aus dem deutschen Festnetz kostenlos.</span>"

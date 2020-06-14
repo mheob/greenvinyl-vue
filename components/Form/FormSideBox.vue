@@ -17,9 +17,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import Vue, { PropOptions } from "vue"
 
 import HeroIcons from "@/components/Icons/HeroIcons.vue"
+
+interface List {
+  id: string
+  icon: string
+  content: string
+}
 
 export default Vue.extend({
   components: {
@@ -28,9 +34,9 @@ export default Vue.extend({
 
   props: {
     list: {
-      type: Array, // Array of objects => { id: "1", icon: "phone", content: "…" }
+      type: Array,
       default: null
-    },
+    } as PropOptions<List[]>,
     title: {
       type: String,
       default: null,

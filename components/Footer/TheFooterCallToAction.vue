@@ -7,18 +7,18 @@
       </h2>
       <p class="mt-5 font-thin lg:text-lg">(Mo-Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)</p>
       <div class="mt-10 space-y-4 lg:space-x-4">
-        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" brightness="light" to="/retailer">
+        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" :brightness="Brightness.LIGHT" to="/retailer">
           Händler suchen
         </AppButton>
         <AppButton
           classes="inline-block shadow-md w-3/4 lg:w-auto"
-          variant="outline"
-          brightness="light"
+          :variant="Variant.OUTLINE"
+          :brightness="Brightness.LIGHT"
           to="/#greenvinyl-base"
         >
           Produkte anzeigen
         </AppButton>
-        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" brightness="light" to="/kontakt">
+        <AppButton classes="inline-block shadow-md w-3/4 lg:w-auto" :brightness="Brightness.LIGHT" to="/contact">
           Infos anfordern
         </AppButton>
       </div>
@@ -28,18 +28,25 @@
 
 <script lang="ts">
 import Vue from "vue"
-import AppButton from "@/components/UI/AppButton.vue"
+
+import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
 export default Vue.extend({
   components: {
     AppButton
+  },
+
+  data() {
+    return {
+      Brightness,
+      Variant
+    }
   }
 })
 </script>
 
 <style scoped>
 .bg-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url("~assets/images/ci/greenvinyl-blaetter.png");
+  background-image: url("~assets/images/ci/greenvinyl-blaetter.png");
 }
 </style>

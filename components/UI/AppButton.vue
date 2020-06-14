@@ -1,11 +1,33 @@
 <template>
   <button v-if="isButton" class="btn" :class="[variantClass, brightnessClass, classes]"><slot></slot></button>
 
-  <a v-else class="btn" :class="[variantClass, brightnessClass, classes]" :href="to"><slot></slot></a>
+  <a
+    v-else-if="to.startsWith('http') || to.startsWith('//')"
+    class="btn"
+    :class="[variantClass, brightnessClass, classes]"
+    :href="to"
+  >
+    <slot></slot>
+  </a>
+
+  <nuxt-link v-else class="btn" :class="[variantClass, brightnessClass, classes]" :to="to"><slot></slot></nuxt-link>
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import Vue, { PropOptions } from "vue"
+
+export enum Variant {
+  BUTTON = "",
+  LINK = "link",
+  OUTLINE = "outline"
+}
+
+export enum Brightness {
+  DEFAULT = "",
+  DARK = "dark",
+  LIGHT = "light"
+}
+
 export default Vue.extend({
   props: {
     isButton: {
@@ -17,13 +39,13 @@ export default Vue.extend({
       default: ""
     },
     variant: {
-      type: String, // (NULL => button, outline, link)
-      default: null
-    },
+      type: String,
+      default: ""
+    } as PropOptions<Variant>,
     brightness: {
-      type: String, // (NULL, dark, light)
-      default: null
-    },
+      type: String,
+      default: ""
+    } as PropOptions<Brightness>,
     // TODO: Check if the link is internal --> than "nuxt-link"
     to: {
       type: String,
@@ -32,15 +54,11 @@ export default Vue.extend({
   },
 
   computed: {
-    variantClass() {
+    variantClass(): string {
       return this.variant ? "btn-" + this.variant : ""
     },
-    brightnessClass() {
-      if (!this.brightness) {
-        return
-      }
-
-      return `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
+    brightnessClass(): string {
+      return !this.brightness ? "" : `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
     }
   }
 })
