@@ -11,7 +11,13 @@
       <form class="mt-4">
         <div class="flex flex-col -mx-3 md:flex-row">
           <FormInput classes-element="flex-1 px-3 mt-5" classes-input="w-full" name="firstName" label="Vorname" />
-          <FormInput classes-element="flex-1 px-3 mt-5" classes-input="w-full" name="lastName" label="Nachname *" />
+          <FormInput
+            classes-element="flex-1 px-3 mt-5"
+            classes-input="w-full"
+            name="lastName"
+            label="Nachname *"
+            required
+          />
         </div>
 
         <div class="flex flex-col -mx-3 md:flex-row">
@@ -21,6 +27,7 @@
             name="email"
             label="E-Mail *"
             type="email"
+            required
           />
           <FormInput classes-element="flex-1 px-3 mt-5" classes-input="w-full" name="companyName" label="Firma" />
         </div>
@@ -75,7 +82,14 @@
           (Wenn Sie einen bestimmten Dekorwunsch haben, dann teilen Sie uns diesen bitte im Nachrichtenfeld mit.)
         </p>
 
-        <FormInput classes-element="mt-5" classes-input="mr-3" name="privacy" label="Datenschutz *" type="checkbox" />
+        <FormInput
+          classes-element="mt-5"
+          classes-input="mr-3"
+          name="privacy"
+          label="Datenschutz *"
+          type="checkbox"
+          required
+        />
 
         <p class="mt-5">
           Gemäß geltendem Datenschutz möchten wir Sie über unsere Datenverarbeitung aufklären. Dies entnehmen Sie bitte

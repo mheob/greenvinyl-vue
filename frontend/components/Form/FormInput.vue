@@ -1,13 +1,29 @@
 <template>
   <div v-if="type === 'checkbox'" class="form-element-checkbox" :class="classesElement">
     <label>
-      <input :id="idString" class="form-checkbox" :class="classesInput" :name="name" :type="type" /> {{ label }}
+      <input
+        :id="idString"
+        class="form-checkbox"
+        :class="classesInput"
+        :name="name"
+        :type="type"
+        :required="required"
+      />
+      {{ label }}
     </label>
   </div>
 
   <div v-else class="form-element-default" :class="classesElement">
     <label :for="idString" class="sr-only">{{ label }}</label>
-    <input :id="idString" class="form-input" :class="classesInput" :name="name" :type="type" :placeholder="label" />
+    <input
+      :id="idString"
+      class="form-input"
+      :class="classesInput"
+      :name="name"
+      :type="type"
+      :placeholder="label"
+      :required="required"
+    />
   </div>
 </template>
 
@@ -31,6 +47,11 @@ export default {
       type: String,
       default: null,
       required: true
+    },
+    // TODO: Add a better validation for all form elements
+    required: {
+      type: Boolean,
+      default: false
     },
     type: {
       type: String,

@@ -27,8 +27,7 @@ export default {
   props: {
     list: {
       type: Array, // Array of objects => { id: "1", icon: "phone", content: "…" }
-      default: null,
-      required: true
+      default: null
     },
     title: {
       type: String,
