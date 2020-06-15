@@ -1,12 +1,12 @@
 <template>
-  <div v-if="type === 'checkbox'" class="form-element-checkbox" :class="classesElement">
+  <div v-if="type === Type.CHECKBOX" class="form-element-checkbox" :class="classesElement">
     <label class="cursor-pointer">
       <input
         :id="idString"
         class="form-checkbox"
         :class="classesInput"
         :name="name"
-        :type="type"
+        :type="Type.CHECKBOX"
         :required="required"
       />
       {{ label }}
@@ -29,6 +29,15 @@
 
 <script lang="ts">
 import Vue from "vue"
+
+// TODO: Add more (all) HTML input element types
+export enum Type {
+  CHECKBOX = "checkbox",
+  MAIL = "mail",
+  NUMBER = "number",
+  TEL = "tel",
+  TEXT = "text"
+}
 
 export default Vue.extend({
   props: {
@@ -56,10 +65,11 @@ export default Vue.extend({
       default: false
     },
     type: {
-      type: String,
-      default: "text"
+      type: String as () => Type,
+      default: Type.TEXT
     }
   },
+
   computed: {
     idString(): string {
       return `form-input-${this.name}`

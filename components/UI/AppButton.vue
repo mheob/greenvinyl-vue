@@ -39,7 +39,7 @@ export default Vue.extend({
       default: ""
     },
     variant: {
-      type: String,
+      type: String as () => Variant,
       default: ""
     },
     brightness: {
