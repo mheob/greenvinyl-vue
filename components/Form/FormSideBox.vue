@@ -2,11 +2,11 @@
   <div class="form-side-box">
     <h3 class="text-base tracking-widest text-green-500 uppercase">{{ title }}</h3>
 
-    <p v-if="type === 'text'" class="mt-4 leading-relaxed">
+    <p v-if="type === SideBoxType.TEXT" class="mt-4 leading-relaxed">
       <slot></slot>
     </p>
 
-    <div v-if="type === 'list'" class="mt-4">
+    <div v-if="type === SideBoxType.LIST" class="mt-4">
       <div v-for="row in list" :key="row.id" class="flex mt-4">
         <div class="icon"><HeroIcons :type="row.icon" width-class="w-5" /></div>
         <!-- eslint-disable-next-line vue/no-v-html -->
@@ -27,6 +27,11 @@ interface List {
   content: string
 }
 
+export enum SideBoxType {
+  LIST,
+  TEXT
+}
+
 export default Vue.extend({
   components: {
     HeroIcons
@@ -43,9 +48,13 @@ export default Vue.extend({
       required: true
     },
     type: {
-      type: String,
-      default: "text"
+      type: Number as () => SideBoxType,
+      default: SideBoxType.TEXT
     }
+  },
+
+  data() {
+    return { SideBoxType }
   }
 })
 </script>

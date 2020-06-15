@@ -103,8 +103,8 @@
     </section>
 
     <section class="px-4 mt-16 lg:col-span-5 lg:px-0 lg:mt-0">
-      <FormSideBox title="Adresse" type="list" :list="address" />
-      <FormSideBox title="Rufen Sie uns an" type="list" :list="callUs" />
+      <FormSideBox title="Adresse" :type="SideBoxType.LIST" :list="address" />
+      <FormSideBox title="Rufen Sie uns an" :type="SideBoxType.LIST" :list="callUs" />
       <FormSideBox title="Un­ser Rück­ruf­ser­vice">
         Wir rufen Sie auch gerne zurück. Vereinbaren Sie einfach einen Zeitpunkt für unsere telefonische Beratung über
         unten stehendes Kontaktformular.
@@ -117,7 +117,7 @@
 import Vue from "vue"
 
 import FormInput from "@/components/Form/FormInput.vue"
-import FormSideBox from "@/components/Form/FormSideBox.vue"
+import FormSideBox, { SideBoxType } from "@/components/Form/FormSideBox.vue"
 import { Icon } from "@/components/Icons/HeroIcons.vue"
 import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
@@ -131,6 +131,7 @@ export default Vue.extend({
     return {
       Brightness,
       Variant,
+      SideBoxType,
       address: [
         {
           id: "1",
