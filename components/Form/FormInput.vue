@@ -9,7 +9,7 @@
         :type="FormInputType.CHECKBOX"
         :required="required"
       />
-      {{ label }}
+      {{ label }}<span v-if="required" class="text-yellow-700"> *</span>
     </label>
   </div>
 
@@ -21,7 +21,7 @@
       :class="classesInput"
       :name="name"
       :type="type"
-      :placeholder="label"
+      :placeholder="label + (required ? ' *' : '')"
       :required="required"
     />
   </div>
