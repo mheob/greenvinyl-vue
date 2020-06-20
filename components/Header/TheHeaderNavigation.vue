@@ -13,8 +13,10 @@ export default Vue.extend({})
 
 <style scoped>
 a {
-  border-block-color: transparent;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
   border-bottom-width: 3px;
+  border-block-color: transparent;
 }
 
 a:hover,
