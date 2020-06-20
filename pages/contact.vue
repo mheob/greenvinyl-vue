@@ -1,5 +1,5 @@
 <template>
-  <article class="container grid gap-4 gid-cols-1 lg:grid-cols-12 lg:gap-24">
+  <article class="container grid gap-4 py-12 md:gap-16 lg:pt-32 gid-cols-1 lg:grid-cols-12 xl:gap-24">
     <section class="px-4 lg:col-span-7 lg:px-0">
       <h1 class="text-5xl leading-none text-green-500">Kontakt</h1>
       <p class="mt-8">
@@ -98,7 +98,7 @@
           Auswahlkästchen.
         </p>
 
-        <AppButton classes="mt-5" :brightness="Brightness.DARK" is-button type="submit">Abschicken</AppButton>
+        <AppButton class="mt-5" :brightness="Brightness.DARK" is-button type="submit">Abschicken</AppButton>
       </form>
     </section>
 
@@ -127,6 +127,7 @@ export default Vue.extend({
     FormInput,
     FormSideBox
   },
+
   data() {
     return {
       FormInputType,
