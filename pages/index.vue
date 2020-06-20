@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex items-center justify-center text-center">
+  <div class="container flex items-center justify-center py-12 text-center lg:pt-32">
     <div>
       <h1 class="title">100HERZ GmbH</h1>
       <h2 class="subtitle">My hunky-dory Nuxt.js project</h2>

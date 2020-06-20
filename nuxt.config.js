@@ -54,7 +54,15 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
-    "@nuxtjs/dotenv"
+    "@nuxtjs/dotenv",
+    // Doc: https://gitlab.com/broj42/nuxt-gmaps
+    [
+      "nuxt-gmaps",
+      {
+        key: process.env.GOOGLE_API
+        // libraries: ['places']
+      }
+    ]
   ],
   /*
    ** Axios module configuration

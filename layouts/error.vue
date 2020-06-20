@@ -1,5 +1,5 @@
 <template>
-  <div class="my-12 text-2xl text-center">
+  <div class="py-12 my-12 text-2xl text-center lg:pt-48">
     <h1 class="text-5xl">
       Oops …<br />
       an error occurred :(<br />
