@@ -1,16 +1,20 @@
 <template>
-  <button v-if="isButton" class="btn" :class="[variantClass, brightnessClass, classes]"><slot></slot></button>
+  <button v-if="isButton" class="btn" :class="[variantClass, brightnessClass, deactivateTransformation]">
+    <slot></slot>
+  </button>
 
   <a
     v-else-if="to.startsWith('http') || to.startsWith('//')"
     class="btn"
-    :class="[variantClass, brightnessClass, classes]"
+    :class="[variantClass, brightnessClass, deactivateTransformation]"
     :href="to"
   >
     <slot></slot>
   </a>
 
-  <nuxt-link v-else class="btn" :class="[variantClass, brightnessClass, classes]" :to="to"><slot></slot></nuxt-link>
+  <nuxt-link v-else class="btn" :class="[variantClass, brightnessClass, deactivateTransformation]" :to="to">
+    <slot></slot>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
@@ -39,7 +43,7 @@ export default Vue.extend({
       default: ""
     },
     variant: {
-      type: String,
+      type: String as () => Variant,
       default: ""
     },
     brightness: {
@@ -50,6 +54,10 @@ export default Vue.extend({
     to: {
       type: String,
       default: "/"
+    },
+    noTransform: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -59,6 +67,9 @@ export default Vue.extend({
     },
     brightnessClass(): string {
       return !this.brightness ? "" : `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
+    },
+    deactivateTransformation(): string {
+      return this.noTransform ? "btn--no-transform" : ""
     }
   }
 })
@@ -85,6 +96,11 @@ export default Vue.extend({
 
 .btn:disabled {
   cursor: not-allowed;
+}
+
+.btn--no-transform:hover,
+.btn--no-transform:active {
+  transform: translateY(0);
 }
 
 .btn--dark {

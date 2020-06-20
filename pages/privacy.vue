@@ -1,5 +1,5 @@
 <template>
-  <article class="container wysiwyg">
+  <article class="container py-12 wysiwyg lg:pt-32">
     <div class="max-w-4xl">
       <h1>Datenschutzerklärung nach der DSGVO</h1>
       <h2>Name und Anschrift des Verantwortlichen</h2>

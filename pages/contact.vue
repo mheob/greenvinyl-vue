@@ -1,11 +1,11 @@
 <template>
-  <article class="container grid gap-4 gid-cols-1 lg:grid-cols-12 lg:gap-24">
+  <article class="container grid gap-4 py-12 md:gap-16 lg:pt-32 gid-cols-1 lg:grid-cols-12 xl:gap-24">
     <section class="px-4 lg:col-span-7 lg:px-0">
       <h1 class="text-5xl leading-none text-green-500">Kontakt</h1>
       <p class="mt-8">
         Sie vermissen auf unserer Website Informationen rund um unsere Produkte oder haben Rückfragen zu unseren
-        Produkten? Dann nennen Sie uns Ihre Kontaktdaten (Pflichtfelder sind mit einem * markiert) und wir melden uns
-        bei Ihnen.
+        Produkten? Dann nennen Sie uns Ihre Kontaktdaten (Pflichtfelder sind mit einem
+        <span class="text-yellow-700">*</span> markiert) und wir melden uns bei Ihnen.
       </p>
 
       <form class="mt-4">
@@ -15,7 +15,7 @@
             classes-element="flex-1 px-3 mt-5"
             classes-input="w-full"
             name="lastName"
-            label="Nachname *"
+            label="Nachname"
             required
           />
         </div>
@@ -25,8 +25,8 @@
             classes-element="flex-1 px-3 mt-5"
             classes-input="w-full"
             name="email"
-            label="E-Mail *"
-            type="email"
+            label="E-Mail"
+            :type="FormInputType.EMAIL"
             required
           />
           <FormInput classes-element="flex-1 px-3 mt-5" classes-input="w-full" name="companyName" label="Firma" />
@@ -54,7 +54,7 @@
             classes-input="w-full"
             name="phone"
             label="Telefon"
-            type="tel"
+            :type="FormInputType.TEL"
           />
         </div>
 
@@ -65,7 +65,7 @@
             class="w-full form-textarea"
             name="message"
             rows="5"
-            placeholder="Nachricht *"
+            placeholder="Nachricht"
             required
           ></textarea>
         </div>
@@ -75,7 +75,7 @@
           classes-input="mr-3"
           name="productSamples"
           label="Bitte senden Sie mir unverbindlich zwei Materialmuster zu."
-          type="checkbox"
+          :type="FormInputType.CHECKBOX"
         />
 
         <p class="mt-5">
@@ -86,8 +86,8 @@
           classes-element="mt-5"
           classes-input="mr-3"
           name="privacy"
-          label="Datenschutz *"
-          type="checkbox"
+          label="Datenschutz"
+          :type="FormInputType.CHECKBOX"
           required
         />
 
@@ -98,13 +98,13 @@
           Auswahlkästchen.
         </p>
 
-        <AppButton classes="mt-5" :brightness="Brightness.DARK" is-button type="submit">Abschicken</AppButton>
+        <AppButton class="mt-5" :brightness="Brightness.DARK" is-button type="submit">Abschicken</AppButton>
       </form>
     </section>
 
     <section class="px-4 mt-16 lg:col-span-5 lg:px-0 lg:mt-0">
-      <FormSideBox title="Adresse" type="list" :list="address" />
-      <FormSideBox title="Rufen Sie uns an" type="list" :list="callUs" />
+      <FormSideBox title="Adresse" :type="SideBoxType.LIST" :list="address" />
+      <FormSideBox title="Rufen Sie uns an" :type="SideBoxType.LIST" :list="callUs" />
       <FormSideBox title="Un­ser Rück­ruf­ser­vice">
         Wir rufen Sie auch gerne zurück. Vereinbaren Sie einfach einen Zeitpunkt für unsere telefonische Beratung über
         unten stehendes Kontaktformular.
@@ -116,8 +116,8 @@
 <script lang="ts">
 import Vue from "vue"
 
-import FormInput from "@/components/Form/FormInput.vue"
-import FormSideBox from "@/components/Form/FormSideBox.vue"
+import FormInput, { FormInputType } from "@/components/Form/FormInput.vue"
+import FormSideBox, { SideBoxType } from "@/components/Form/FormSideBox.vue"
 import { Icon } from "@/components/Icons/HeroIcons.vue"
 import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
@@ -127,8 +127,11 @@ export default Vue.extend({
     FormInput,
     FormSideBox
   },
+
   data() {
     return {
+      FormInputType,
+      SideBoxType,
       Brightness,
       Variant,
       address: [
