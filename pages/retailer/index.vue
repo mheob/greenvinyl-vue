@@ -7,21 +7,21 @@
         <input
           name="zipcode"
           type="text"
-          class="rounded-none form-input md:mr-px"
+          class="mb-2 rounded-none shadow-md md:text-center md:mr-px md:w-24 form-input"
           placeholder="PLZ oder Ort ..."
           value="56626"
         />
 
-        <select v-model="selected" name="range" class="rounded-none form-select md:w-auto">
+        <select v-model="selected" name="range" class="mb-2 rounded-none shadow-md form-select">
           <option v-for="radius in radiuses" :key="radius" :value="radius">Umkreis {{ radius }} km</option>
         </select>
 
-        <AppButton type="submit" is-button no-transform class="text-white bg-green-900 no-transform">
+        <AppButton type="submit" is-button no-transform class="mb-2 text-white bg-green-900 shadow-md hover:opacity-75">
           Suchen
         </AppButton>
       </form>
 
-      <p class="mt-5 text-sm leading-normal tracking-wide">
+      <p class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
         Es wurden 7 CLASSEN Greenvinyl-Partner in Ihrer Nähe gefunden.
       </p>
     </div>
