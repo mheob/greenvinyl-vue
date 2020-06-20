@@ -18,7 +18,7 @@
         zoomControl: true,
         gestureHandling: 'cooperative'
       }"
-      :zoom="8"
+      :zoom="10"
     >
       <GMapMarker
         v-for="(location, i) in locations"
@@ -27,15 +27,48 @@
         :options="{ icon: location === currentLocation ? pins.selected : pins.notSelected }"
         @click="currentLocation = location"
       >
-        <GMapInfoWindow :options="{ maxWidth: 200 }">
-          <b>{{ location.name }}</b>
-          <br />
-          <br />
-          <code>
-            Lat: {{ location.lat }},
-            <br />
-            Lng: {{ location.lng }}
-          </code>
+        <GMapInfoWindow>
+          <h4 class="text-lg font-bold text-green-500">{{ location.company }}</h4>
+          <div>
+            <div class="flex mt-4">
+              <div class="icon" aria-label="Adresse">
+                <HeroIcons :type="Icon.LOCATION_MARKER" width-class="w-5" aria-hidden="true" />
+              </div>
+              <div class="content">{{ location.street1 }}<br />{{ location.zip }} {{ location.city }}</div>
+            </div>
+            <div v-if="location.mail" class="flex mt-4">
+              <div class="icon" aria-label="E-Mail">
+                <HeroIcons :type="Icon.MAIL" width-class="w-5" aria-hidden="true" />
+              </div>
+              <div class="content">{{ location.mail }}</div>
+            </div>
+            <div v-if="location.tel" class="flex mt-4">
+              <div class="icon" aria-label="Telefon">
+                <HeroIcons :type="Icon.PHONE" width-class="w-5" aria-hidden="true" />
+              </div>
+              <div class="content">
+                <a class="underline" :href="'tel:' + location.tel.replace(/ /g, '')">{{ location.tel }}</a>
+              </div>
+            </div>
+            <div v-if="location.fax" class="flex mt-4">
+              <div class="icon" aria-label="Fax">
+                <HeroIcons :type="Icon.PRINTER" width-class="w-5" aria-hidden="true" />
+              </div>
+              <div class="content">{{ location.fax }}</div>
+            </div>
+            <div class="flex mt-4">
+              <div class="icon" aria-label="Fax"></div>
+              <div class="content">
+                <a
+                  class="underline"
+                  :href="'http://www.google.com/maps/place/' + location.lat + ',' + location.lng"
+                  target="_blank"
+                >
+                  Route auf Google Maps berechnen
+                </a>
+              </div>
+            </div>
+          </div>
         </GMapInfoWindow>
       </GMapMarker>
     </GMap>
@@ -47,11 +80,13 @@ import Vue from "vue"
 
 import ContentHeader from "@/components/UI/ContentHeader.vue"
 import TheRetailerSearchForm from "@/components/Page/Retailer/TheRetailerSearchForm.vue"
+import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
 
 export default Vue.extend({
   components: {
     ContentHeader,
-    TheRetailerSearchForm
+    TheRetailerSearchForm,
+    HeroIcons
   },
 
   data() {
@@ -67,23 +102,60 @@ export default Vue.extend({
     }
 
     return {
+      Icon,
       currentLocation: {},
       locationsVisibleOnMap: "",
       locations: [
         {
-          lat: 47.497913,
-          lng: 19.040236,
-          name: "Budapest"
+          lat: 50.4386,
+          lng: 7.49002,
+          company: "BAUHAUS Neuwied",
+          street1: "Allensteiner Straße 17",
+          zip: "56566",
+          city: "Neuwied",
+          tel: "+49 2631 8374 0",
+          fax: "+49 2631 8374 13"
         },
         {
-          lat: 48.210033,
-          lng: 16.363449,
-          name: "Vienna"
+          lat: 50.39614,
+          lng: 7.5121,
+          company: "BAUHAUS Mülheim-Kärlich",
+          street1: "In der Puetzgewann 2",
+          zip: "56218",
+          city: "Mülheim-Kärlich",
+          tel: "+49 2630 9431 0",
+          fax: "+49 2630 9431 13"
         },
         {
-          lat: 52.520008,
-          lng: 13.404954,
-          name: "Berlin"
+          lat: 50.39545,
+          lng: 7.51375,
+          company: "RuckZuck Mülheim-Kärlich",
+          street1: "Spitalsgraben 10",
+          zip: "56218",
+          city: "Mülheim-Kärlich",
+          mail: "rzMuelheim@ruckzuck.biz",
+          tel: "+49 2630 96247 90",
+          fax: "+49 2630 96247 99"
+        },
+        {
+          lat: 50.38997,
+          lng: 7.55597,
+          company: "Hornbach Koblenz",
+          street1: "August-Thyssen-Str. 10",
+          zip: "56070",
+          city: "Koblenz",
+          tel: "+49 261 98458 0",
+          fax: "+49 261 98458 480"
+        },
+        {
+          lat: 50.38314,
+          lng: 7.57355,
+          company: "BAUHAUS Koblenz",
+          street1: "Otto-Schönhagen-Straße 1",
+          zip: "56070",
+          city: "Koblenz",
+          tel: "+49 261 983499 0",
+          fax: "+49 261 98458 13"
         }
       ],
       pins: {
@@ -105,3 +177,15 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped>
+.icon {
+  width: 2rem;
+  color: #007d52;
+  opacity: 0.8;
+}
+
+.content {
+  width: calc(100% - 2rem);
+}
+</style>
