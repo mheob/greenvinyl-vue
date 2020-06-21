@@ -39,6 +39,11 @@ module.exports = {
       maxWidth: {
         "7xl": "85rem",
         "8xl": "100rem"
+      },
+      height: {
+        "50vh": "50vh",
+        "70vh": "70vh",
+        "80vh": "80vh"
       }
     },
     customForms: theme => ({
