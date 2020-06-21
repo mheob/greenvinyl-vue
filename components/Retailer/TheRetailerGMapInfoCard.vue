@@ -2,19 +2,19 @@
   <div>
     <div class="flex mt-4">
       <div class="icon" aria-label="Adresse">
-        <HeroIcons :type="Icon.LOCATION_MARKER" width-class="w-5" aria-hidden="true" />
+        <HeroIcons :type="Icon.LOCATION_MARKER" color-class="text-green-500" width-class="w-5" aria-hidden="true" />
       </div>
       <div class="content">{{ retailer.street1 }}<br />{{ retailer.zip }} {{ retailer.city }}</div>
     </div>
     <div v-if="retailer.mail" class="flex mt-4">
       <div class="icon" aria-label="E-Mail">
-        <HeroIcons :type="Icon.MAIL" width-class="w-5" aria-hidden="true" />
+        <HeroIcons :type="Icon.MAIL" color-class="text-green-500" width-class="w-5" aria-hidden="true" />
       </div>
       <div class="content">{{ retailer.mail }}</div>
     </div>
     <div v-if="retailer.telBranch" class="flex mt-4">
       <div class="icon" aria-label="Telefon">
-        <HeroIcons :type="Icon.PHONE" width-class="w-5" aria-hidden="true" />
+        <HeroIcons :type="Icon.PHONE" color-class="text-green-500" width-class="w-5" aria-hidden="true" />
       </div>
       <div class="content">
         <a class="underline" :href="'tel:' + retailer.telBranch.replace(/ /g, '')">{{ retailer.telBranch }}</a>
@@ -22,7 +22,7 @@
     </div>
     <div v-if="retailer.fax" class="flex mt-4">
       <div class="icon" aria-label="Fax">
-        <HeroIcons :type="Icon.PRINTER" width-class="w-5" aria-hidden="true" />
+        <HeroIcons :type="Icon.PRINTER" color-class="text-green-500" width-class="w-5" aria-hidden="true" />
       </div>
       <div class="content">{{ retailer.fax }}</div>
     </div>
