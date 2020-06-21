@@ -36,7 +36,7 @@
 import { Vue, Component, Prop } from "vue-property-decorator"
 
 import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
-import { Retailer } from "@/models/locations"
+import { Retailer } from "@/models/location"
 
 @Component({ components: { HeroIcons } })
 export default class RetailerCard extends Vue {
