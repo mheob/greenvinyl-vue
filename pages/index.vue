@@ -1,33 +1,39 @@
 <template>
-  <div class="container flex items-center justify-center py-12 text-center lg:pt-32">
-    <div>
-      <h1 class="title">100HERZ GmbH</h1>
-      <h2 class="subtitle">My hunky-dory Nuxt.js project</h2>
-      <h1 class="title">100HERZ GmbH</h1>
-      <h2 class="subtitle">My hunky-dory Nuxt.js project</h2>
-    </div>
+  <div class="lg:pt-20">
+    <TheLandingHeader />
+
+    <TheLandingIntro />
+
+    <LandingImageBreaker :image="imageBreakerImage1" to="produkte/base/eiche-natur-48320" is-right-position>
+      Vinylboden Base Eiche Natur 48320
+    </LandingImageBreaker>
+
+    <LandingProducts is-base />
+
+    <LandingImageBreaker :image="imageBreakerImage2" to="produkte/touch/nimbus-beige-49784">
+      Vinylboden Touch Nimbus Beige 49784
+    </LandingImageBreaker>
+
+    <LandingProducts />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-export default Vue.extend({})
+import { Vue, Component } from "vue-property-decorator"
+
+import TheLandingHeader from "@/components/Landing/TheLandingHeader.vue"
+import TheLandingIntro from "@/components/Landing/TheLandingIntro.vue"
+import LandingImageBreaker from "@/components/Landing/LandingImageBreaker.vue"
+import LandingProducts from "@/components/Landing/LandingProducts.vue"
+
+@Component({ components: { TheLandingHeader, TheLandingIntro, LandingImageBreaker, LandingProducts } })
+export default class Index extends Vue {
+  get imageBreakerImage1() {
+    return require("~/assets/images/home/greenvinyl-frau.jpg")
+  }
+
+  get imageBreakerImage2() {
+    return require("~/assets/images/home/greenvinyl-mann-frau.jpg")
+  }
+}
 </script>
-
-<style scoped>
-.title {
-  display: block;
-  color: #35495e;
-  font-weight: 300;
-  font-size: 100px;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  padding-bottom: 15px;
-  color: #526488;
-  font-weight: 300;
-  font-size: 42px;
-  word-spacing: 5px;
-}
-</style>

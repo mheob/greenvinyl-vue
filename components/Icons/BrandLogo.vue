@@ -77,18 +77,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
-export default Vue.extend({
-  props: {
-    useBrandColor: {
-      type: Boolean,
-      default: false
-    },
-    widthClass: {
-      type: String,
-      default: "w-auto"
-    }
-  }
-})
+@Component
+export default class BrandLogo extends Vue {
+  @Prop({ type: Boolean, default: false }) readonly useBrandColor!: Boolean
+  @Prop({ type: String, default: "w-auto" }) readonly widthClass!: String
+}
 </script>

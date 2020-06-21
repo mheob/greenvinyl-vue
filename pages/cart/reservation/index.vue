@@ -18,11 +18,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import ContentHeader from "@/components/UI/ContentHeader.vue"
 
-export default Vue.extend({
-  components: { ContentHeader }
-})
+@Component({ components: { ContentHeader } })
+export default class CartReservation extends Vue {}
 </script>

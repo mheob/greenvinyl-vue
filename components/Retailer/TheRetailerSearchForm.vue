@@ -25,18 +25,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import AppButton from "@/components/UI/AppButton.vue"
 
-export default Vue.extend({
-  components: { AppButton },
-
-  data() {
-    return {
-      selected: "30",
-      radiuses: ["10", "15", "30", "50", "75"]
-    }
-  }
-})
+@Component({ components: { AppButton } })
+export default class TheRetailerSearchForm extends Vue {
+  selected = "30"
+  radiuses = ["10", "15", "30", "50", "75", "100"]
+}
 </script>
