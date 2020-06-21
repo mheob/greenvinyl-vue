@@ -8,6 +8,7 @@
     class="btn"
     :class="[variantClass, brightnessClass, deactivateTransformation]"
     :href="to"
+    :target="openInNewTab ? '_blank' : '_self'"
   >
     <slot></slot>
   </a>
@@ -39,6 +40,7 @@ export default class AppButton extends Vue {
   @Prop(String) readonly brightness?: Brightness
   @Prop(String) readonly to?: String
   @Prop({ type: Boolean, default: false }) readonly noTransform!: Boolean
+  @Prop({ type: Boolean, default: false }) readonly openInNewTab!: Boolean
 
   get variantClass(): string {
     return this.variant ? "btn-" + this.variant : ""
@@ -60,6 +62,7 @@ export default class AppButton extends Vue {
 }
 
 .btn {
+  display: inline-block;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   text-align: center;
