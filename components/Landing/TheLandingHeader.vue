@@ -1,5 +1,5 @@
 <template>
-  <section class="px-5 text-white">
+  <section class="text-white">
     <div
       class="relative flex flex-col items-center justify-center w-full py-12 bg-cover h-80vh"
       :style="{ backgroundImage: backgroundImageStyle }"
@@ -21,7 +21,7 @@
           </AppButton>
           <AppButton
             class="w-3/4 mt-2 md:mx-2 md:w-auto"
-            to="/kontakt"
+            to="/contact"
             :brightness="Brightness.LIGHT"
             :variant="Variant.BUTTON"
           >
@@ -41,14 +41,12 @@
       </div>
 
       <aside class="block pt-10 md:m-4 md:absolute md:bottom-0 md:right-0">
-        <img class="h-16 md:h-24" :src="blueAngelImageurl" alt="Blauer Engel" />
+        <img class="h-16 md:h-24" :src="blueAngelImageUrl" alt="Blauer Engel" />
       </aside>
 
-      <footer class="absolute bottom-0 left-0 w-full p-4 text-sm text-center bg-black bg-opacity-25 md:w-auto">
-        <a href="produkte/touch/risseiche-natur-49781" class="block transform hover:translate-x-1">
-          Vinylboden Touch Risseiche Natur 49781 &#8594;
-        </a>
-      </footer>
+      <ProductLinkOnImage to="produkte/touch/risseiche-natur-49781">
+        Vinylboden Touch Risseiche Natur 49781
+      </ProductLinkOnImage>
     </div>
   </section>
 </template>
@@ -57,8 +55,9 @@
 import { Vue, Component } from "vue-property-decorator"
 
 import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import ProductLinkOnImage from "@/components/UI/ProductLinkOnImage.vue"
 
-@Component({ components: { AppButton } })
+@Component({ components: { AppButton, ProductLinkOnImage } })
 export default class TheLandingHeader extends Vue {
   Brightness = Brightness
   Variant = Variant
@@ -68,7 +67,7 @@ export default class TheLandingHeader extends Vue {
     return `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(${url})`
   }
 
-  get blueAngelImageurl() {
+  get blueAngelImageUrl() {
     return require("~/assets/images/products/certificates/blauer-engel-uz120d.svg")
   }
 }
