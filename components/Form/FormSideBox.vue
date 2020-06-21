@@ -6,7 +6,7 @@
       <slot></slot>
     </p>
 
-    <div v-if="type === SideBoxType.LIST" class="mt-4">
+    <div v-if="type === SideBoxType.LIST && list" class="mt-4">
       <div v-for="row in list" :key="row.id" class="flex mt-4">
         <div class="icon"><HeroIcons :type="row.icon" width-class="w-5" /></div>
         <!-- eslint-disable-next-line vue/no-v-html -->
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
 import HeroIcons from "@/components/Icons/HeroIcons.vue"
 
@@ -32,31 +32,14 @@ export enum SideBoxType {
   TEXT
 }
 
-export default Vue.extend({
-  components: {
-    HeroIcons
-  },
+@Component({ components: { HeroIcons } })
+export default class FormInput extends Vue {
+  @Prop(Array) readonly list?: List[]
+  @Prop({ type: String, required: true }) readonly title!: String
+  @Prop({ type: Number, default: SideBoxType.TEXT }) readonly type!: SideBoxType
 
-  props: {
-    list: {
-      type: Array as () => List[],
-      default: null
-    },
-    title: {
-      type: String,
-      default: null,
-      required: true
-    },
-    type: {
-      type: Number as () => SideBoxType,
-      default: SideBoxType.TEXT
-    }
-  },
-
-  data() {
-    return { SideBoxType }
-  }
-})
+  SideBoxType = SideBoxType
+}
 </script>
 
 <style scoped>

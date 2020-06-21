@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12 bg-green-500 bg-center bg-cover lg:py-40 bg-image">
+  <section class="py-12 mt-8 bg-green-500 bg-center bg-cover md:mt-12 lg:py-40 bg-image">
     <div class="container text-center">
       <h2 class="text-xl lg:text-3xl">
         Unsere Gratis Beratungs-Hotline:
@@ -7,18 +7,18 @@
       </h2>
       <p class="mt-5 font-thin lg:text-lg">(Mo-Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)</p>
       <div class="mt-10 space-y-4 lg:space-x-4">
-        <AppButton class="inline-block w-3/4 shadow-md lg:w-auto" :brightness="Brightness.LIGHT" to="/retailer">
+        <AppButton class="w-3/4 shadow-md lg:w-auto" :brightness="Brightness.LIGHT" to="/retailer">
           Händler suchen
         </AppButton>
         <AppButton
-          class="inline-block w-3/4 shadow-md lg:w-auto"
+          class="w-3/4 shadow-md lg:w-auto"
           :variant="Variant.OUTLINE"
           :brightness="Brightness.LIGHT"
           to="/#greenvinyl-base"
         >
           Produkte anzeigen
         </AppButton>
-        <AppButton class="inline-block w-3/4 shadow-md lg:w-auto" :brightness="Brightness.LIGHT" to="/contact">
+        <AppButton class="w-3/4 shadow-md lg:w-auto" :brightness="Brightness.LIGHT" to="/contact">
           Infos anfordern
         </AppButton>
       </div>
@@ -27,22 +27,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
-export default Vue.extend({
-  components: {
-    AppButton
-  },
-
-  data() {
-    return {
-      Brightness,
-      Variant
-    }
-  }
-})
+@Component({ components: { AppButton } })
+export default class TheFooterCallToAction extends Vue {
+  Brightness = Brightness
+  Variant = Variant
+}
 </script>
 
 <style scoped>

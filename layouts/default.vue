@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="bg-green-100 page">
     <TheHeader />
-    <main class="bg-green-100">
+    <main>
       <nuxt />
     </main>
     <TheFooter />

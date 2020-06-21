@@ -73,7 +73,7 @@
         <FormInput
           classes-element="mt-5"
           classes-input="mr-3"
-          name="productSamples"
+          name="productSample"
           label="Bitte senden Sie mir unverbindlich zwei Materialmuster zu."
           :type="FormInputType.CHECKBOX"
         />
@@ -103,8 +103,8 @@
     </section>
 
     <section class="px-4 mt-16 lg:col-span-5 lg:px-0 lg:mt-0">
-      <FormSideBox title="Adresse" :type="SideBoxType.LIST" :list="address" />
-      <FormSideBox title="Rufen Sie uns an" :type="SideBoxType.LIST" :list="callUs" />
+      <FormSideBox title="Adresse" :type="SideBoxType.LIST" :list="contactData.address" />
+      <FormSideBox title="Rufen Sie uns an" :type="SideBoxType.LIST" :list="contactData.callUs" />
       <FormSideBox title="Un­ser Rück­ruf­ser­vice">
         Wir rufen Sie auch gerne zurück. Vereinbaren Sie einfach einen Zeitpunkt für unsere telefonische Beratung über
         unten stehendes Kontaktformular.
@@ -114,66 +114,21 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+// TODO: Move the functionality into own small component
+import { Vue, Component } from "vue-property-decorator"
 
 import FormInput, { FormInputType } from "@/components/Form/FormInput.vue"
 import FormSideBox, { SideBoxType } from "@/components/Form/FormSideBox.vue"
-import { Icon } from "@/components/Icons/HeroIcons.vue"
 import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
-export default Vue.extend({
-  components: {
-    AppButton,
-    FormInput,
-    FormSideBox
-  },
+import contactData from "@/data/contactData.json"
 
-  data() {
-    return {
-      FormInputType,
-      SideBoxType,
-      Brightness,
-      Variant,
-      address: [
-        {
-          id: "1",
-          icon: Icon.LOCATION_MARKER,
-          content:
-            "W. Classen GmbH &amp; Co. KG<br />Werner-von­-Siemens­-Straße 18–20,<br />56759 Kaisersesch (Germany)"
-        },
-        {
-          id: "2",
-          icon: Icon.PHONE,
-          content: "<a class='whitespace-no-wrap hover:opacity-50' href='tel:+4926539800'>+49 2653 980 0</a>"
-        },
-        {
-          id: "3",
-          icon: Icon.PRINTER,
-          content: "<span class='whitespace-no-wrap'>+49 2653 980 4484</span>"
-        },
-        {
-          id: "4",
-          icon: Icon.MAIL,
-          content: "<a class='hover:opacity-50' href='mailto:info@classen.de'>info@classen.de</a>"
-        }
-      ],
-      callUs: [
-        {
-          id: "1",
-          icon: Icon.PHONE,
-          content:
-            // eslint-disable-next-line max-len
-            "<a class='whitespace-no-wrap hover:opacity-50' href='tel:08001133313'>0800 11 33 313</a>"
-        },
-        {
-          id: "2",
-          icon: Icon.CLOCK,
-          content:
-            // eslint-disable-next-line max-len
-            "(Mo&ndash;Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)<span class='inline-block mt-2 text-xs'>Diese Rufnummer ist aus dem deutschen Festnetz kostenlos.</span>"
-        }
-      ]
-    }
-  }
-})
+@Component({ components: { FormInput, FormSideBox, AppButton } })
+export default class Contact extends Vue {
+  FormInputType = FormInputType
+  SideBoxType = SideBoxType
+  Brightness = Brightness
+  Variant = Variant
+  contactData = contactData
+}
 </script>

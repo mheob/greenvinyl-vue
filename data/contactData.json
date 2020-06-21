@@ -1,0 +1,36 @@
+{
+  "address": [
+    {
+      "id": 1,
+      "icon": 1,
+      "content": "W. Classen GmbH &amp; Co. KG<br />Werner-von­-Siemens­-Straße 18–20,<br />56759 Kaisersesch (Germany)"
+    },
+    {
+      "id": 2,
+      "icon": 3,
+      "content": "<a class='whitespace-no-wrap hover:opacity-50' href='tel:+4926539800'>+49 2653 980 0</a>"
+    },
+    {
+      "id": 3,
+      "icon": 4,
+      "content": "<span class='whitespace-no-wrap'>+49 2653 980 4484</span>"
+    },
+    {
+      "id": 4,
+      "icon": 2,
+      "content": "<a class='hover:opacity-50' href='mailto:info@classen.de'>info@classen.de</a>"
+    }
+  ],
+  "callUs": [
+    {
+      "id": 1,
+      "icon": 3,
+      "content": "<a class='whitespace-no-wrap hover:opacity-50' href='tel:08001133313'>0800 11 33 313</a>"
+    },
+    {
+      "id": 2,
+      "icon": 1,
+      "content": "(Mo&ndash;Do 09:00 &ndash; 16:00 Uhr, Fr 09:00 &ndash; 12:30 Uhr)<span class='inline-block mt-2 text-xs'>Diese Rufnummer ist aus dem deutschen Festnetz kostenlos.</span>"
+    }
+  ]
+}

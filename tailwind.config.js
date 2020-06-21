@@ -8,6 +8,14 @@ const customForms = require("@tailwindcss/custom-forms")
  */
 module.exports = {
   theme: {
+    screens: {
+      sm: "540px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1366px",
+      "2xl": "1680px",
+      "3xl": "2100px"
+    },
     container: {
       center: true
     },
@@ -27,6 +35,15 @@ module.exports = {
       },
       borderWidth: {
         3: "3px"
+      },
+      maxWidth: {
+        "7xl": "85rem",
+        "8xl": "100rem"
+      },
+      height: {
+        "50vh": "50vh",
+        "70vh": "70vh",
+        "80vh": "80vh"
       }
     },
     customForms: theme => ({
