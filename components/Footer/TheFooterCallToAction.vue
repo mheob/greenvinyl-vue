@@ -27,22 +27,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
-export default Vue.extend({
-  components: {
-    AppButton
-  },
-
-  data() {
-    return {
-      Brightness,
-      Variant
-    }
-  }
-})
+@Component({ components: { AppButton } })
+export default class TheFooterCallToAction extends Vue {
+  Brightness = Brightness
+  Variant = Variant
+}
 </script>
 
 <style scoped>

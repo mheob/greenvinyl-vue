@@ -42,58 +42,49 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import ContentHeader from "@/components/UI/ContentHeader.vue"
 import RetailerCard from "@/components/Retailer/RetailerCard.vue"
 import TheRetailerGMapInfoCard from "@/components/Retailer/TheRetailerGMapInfoCard.vue"
 import TheRetailerSearchForm from "@/components/Retailer/TheRetailerSearchForm.vue"
-import { Retailer } from "@/models/locations"
+import { Retailer as RetailerModel } from "@/models/locations"
 
 import dummyRetailer from "@/data/dummy_retailer.json"
 
-export default Vue.extend({
-  components: {
-    ContentHeader,
-    RetailerCard,
-    TheRetailerGMapInfoCard,
-    TheRetailerSearchForm
-  },
-
-  data() {
-    const marker = {
-      path:
-        // eslint-disable-next-line max-len
-        "M40 0C26.191 0 15 11.194 15 25c0 23.87 25 55 25 55s25-31.13 25-55C65 11.194 53.807 0 40 0zm0 38.8c-7.457 0-13.5-6.044-13.5-13.5S32.543 11.8 40 11.8c7.455 0 13.5 6.044 13.5 13.5S47.455 38.8 40 38.8z",
-      fillColor: "#ecc94b",
-      fillOpacity: 0.6,
-      scale: 0.5,
-      strokeColor: "#030104",
-      strokeWeight: 1
-    }
-
-    return {
-      currentLocation: {},
-      locationsVisibleOnMap: "",
-      retailerList: dummyRetailer as Retailer[],
-      pins: {
-        selected: marker,
-        notSelected: {
-          ...marker,
-          fillOpacity: 0.9
-        }
-      },
-      clusterStyle: [
-        {
-          url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png",
-          width: 56,
-          height: 56,
-          textColor: "#000"
-        }
-      ]
+@Component({ components: { ContentHeader, RetailerCard, TheRetailerGMapInfoCard, TheRetailerSearchForm } })
+export default class Retailer extends Vue {
+  /* eslint-disable lines-between-class-members */
+  marker = {
+    path:
+      // eslint-disable-next-line max-len
+      "M40 0C26.191 0 15 11.194 15 25c0 23.87 25 55 25 55s25-31.13 25-55C65 11.194 53.807 0 40 0zm0 38.8c-7.457 0-13.5-6.044-13.5-13.5S32.543 11.8 40 11.8c7.455 0 13.5 6.044 13.5 13.5S47.455 38.8 40 38.8z",
+    fillColor: "#ecc94b",
+    fillOpacity: 0.6,
+    scale: 0.5,
+    strokeColor: "#030104",
+    strokeWeight: 1
+  }
+  currentLocation = {}
+  locationsVisibleOnMap = ""
+  retailerList = dummyRetailer as RetailerModel[]
+  pins = {
+    selected: this.marker,
+    notSelected: {
+      ...this.marker,
+      fillOpacity: 0.9
     }
   }
-})
+  clusterStyle = [
+    {
+      url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png",
+      width: 56,
+      height: 56,
+      textColor: "#000"
+    }
+  ]
+  /* eslint-enable lines-between-class-members */
+}
 </script>
 
 <style scoped>

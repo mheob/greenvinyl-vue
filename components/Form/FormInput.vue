@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
 // See for more types https://www.w3schools.com/html/html_form_input_types.asp
 export enum FormInputType {
@@ -44,45 +44,19 @@ export enum FormInputType {
   URL = "url"
 }
 
-export default Vue.extend({
-  props: {
-    classesElement: {
-      type: String,
-      default: ""
-    },
-    classesInput: {
-      type: String,
-      default: ""
-    },
-    name: {
-      type: String,
-      default: null,
-      required: true
-    },
-    label: {
-      type: String,
-      default: null,
-      required: true
-    },
-    // TODO: Add a better validation for all form elements
-    required: {
-      type: Boolean,
-      default: false
-    },
-    type: {
-      type: String as () => FormInputType,
-      default: FormInputType.TEXT
-    }
-  },
+@Component
+export default class FormInput extends Vue {
+  @Prop(String) readonly classesElement?: String
+  @Prop(String) readonly classesInput?: String
+  @Prop({ type: String, required: true }) readonly name!: String
+  @Prop({ type: String, required: true }) readonly label!: String
+  @Prop({ type: Boolean, default: false }) readonly required!: Boolean
+  @Prop({ type: String, default: FormInputType.TEXT }) readonly type!: FormInputType
 
-  data() {
-    return { FormInputType }
-  },
+  FormInputType = FormInputType
 
-  computed: {
-    idString(): string {
-      return `form-input-${this.name}`
-    }
+  get idString(): string {
+    return `form-input-${this.name}`
   }
-})
+}
 </script>

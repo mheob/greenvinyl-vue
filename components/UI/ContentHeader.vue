@@ -11,14 +11,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-export default Vue.extend({
-  props: {
-    title: {
-      type: String,
-      default: null,
-      required: true
-    }
-  }
-})
+import { Vue, Component, Prop } from "vue-property-decorator"
+
+@Component
+export default class ContentHeader extends Vue {
+  @Prop({ type: String, required: true }) readonly title!: String
+}
 </script>

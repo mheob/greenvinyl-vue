@@ -42,30 +42,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
 import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
 import { Retailer } from "@/models/locations"
 
-export default Vue.extend({
-  components: {
-    HeroIcons
-  },
+@Component({ components: { HeroIcons } })
+export default class TheRetailerGMapInfoCard extends Vue {
+  @Prop({ type: Object, required: true }) readonly retailer!: Retailer
 
-  props: {
-    retailer: {
-      type: Object as () => Retailer,
-      default: null,
-      required: true
-    }
-  },
-
-  data() {
-    return {
-      Icon
-    }
-  }
-})
+  Icon = Icon
+}
 </script>
 
 <style scoped>

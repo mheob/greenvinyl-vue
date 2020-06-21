@@ -9,20 +9,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import BrandLogo from "@/components/Icons/BrandLogo.vue"
 import TheHeaderNavigation from "@/components/Header/TheHeaderNavigation.vue"
 import TheHeaderCarts from "@/components/Header/TheHeaderCarts.vue"
 
-export default Vue.extend({
-  name: "TheHeader",
-  components: {
-    BrandLogo,
-    TheHeaderNavigation,
-    TheHeaderCarts
-  }
-})
+@Component({ components: { BrandLogo, TheHeaderNavigation, TheHeaderCarts } })
+export default class TheHeader extends Vue {}
 </script>
 
 <style scoped>

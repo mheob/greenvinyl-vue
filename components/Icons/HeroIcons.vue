@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
 export enum Icon {
   CLOCK,
@@ -44,25 +44,12 @@ export enum Icon {
   PRINTER
 }
 
-export default Vue.extend({
-  props: {
-    colorClass: {
-      type: String,
-      default: ""
-    },
-    type: {
-      type: Number as () => Icon,
-      default: null,
-      required: true
-    },
-    widthClass: {
-      type: String,
-      default: "w-auto"
-    }
-  },
+@Component
+export default class HeroIcons extends Vue {
+  @Prop(String) readonly colorClass?: String
+  @Prop({ type: Number, required: true }) readonly type!: Icon
+  @Prop({ type: String, default: "w-auto" }) readonly widthClass!: String
 
-  data() {
-    return { Icon }
-  }
-})
+  Icon = Icon
+}
 </script>

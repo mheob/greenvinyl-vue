@@ -12,17 +12,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component } from "vue-property-decorator"
 
 import TheFooterCallToAction from "@/components/Footer/TheFooterCallToAction.vue"
 import TheFooterNavigation from "@/components/Footer/TheFooterNavigation.vue"
 import BrandLogo from "@/components/Icons/BrandLogo.vue"
 
-export default Vue.extend({
-  components: {
-    TheFooterCallToAction,
-    BrandLogo,
-    TheFooterNavigation
-  }
-})
+@Component({ components: { TheFooterCallToAction, BrandLogo, TheFooterNavigation } })
+export default class TheFooter extends Vue {}
 </script>

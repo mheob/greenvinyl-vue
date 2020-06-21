@@ -4,7 +4,7 @@
   </button>
 
   <a
-    v-else-if="to.startsWith('http') || to.startsWith('//')"
+    v-else-if="to && (to.startsWith('http') || to.startsWith('//'))"
     class="btn"
     :class="[variantClass, brightnessClass, deactivateTransformation]"
     :href="to"
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
 export enum Variant {
   BUTTON = "",
@@ -32,47 +32,26 @@ export enum Brightness {
   LIGHT = "light"
 }
 
-export default Vue.extend({
-  props: {
-    isButton: {
-      type: Boolean,
-      default: false
-    },
-    classes: {
-      type: String,
-      default: ""
-    },
-    variant: {
-      type: String as () => Variant,
-      default: ""
-    },
-    brightness: {
-      type: String as () => Brightness,
-      default: ""
-    },
-    // TODO: Check if the link is internal --> than "nuxt-link"
-    to: {
-      type: String,
-      default: "/"
-    },
-    noTransform: {
-      type: Boolean,
-      default: false
-    }
-  },
+@Component
+export default class AppButton extends Vue {
+  @Prop({ type: Boolean, default: false }) readonly isButton!: Boolean
+  @Prop(String) readonly variant?: Variant
+  @Prop(String) readonly brightness?: Brightness
+  @Prop(String) readonly to?: String
+  @Prop({ type: Boolean, default: false }) readonly noTransform!: Boolean
 
-  computed: {
-    variantClass(): string {
-      return this.variant ? "btn-" + this.variant : ""
-    },
-    brightnessClass(): string {
-      return !this.brightness ? "" : `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
-    },
-    deactivateTransformation(): string {
-      return this.noTransform ? "btn--no-transform" : ""
-    }
+  get variantClass(): string {
+    return this.variant ? "btn-" + this.variant : ""
   }
-})
+
+  get brightnessClass(): string {
+    return !this.brightness ? "" : `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
+  }
+
+  get deactivateTransformation(): string {
+    return this.noTransform ? "btn--no-transform" : ""
+  }
+}
 </script>
 
 <style scoped>
