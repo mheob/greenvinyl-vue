@@ -32,6 +32,13 @@
     ></path>
 
     <path
+      v-if="type === Icon.PLAY"
+      fill-rule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+      clip-rule="evenodd"
+    ></path>
+
+    <path
       v-if="type === Icon.PRINTER"
       fill-rule="evenodd"
       d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
@@ -49,6 +56,7 @@ export enum Icon {
   LOCATION_MARKER,
   MAIL,
   PHONE,
+  PLAY,
   PRINTER
 }
 

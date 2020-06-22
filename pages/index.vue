@@ -20,6 +20,8 @@
     </LandingImageBreaker>
 
     <LandingProducts class="mt-12" />
+
+    <TheLandingFeatures class="mt-12" />
   </div>
 </template>
 
@@ -30,8 +32,11 @@ import TheLandingHeader from "@/components/Landing/TheLandingHeader.vue"
 import TheLandingIntro from "@/components/Landing/TheLandingIntro.vue"
 import LandingImageBreaker from "@/components/Landing/LandingImageBreaker.vue"
 import LandingProducts from "@/components/Landing/LandingProducts.vue"
+import TheLandingFeatures from "@/components/Landing/TheLandingFeatures.vue"
 
-@Component({ components: { TheLandingHeader, TheLandingIntro, LandingImageBreaker, LandingProducts } })
+@Component({
+  components: { TheLandingHeader, TheLandingIntro, LandingImageBreaker, LandingProducts, TheLandingFeatures }
+})
 export default class Index extends Vue {
   get imageBreakerImage1() {
     return require("~/assets/images/home/greenvinyl-frau.jpg")

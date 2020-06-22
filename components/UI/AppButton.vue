@@ -64,7 +64,6 @@ export default class AppButton extends Vue {
 .btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  text-align: center;
 }
 
 .btn:hover {
