@@ -13,6 +13,10 @@ a {
   padding-left: 1rem;
 }
 
+#nuxt-progress {
+  z-index: 9999;
+}
+
 @screen lg {
   .container {
     padding-right: 2rem;
