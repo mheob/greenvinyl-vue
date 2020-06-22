@@ -1,5 +1,5 @@
 <template>
-  <section class="px-5 mx-auto bg-white max-w-8xl">
+  <section class="px-5 mx-auto max-w-8xl">
     <div class="flex flex-col w-full lg:flex-row-reverse lg:flex-row">
       <div class="flex items-center mt-12 lg:mt-0 lg:w-6/12">
         <div class="pb-10 lg:p-20">

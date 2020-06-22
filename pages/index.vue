@@ -1,20 +1,25 @@
 <template>
-  <div class="lg:pt-20">
+  <div class="bg-white lg:pt-20^">
     <TheLandingHeader />
 
-    <TheLandingIntro />
+    <TheLandingIntro class="mt-12" />
 
-    <LandingImageBreaker :image="imageBreakerImage1" to="produkte/base/eiche-natur-48320" is-right-position>
+    <LandingImageBreaker
+      class="mt-12"
+      :image="imageBreakerImage1"
+      to="produkte/base/eiche-natur-48320"
+      is-right-position
+    >
       Vinylboden Base Eiche Natur 48320
     </LandingImageBreaker>
 
-    <LandingProducts is-base />
+    <LandingProducts class="mt-12" is-base />
 
-    <LandingImageBreaker :image="imageBreakerImage2" to="produkte/touch/nimbus-beige-49784">
+    <LandingImageBreaker class="mt-12" :image="imageBreakerImage2" to="produkte/touch/nimbus-beige-49784">
       Vinylboden Touch Nimbus Beige 49784
     </LandingImageBreaker>
 
-    <LandingProducts />
+    <LandingProducts class="mt-12" />
   </div>
 </template>
 
