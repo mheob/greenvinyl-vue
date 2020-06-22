@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12 mt-8 bg-green-500 bg-center bg-cover md:mt-12 lg:py-40 bg-image">
+  <section class="py-12 bg-green-500 bg-center bg-cover lg:py-40 bg-image">
     <div class="container text-center">
       <h2 class="text-xl lg:text-3xl">
         Unsere Gratis Beratungs-Hotline:

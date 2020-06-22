@@ -35,7 +35,7 @@
       </GMapMarker>
     </GMap>
 
-    <section class="container grid gap-8 mx-auto mt-8 md:mt-12 md:grid-cols-2 lg:max-w-6xl xl:grid-cols-3 xl:max-w-8xl">
+    <section class="container grid gap-8 mx-auto my-8 md:my-12 md:grid-cols-2 lg:max-w-6xl xl:grid-cols-3 xl:max-w-8xl">
       <RetailerCard v-for="retailer in retailerList" :key="retailer.key" :retailer="retailer" class="p-8 lg:p-16" />
     </section>
   </div>

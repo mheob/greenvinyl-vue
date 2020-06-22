@@ -2,10 +2,24 @@
 <template>
   <svg class="fill-current" :class="[colorClass, widthClass]" viewBox="0 0 20 20">
     <path
+      v-if="type === Icon.CHECK"
+      fill-rule="evenodd"
+      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+      clip-rule="evenodd"
+    ></path>
+
+    <path
       v-if="type === Icon.CLOCK"
       fill-rule="evenodd"
       d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11
       9.586V6z"
+      clip-rule="evenodd"
+    ></path>
+
+    <path
+      v-if="type === Icon.DOCUMENT_DOWNLOAD"
+      fill-rule="evenodd"
+      d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
       clip-rule="evenodd"
     ></path>
 
@@ -25,6 +39,13 @@
     ></path>
 
     <path
+      v-if="type === Icon.PLAY"
+      fill-rule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+      clip-rule="evenodd"
+    ></path>
+
+    <path
       v-if="type === Icon.PRINTER"
       fill-rule="evenodd"
       d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
@@ -37,10 +58,13 @@
 import { Vue, Component, Prop } from "vue-property-decorator"
 
 export enum Icon {
+  CHECK,
   CLOCK,
+  DOCUMENT_DOWNLOAD,
   LOCATION_MARKER,
   MAIL,
   PHONE,
+  PLAY,
   PRINTER
 }
 

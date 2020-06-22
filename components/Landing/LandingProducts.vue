@@ -1,15 +1,15 @@
 <template>
-  <section id="greenvinyl-base" class="container px-5 py-16 bg-white md:px-0">
-    <div>
-      <h2 class="text-6xl text-green-500">{{ isBase ? "Base" : "Touch" }}</h2>
+  <section id="greenvinyl-base" class="container px-5 py-16 md:px-0">
+    <header>
+      <h2 class="text-6xl text-green-500">{{ generalInformation.title }}</h2>
       <div class="flex flex-col justify-between lg:flex-row">
-        <p class="mt-0 text-2xl">{{ isBase ? "Klassisch und Zeitlos" : "Ungewöhnlich und Modern" }}</p>
-        <p class="mt-0 text-2xl">{{ isBase ? "1290 x 173 x 3,8 mm" : "638 x 310 x 4 mm / 1290 x 173 x 4 mm" }}</p>
+        <p class="mt-0 text-2xl">{{ generalInformation.subTitle }}</p>
+        <p class="mt-0 text-2xl">{{ generalInformation.dimensions }}</p>
       </div>
-    </div>
+    </header>
 
     <div class="flex flex-wrap mt-10 -mx-5">
-      <div v-for="collection in isBase ? baseCollection : touchCollection" :key="collection.sap" class="px-5 mt-5 card">
+      <div v-for="collection in collections" :key="collection.sap" class="px-5 mt-5 card">
         <nuxt-link
           class="block"
           :to="`/products/${collection.collection}/${collection.name.toLowerCase()}-${collection.sap}`"
@@ -18,7 +18,7 @@
             class="flex-1 block bg-center bg-cover image"
             :style="
               // eslint-disable-next-line max-len
-              `background-image: url(https://classen-group.test/assets/products/decors/_800x600_crop_center-center_90_none/${collection.featuredImage})`
+              `background-image: url(https://classen-group.com/assets/products/decors/_800x600_crop_center-center_90_none/${collection.featuredImage})`
             "
           ></div>
           <div class="mt-1 text-sm text-gray-800">
@@ -31,109 +31,70 @@
     </div>
 
     <!-- TODO: Use "v-for" for this section -->
-    <div class="flex flex-col mt-10 lg:justify-between lg:flex-row">
-      <div class="mt-10">
-        <div class="flex flex-wrap justify-center text-sm md:justify-start md:-ml-8">
-          <div class="w-32">
-            <figure>
-              <img
-                class="block m-auto"
-                src="https://classen-group.test/assets/products/icons/features/set2/ico_gv_garantie_10jahre.svg"
-                alt="Landhausdiele"
-                style=" width:70px;height:70px;"
-              />
-              <figcaption class="mt-5 text-center">
-                10 Jahre
-              </figcaption>
-            </figure>
-          </div>
-          <div class="w-32">
-            <figure>
-              <img
-                class="block m-auto"
-                src="https://classen-group.test/assets/products/icons/features/set2/ico_gv_oberflaeche_strukturiert.svg"
-                alt="Landhausdiele"
-                style=" width:70px;height:70px;"
-              />
-              <figcaption class="mt-5 text-center">
-                strukturiert
-              </figcaption>
-            </figure>
-          </div>
-          <div class="w-32">
-            <figure>
-              <img
-                class="block m-auto"
-                src="https://classen-group.test/assets/products/icons/features/set2/ico_gv_fase_4v.svg"
-                alt="Landhausdiele"
-                style=" width:70px;height:70px;"
-              />
-              <figcaption class="mt-5 text-center">
-                umlaufende Fase
-              </figcaption>
-            </figure>
-          </div>
-          <div class="w-32">
-            <figure>
-              <img
-                class="block m-auto"
-                src="https://classen-group.test/assets/products/icons/features/set2/ico_gv_nk_31.svg"
-                alt="Landhausdiele"
-                style=" width:70px;height:70px;"
-              />
-              <figcaption class="mt-5 text-center">
-                NK31/AC3
-              </figcaption>
-            </figure>
-          </div>
-          <div class="w-32">
-            <figure>
-              <img
-                class="block m-auto"
-                src="https://classen-group.test/assets/products/icons/features/set2/ico_gv_format_landhausdiele.svg"
-                alt="Landhausdiele"
-                style=" width:70px;height:70px;"
-              />
-              <figcaption class="mt-5 text-center">
-                Landhausdiele
-              </figcaption>
-            </figure>
-          </div>
+    <footer class="flex flex-col mt-10 lg:justify-between lg:flex-row">
+      <div class="flex flex-wrap justify-center mt-10 text-sm md:justify-start md:-ml-8">
+        <div v-for="(property, i) in collectionProperties" :key="i" class="w-32">
+          <figure>
+            <img
+              class="block h-16 m-auto"
+              :src="`https://classen-group.com/assets/products/icons/features/set2/${property.image}`"
+              :alt="property.name"
+            />
+            <figcaption class="mt-5 text-center">{{ property.name }}</figcaption>
+          </figure>
         </div>
       </div>
 
       <div class="pt-4 mt-10 text-center">
-        <a
-          class="btn btn-outline-dark btn-lg"
-          href="https://classen-group.test/assets/mediacenter/catalogues/Greenvinyl2020.pdf"
-          target="_blank"
+        <AppButton
+          class="px-4 py-2 text-2xl"
+          to="https://classen-group.com/assets/mediacenter/catalogues/Greenvinyl2020.pdf"
+          :brightness="Brightness.DARK"
+          :variant="Variant.OUTLINE"
+          open-in-new-tab
         >
-          <i class="fas fa-file-download"></i>Katalog downloaden
-        </a>
+          <HeroIcons class="inline" :type="Icon.DOCUMENT_DOWNLOAD" width-class="w-8" /> Katalog downloaden
+        </AppButton>
       </div>
-    </div>
+    </footer>
   </section>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
+import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
+import { GeneralInformation, CollectionProperty, Product } from "@/models/product"
 import Products from "@/data/products.json"
 
-@Component
+export enum Collection {
+  BASE = "base",
+  TOUCH = "touch"
+}
+
+@Component({ components: { AppButton, HeroIcons } })
 export default class LandingProducts extends Vue {
   @Prop({ type: Boolean, default: false }) readonly isBase!: Boolean
 
-  get baseCollection() {
-    return Products.filter(product => product.collection === "base")
+  Brightness = Brightness
+  Variant = Variant
+  Icon = Icon
+
+  get selectedCollection(): Collection {
+    return this.isBase ? Collection.BASE : Collection.TOUCH
   }
 
-  get touchCollection() {
-    return Products.filter(product => product.collection === "touch")
+  get generalInformation(): GeneralInformation {
+    return Products.general[this.selectedCollection]
   }
 
-  get allCollections() {
-    return Products
+  get collectionProperties(): CollectionProperty {
+    return Products.collectionProperties[this.selectedCollection]
+  }
+
+  get collections(): Product[] {
+    return Products.articleList.filter(product => product.collection === this.selectedCollection)
   }
 }
 </script>
