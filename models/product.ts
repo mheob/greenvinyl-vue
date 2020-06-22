@@ -1,3 +1,36 @@
+export interface GeneralInformation {
+  title: string
+  subTitle: string
+  dimensions: string
+}
+
+export interface CollectionProperty {
+  guarantee?: {
+    name: string
+    image: string
+  }
+  surface?: {
+    name: string
+    image: string
+  }
+  fase?: {
+    name: string
+    image: string
+  }
+  stressClass?: {
+    name: string
+    image: string
+  }
+  format?: {
+    name: string
+    image: string
+  }
+  optics?: {
+    name: string
+    image: string
+  }
+}
+
 export interface Product {
   sap: number
   artnr?: string
