@@ -33,7 +33,7 @@ import AppButton from "@/components/UI/AppButton.vue"
 export default class TheRetailerSearchForm extends Vue {
   selected = "30"
   radiuses = ["10", "15", "30", "50", "75", "100"]
-  zipCode = "56567"
+  zipCode = ""
 
   async fetchGeoCode(coords: { latitude: number; longitude: number }) {
     const googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json"
