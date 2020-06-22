@@ -4,9 +4,9 @@
       <input
         name="zipcode"
         type="text"
-        class="mb-2 rounded-none shadow-md md:text-center md:mr-px md:w-24 form-input"
+        class="mb-2 rounded-none shadow-md md:mr-px md:w-40 form-input"
         placeholder="PLZ oder Ort ..."
-        value="56567"
+        :value="zipCode"
       />
 
       <select v-model="selected" name="range" class="mb-2 rounded-none shadow-md form-select">
@@ -33,5 +33,30 @@ import AppButton from "@/components/UI/AppButton.vue"
 export default class TheRetailerSearchForm extends Vue {
   selected = "30"
   radiuses = ["10", "15", "30", "50", "75", "100"]
+  zipCode = "56567"
+
+  async fetchGeoCode(coords: { latitude: number; longitude: number }) {
+    const googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json"
+    const googleUrlParameter = {
+      latlng: `?latlng=${coords.latitude},${coords.longitude}`,
+      apiKey: `&key=${process.env.GOOGLE_API}`
+    }
+    const geoCodeData = await this.$axios.$get(googleBaseUrl + googleUrlParameter.latlng + googleUrlParameter.apiKey)
+    return geoCodeData
+  }
+
+  beforeCreate() {
+    if (process.client && "geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async pos => {
+          const geoCodeData = await this.fetchGeoCode(pos.coords)
+          this.zipCode = geoCodeData.results[0].address_components[6].long_name
+        },
+        err => {
+          throw new Error("Geolocation error: " + err)
+        }
+      )
+    }
+  }
 }
 </script>
