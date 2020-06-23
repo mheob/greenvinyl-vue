@@ -39,12 +39,11 @@
 import { Vue, Component } from "vue-property-decorator"
 
 // TODO: Move some components (like this) to the nuxt plugin section
-import AppButton from "@/components/UI/AppButton.vue"
 import { getLocationInRange, getSwitchedGeoCode } from "@/utils"
 import { Retailer } from "@/models/location"
 import retailer from "@/data/retailer.json"
 
-@Component({ components: { AppButton } })
+@Component
 export default class TheRetailerSearchForm extends Vue {
   selectedRadius = "30"
   radiuses = ["10", "15", "30", "50", "75", "100"]

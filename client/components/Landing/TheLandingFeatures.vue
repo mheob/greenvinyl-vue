@@ -89,10 +89,10 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
-import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
+import { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import { Icon } from "@/components/Icons/HeroIcons.vue"
 
-@Component({ components: { AppButton, HeroIcons } })
+@Component
 export default class TheLandingFeatures extends Vue {
   Brightness = Brightness
   Variant = Variant

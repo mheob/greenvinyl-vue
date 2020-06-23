@@ -20,8 +20,6 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import ContentHeader from "@/components/UI/ContentHeader.vue"
-
-@Component({ components: { ContentHeader } })
+@Component
 export default class CartReservation extends Vue {}
 </script>

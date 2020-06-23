@@ -44,10 +44,10 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
-import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
+import { Icon } from "@/components/Icons/HeroIcons.vue"
 import { Retailer } from "@/models/location"
 
-@Component({ components: { HeroIcons } })
+@Component
 export default class TheRetailerGMapInfoCard extends Vue {
   @Prop({ type: Object, required: true }) readonly retailer!: Retailer
 

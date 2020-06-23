@@ -63,8 +63,8 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
-import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
-import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
+import { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import { Icon } from "@/components/Icons/HeroIcons.vue"
 import { GeneralInformation, CollectionProperty, Product } from "@/models/product"
 import Products from "@/data/products.json"
 
@@ -73,7 +73,7 @@ export enum Collection {
   TOUCH = "touch"
 }
 
-@Component({ components: { AppButton, HeroIcons } })
+@Component
 export default class LandingProducts extends Vue {
   @Prop({ type: Boolean, default: false }) readonly isBase!: Boolean
 

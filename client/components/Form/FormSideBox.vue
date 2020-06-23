@@ -19,8 +19,6 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
-import HeroIcons from "@/components/Icons/HeroIcons.vue"
-
 interface List {
   id: string
   icon: string
@@ -32,7 +30,7 @@ export enum SideBoxType {
   TEXT
 }
 
-@Component({ components: { HeroIcons } })
+@Component
 export default class FormInput extends Vue {
   @Prop(Array) readonly list?: List[]
   @Prop({ type: String, required: true }) readonly title!: String

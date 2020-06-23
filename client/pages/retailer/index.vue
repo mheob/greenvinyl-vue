@@ -44,7 +44,6 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import ContentHeader from "@/components/UI/ContentHeader.vue"
 import RetailerCard from "@/components/Retailer/RetailerCard.vue"
 import TheRetailerGMapInfoCard from "@/components/Retailer/TheRetailerGMapInfoCard.vue"
 import TheRetailerSearchForm from "@/components/Retailer/TheRetailerSearchForm.vue"
@@ -52,7 +51,7 @@ import { Retailer as RetailerModel } from "@/models/location"
 
 import dummyRetailer from "@/data/dummy_retailer.json"
 
-@Component({ components: { ContentHeader, RetailerCard, TheRetailerGMapInfoCard, TheRetailerSearchForm } })
+@Component({ components: { RetailerCard, TheRetailerGMapInfoCard, TheRetailerSearchForm } })
 export default class Retailer extends Vue {
   /* eslint-disable lines-between-class-members */
   marker = {

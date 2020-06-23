@@ -65,10 +65,9 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import HeroIcons, { Icon } from "@/components/Icons/HeroIcons.vue"
-import ProductLinkOnImage from "@/components/UI/ProductLinkOnImage.vue"
+import { Icon } from "@/components/Icons/HeroIcons.vue"
 
-@Component({ components: { HeroIcons, ProductLinkOnImage } })
+@Component
 export default class TheLandingComparison extends Vue {
   Icon = Icon
 

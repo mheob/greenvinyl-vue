@@ -43,9 +43,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import ProductLinkOnImage from "@/components/UI/ProductLinkOnImage.vue"
-
-@Component({ components: { ProductLinkOnImage } })
+@Component
 export default class TheLandingIntro extends Vue {
   get featureImageUrl() {
     return require("~/assets/images/products/features/ico-gv-ohne-pvc.svg")

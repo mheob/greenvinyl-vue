@@ -10,9 +10,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
-import ProductLinkOnImage from "@/components/UI/ProductLinkOnImage.vue"
-
-@Component({ components: { ProductLinkOnImage } })
+@Component
 export default class TheLandingImageBreaker extends Vue {
   @Prop({ type: String, required: true }) image!: string
   @Prop({ type: String, required: true }) to!: string

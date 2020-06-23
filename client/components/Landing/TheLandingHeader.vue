@@ -54,10 +54,9 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import AppButton, { Brightness, Variant } from "@/components/UI/AppButton.vue"
-import ProductLinkOnImage from "@/components/UI/ProductLinkOnImage.vue"
+import { Brightness, Variant } from "@/components/UI/AppButton.vue"
 
-@Component({ components: { AppButton, ProductLinkOnImage } })
+@Component
 export default class TheLandingHeader extends Vue {
   Brightness = Brightness
   Variant = Variant
