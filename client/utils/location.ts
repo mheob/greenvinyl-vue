@@ -10,17 +10,22 @@ import { degToRad } from "~/utils/math"
  * @param range The range where to to filter
  */
 export async function getLocationInRange(locations: Retailer[], startingPoint: string, range: number) {
-  const startingAdress = startingPoint.match(/^\d/) ? startingPoint + ",germany" : startingPoint
-  const centralResult = await getSwitchedGeoCode(startingAdress)
-  const central = centralResult.results[0].geometry.location
-  const inRange = locations.filter(coordinate => {
-    if (!coordinate.lat || !coordinate.lng) {
-      return false
-    }
-    const distance = getDistance(coordinate.lat, coordinate.lng, central.lat, central.lng)
-    return distance < range
-  })
-  return inRange
+  try {
+    const startingAdress = startingPoint.match(/^\d/) ? startingPoint + ",germany" : startingPoint
+    console.log("startingAdress :>> ", startingAdress)
+    const centralResult = await getSwitchedGeoCode(startingAdress)
+    const central = centralResult.results[0].geometry.location
+    const inRange = locations.filter(coordinate => {
+      if (!coordinate.lat || !coordinate.lng) {
+        return false
+      }
+      const distance = getDistance(coordinate.lat, coordinate.lng, central.lat, central.lng)
+      return distance < range
+    })
+    return inRange
+  } catch (err) {
+    return []
+  }
 }
 
 /**
