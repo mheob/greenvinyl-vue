@@ -1,7 +1,7 @@
 import axios from "axios"
 
-import { Coordinates, Retailer } from "@/models/location"
-import { degToRad } from "@/utils/math"
+import { Coordinates, Retailer } from "~/models/location"
+import { degToRad } from "~/utils/math"
 
 /**
  * Get all location from a given list in a defined range.
