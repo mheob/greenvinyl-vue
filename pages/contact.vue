@@ -36,7 +36,7 @@
           <div class="flex-1 px-3 mt-5 ">
             <label for="form-input-country" class="sr-only">Land</label>
             <select id="form-input-country" class="w-full form-select" name="country">
-              <option value="">Land auswählen</option>
+              <option value="">Land wählen</option>
               <option value="Germany">Deutschland</option>
               <option value="Austria">Österreich</option>
               <option value="Luxembourg">Luxemburg</option>
