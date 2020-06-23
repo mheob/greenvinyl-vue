@@ -1,0 +1,25 @@
+body {
+  font-family: Fira Sans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  transition: 200ms;
+}
+
+.container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+#nuxt-progress {
+  z-index: 9999;
+}
+
+@screen lg {
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}

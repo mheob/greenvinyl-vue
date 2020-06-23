@@ -27,15 +27,22 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "#007d52", height: "3px" },
   /*
    ** Global CSS
    */
   css: ["~assets/css/main.css", "~assets/css/wysiwyg.css"],
   /*
+   ** Create environment variables client side, also to be shared from server side.
+   */
+  env: {
+    baseUrl: process.env.BASE_URL || "http://localhost:3000",
+    googleApi: process.env.GOOGLE_API || "AIzaSyAilqM_KE-kgLAX8LVTht-gJ1hm_X9fHcw"
+  },
+  /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["~plugins/core-components.js"],
   /*
    ** Nuxt.js dev-modules
    */
@@ -78,5 +85,6 @@ export default {
      */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     extend(config, ctx) {}
-  }
+  },
+  srcDir: "client/"
 }
