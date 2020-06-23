@@ -17,3 +17,8 @@ export interface Retailer {
   key?: string
   name?: string
 }
+
+export interface Coordinates {
+  latitude: number
+  longitude: number
+}
