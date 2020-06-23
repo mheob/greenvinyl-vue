@@ -31,7 +31,7 @@ export async function getSwitchedGeoCode(param: string | Coordinates) {
   const googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json"
   const googleUrlParameter =
     typeof param === "string" ? `?address=${param}` : `?latlng=${param.latitude},${param.longitude}`
-  const googleUrlApiKey = `&key=${process.env.GOOGLE_API}`
+  const googleUrlApiKey = `&key=${process.env.googleApi}`
   const geoCodeResponse = await axios.get(googleBaseUrl + googleUrlParameter + googleUrlApiKey)
   return geoCodeResponse.data
 }
