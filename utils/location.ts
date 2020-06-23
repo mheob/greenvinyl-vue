@@ -43,6 +43,7 @@ export async function getSwitchedGeoCode(param: string | Coordinates) {
  * @param lat2 The latitude from destination 2
  * @param lon2 The longitude from destination 2
  * @see https://en.wikipedia.org/wiki/Haversine_formula
+ * @see https://rosettacode.org/wiki/Haversine_formula#JavaScript
  */
 export function getDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
   const R = 6371 // Radius of the earth in km
