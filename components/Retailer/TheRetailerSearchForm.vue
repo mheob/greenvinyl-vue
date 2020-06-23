@@ -7,14 +7,14 @@
         type="text"
         class="mb-2 rounded-none shadow-md md:mr-px md:w-40 form-input"
         placeholder="PLZ oder Ort ..."
-        @change="onZipcodeChange"
+        @change="onSearchInputChange"
       />
 
       <select
         v-model="selectedRadius"
         name="range"
         class="mb-2 rounded-none shadow-md form-select"
-        @change="onRangeChange"
+        @change="onSearchInputChange"
       >
         <option v-for="radius in radiuses" :key="radius" :value="radius">Umkreis {{ radius }} km</option>
       </select>
@@ -51,12 +51,7 @@ export default class TheRetailerSearchForm extends Vue {
   userPosition = ""
   retailerCount = 0
 
-  onZipcodeChange() {
-    console.log(this.userPosition)
-    this.filterRetailer()
-  }
-
-  onRangeChange() {
+  onSearchInputChange() {
     this.filterRetailer()
   }
 
