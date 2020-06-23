@@ -7,14 +7,14 @@
         type="text"
         class="mb-2 rounded-none shadow-md md:mr-px md:w-40 form-input"
         placeholder="PLZ oder Ort ..."
-        @change="onSearchInputChange"
+        @change="onUserPositionChange($event)"
       />
 
       <select
         v-model="selectedRadius"
         name="range"
         class="mb-2 rounded-none shadow-md form-select"
-        @change="onSearchInputChange"
+        @change="onSelectedRadiusChange($event)"
       >
         <option v-for="radius in radiuses" :key="radius" :value="radius">Umkreis {{ radius }} km</option>
       </select>
@@ -29,8 +29,12 @@
       </AppButton>
     </form>
 
-    <p class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
-      Es wurden {{ retailerCount || "keine" }} CLASSEN Greenvinyl-Partner in Ihrer Nähe gefunden.
+    <p v-if="retailerCount" class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
+      Es wurden {{ retailerCount > 1 ? "wurden" : "wurde" }}
+      <strong>{{ retailerCount }} CLASSEN Greenvinyl-Partner</strong> in Ihrer Nähe gefunden.
+    </p>
+    <p v-else class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
+      Die Postleitzahl oder der Ort konnten nicht gefunden werden. Bitte überprüfen.
     </p>
   </div>
 </template>
@@ -38,34 +42,58 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-// TODO: Move some components (like this) to the nuxt plugin section
 import { getLocationInRange, getSwitchedGeoCode } from "@/utils"
-import { Retailer } from "@/models/location"
-import retailer from "@/data/retailer.json"
+import { vxm } from "@/store"
 
 @Component
 export default class TheRetailerSearchForm extends Vue {
-  selectedRadius = "30"
   radiuses = ["10", "15", "30", "50", "75", "100"]
-  userPosition = ""
-  retailerCount = 0
 
-  onSearchInputChange() {
+  get selectedRadius() {
+    return vxm.retailer.selectedRadius
+  }
+
+  set selectedRadius(value) {
+    vxm.retailer.selectedRadius = value
+  }
+
+  get userPosition() {
+    return vxm.retailer.userPosition
+  }
+
+  set userPosition(value) {
+    vxm.retailer.userPosition = value
+  }
+
+  get retailerCount() {
+    return vxm.retailer.retailerCount
+  }
+
+  onUserPositionChange(event: InputEvent) {
+    vxm.retailer.userPosition = (event.target as HTMLInputElement).value
+    this.filterRetailer()
+  }
+
+  onSelectedRadiusChange(event: InputEvent) {
+    vxm.retailer.selectedRadius = (event.target as HTMLInputElement).value
     this.filterRetailer()
   }
 
   async filterRetailer() {
-    const retailerList = await getLocationInRange(retailer as Retailer[], this.userPosition, +this.selectedRadius)
-    this.retailerCount = retailerList.length
+    vxm.retailer.retailerInRange = await getLocationInRange(
+      vxm.retailer.retailerList,
+      vxm.retailer.userPosition,
+      +vxm.retailer.selectedRadius
+    )
   }
 
   beforeCreate() {
-    if (!this.userPosition && process.client && "geolocation" in navigator) {
+    if (!vxm.retailer.userPosition && process.client && "geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async pos => {
           const geoCodeData = await getSwitchedGeoCode(pos.coords)
           const addressComponents = geoCodeData.results[0].address_components
-          this.userPosition = addressComponents[1].long_name
+          vxm.retailer.userPosition = addressComponents[1].long_name
           await this.filterRetailer()
         },
         err => {
