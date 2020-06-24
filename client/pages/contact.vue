@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-// TODO: Move the functionality into own small component
 import { Vue, Component } from "vue-property-decorator"
 
 import TheContactForm from "@/components/Contact/TheContactForm.vue"
