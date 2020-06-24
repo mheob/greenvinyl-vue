@@ -18,13 +18,12 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import RetailerCard from "@/components/Retailer/RetailerCard.vue"
-import TheRetailerGMap from "@/components/Retailer/TheRetailerGMap.vue"
-import TheRetailerGMapInfoCard from "@/components/Retailer/TheRetailerGMapInfoCard.vue"
 import TheRetailerSearchForm from "@/components/Retailer/TheRetailerSearchForm.vue"
+import TheRetailerGMap from "@/components/Retailer/TheRetailerGMap.vue"
+import RetailerCard from "@/components/Retailer/RetailerCard.vue"
 import { store } from "@/store"
 
-@Component({ components: { RetailerCard, TheRetailerGMap, TheRetailerGMapInfoCard, TheRetailerSearchForm } })
+@Component({ components: { TheRetailerSearchForm, TheRetailerGMap, RetailerCard } })
 export default class Retailer extends Vue {
   get retailerList() {
     return store.retailer.retailerInRange
