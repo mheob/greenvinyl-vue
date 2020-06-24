@@ -1,6 +1,5 @@
 import { createModule } from "vuex-class-component"
 
-// import { $axios } from "~/utils/store-api"
 import { Retailer } from "~/models"
 import retailerData from "~/data/retailer.json"
 

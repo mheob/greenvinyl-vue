@@ -12,7 +12,6 @@ import { degToRad } from "~/utils/math"
 export async function getLocationInRange(locations: Retailer[], startingPoint: string, range: number) {
   try {
     const startingAdress = startingPoint.match(/^\d/) ? startingPoint + ",germany" : startingPoint
-    console.log("startingAdress :>> ", startingAdress)
     const centralResult = await getSwitchedGeoCode(startingAdress)
     const central = centralResult.results[0].geometry.location
     const inRange = locations.filter(coordinate => {
