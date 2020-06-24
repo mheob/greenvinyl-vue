@@ -44,7 +44,7 @@
         <img class="h-16 md:h-24" :src="blueAngelImageUrl" alt="Blauer Engel" />
       </aside>
 
-      <ProductLinkOnImage to="produkte/touch/risseiche-natur-49781">
+      <ProductLinkOnImage to="products/touch/risseiche-natur-49781">
         Vinylboden Touch Risseiche Natur 49781
       </ProductLinkOnImage>
     </div>

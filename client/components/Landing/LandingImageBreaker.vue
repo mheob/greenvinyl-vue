@@ -1,7 +1,7 @@
 <template>
   <section class="relative">
     <div class="w-full bg-green-500 bg-center bg-cover h-70vh" :style="{ backgroundImage: backgroundImageStyle }"></div>
-    <ProductLinkOnImage to="/produkte/base/eiche-natur-48320" :is-right-position="isRightPosition">
+    <ProductLinkOnImage to="/products/base/eiche-natur-48320" :is-right-position="isRightPosition">
       <slot />
     </ProductLinkOnImage>
   </section>

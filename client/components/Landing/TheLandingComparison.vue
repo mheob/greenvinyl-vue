@@ -56,7 +56,7 @@
       </table>
     </div>
 
-    <ProductLinkOnImage to="/produkte/base/weisseiche-48319" is-right-position>
+    <ProductLinkOnImage to="/products/base/weisseiche-48319" is-right-position>
       Vinylboden Base Weisseiche 48319
     </ProductLinkOnImage>
   </section>
