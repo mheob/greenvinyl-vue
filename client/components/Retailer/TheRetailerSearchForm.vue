@@ -47,7 +47,7 @@ import { store } from "@/store"
 
 @Component
 export default class TheRetailerSearchForm extends Vue {
-  radiuses = ["10", "15", "30", "50", "75", "100"]
+  radiuses = [10, 15, 30, 50, 75, 100]
 
   get selectedRadius() {
     return store.retailer.selectedRadius
@@ -85,6 +85,10 @@ export default class TheRetailerSearchForm extends Vue {
       store.retailer.userPosition,
       +store.retailer.selectedRadius
     )
+    store.retailer.mapCenter = {
+      lat: store.retailer.retailerInRange[0].lat!,
+      lng: store.retailer.retailerInRange[0].lng!
+    }
   }
 
   beforeCreate() {
