@@ -16,6 +16,7 @@ export interface Retailer {
   lng?: number
   key?: string
   name?: string
+  distance?: number
 }
 
 export interface Coordinates {
