@@ -42,7 +42,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~plugins/core-components.ts"],
+  plugins: ["~plugins/core-components.ts", "~plugins/numeric-filter.ts"],
   /*
    ** Nuxt.js dev-modules
    */
