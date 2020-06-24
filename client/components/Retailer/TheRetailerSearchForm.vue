@@ -43,57 +43,61 @@
 import { Vue, Component } from "vue-property-decorator"
 
 import { getLocationInRange, getSwitchedGeoCode } from "@/utils"
-import { vxm } from "@/store"
+import { store } from "@/store"
 
 @Component
 export default class TheRetailerSearchForm extends Vue {
-  radiuses = ["10", "15", "30", "50", "75", "100"]
+  radiuses = [10, 15, 30, 50, 75, 100]
 
   get selectedRadius() {
-    return vxm.retailer.selectedRadius
+    return store.retailer.selectedRadius
   }
 
   set selectedRadius(value) {
-    vxm.retailer.selectedRadius = value
+    store.retailer.selectedRadius = value
   }
 
   get userPosition() {
-    return vxm.retailer.userPosition
+    return store.retailer.userPosition
   }
 
   set userPosition(value) {
-    vxm.retailer.userPosition = value
+    store.retailer.userPosition = value
   }
 
   get retailerCount() {
-    return vxm.retailer.retailerCount
+    return store.retailer.retailerCount
   }
 
   onUserPositionChange(event: InputEvent) {
-    vxm.retailer.userPosition = (event.target as HTMLInputElement).value
+    store.retailer.userPosition = (event.target as HTMLInputElement).value
     this.filterRetailer()
   }
 
   onSelectedRadiusChange(event: InputEvent) {
-    vxm.retailer.selectedRadius = (event.target as HTMLInputElement).value
+    store.retailer.selectedRadius = (event.target as HTMLInputElement).value
     this.filterRetailer()
   }
 
   async filterRetailer() {
-    vxm.retailer.retailerInRange = await getLocationInRange(
-      vxm.retailer.retailerList,
-      vxm.retailer.userPosition,
-      +vxm.retailer.selectedRadius
+    store.retailer.retailerInRange = await getLocationInRange(
+      store.retailer.retailerList,
+      store.retailer.userPosition,
+      +store.retailer.selectedRadius
     )
+    store.retailer.mapCenter = {
+      lat: store.retailer.retailerInRange[0].lat!,
+      lng: store.retailer.retailerInRange[0].lng!
+    }
   }
 
   beforeCreate() {
-    if (!vxm.retailer.userPosition && process.client && "geolocation" in navigator) {
+    if (!store.retailer.userPosition && process.client && "geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async pos => {
           const geoCodeData = await getSwitchedGeoCode(pos.coords)
           const addressComponents = geoCodeData.results[0].address_components
-          vxm.retailer.userPosition = addressComponents[1].long_name
+          store.retailer.userPosition = addressComponents[1].long_name
           await this.filterRetailer()
         },
         err => {

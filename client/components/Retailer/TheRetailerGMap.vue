@@ -1,0 +1,81 @@
+<template>
+  <GMap
+    :key="timestamp"
+    :cluster="{ options: { styles: clusterStyle } }"
+    :center="mapCenter"
+    :options="{
+      fullscreenControl: false,
+      streetViewControl: false,
+      mapTypeControl: true,
+      zoomControl: true,
+      gestureHandling: 'cooperative'
+    }"
+    :zoom="10"
+    @click="currentLocation = {}"
+  >
+    <GMapMarker
+      v-for="retailer in retailerList"
+      :key="retailer.key"
+      :position="{ lat: retailer.lat, lng: retailer.lng }"
+      :options="{ icon: retailer === currentLocation ? pins.selected : pins.notSelected }"
+      @click="currentLocation = retailer"
+    >
+      <GMapInfoWindow>
+        <h4 class="text-lg font-bold text-green-500">{{ retailer.name }}</h4>
+        <TheRetailerGMapInfoCard :retailer="retailer" />
+      </GMapInfoWindow>
+    </GMapMarker>
+  </GMap>
+</template>
+
+<script lang="ts">
+import { Vue, Component, Watch } from "vue-property-decorator"
+
+import TheRetailerGMapInfoCard from "@/components/Retailer/TheRetailerGMapInfoCard.vue"
+import { store } from "@/store"
+
+@Component({ components: { TheRetailerGMapInfoCard } })
+export default class TheRetailerGMap extends Vue {
+  timestamp = 1
+  currentLocation = {}
+  marker = {
+    path:
+      // eslint-disable-next-line max-len
+      "M40 0C26.191 0 15 11.194 15 25c0 23.87 25 55 25 55s25-31.13 25-55C65 11.194 53.807 0 40 0zm0 38.8c-7.457 0-13.5-6.044-13.5-13.5S32.543 11.8 40 11.8c7.455 0 13.5 6.044 13.5 13.5S47.455 38.8 40 38.8z",
+    fillColor: "#ecc94b",
+    fillOpacity: 0.6,
+    scale: 0.5,
+    strokeColor: "#030104",
+    strokeWeight: 1
+  }
+
+  pins = {
+    selected: this.marker,
+    notSelected: {
+      ...this.marker,
+      fillOpacity: 0.9
+    }
+  }
+
+  clusterStyle = [
+    {
+      url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png",
+      width: 56,
+      height: 56,
+      textColor: "#000"
+    }
+  ]
+
+  get mapCenter() {
+    return store.retailer.mapCenter
+  }
+
+  get retailerList() {
+    return store.retailer.retailerInRange ?? [store.retailer.mapCenter]
+  }
+
+  @Watch("retailerList") getTimestamp() {
+    this.timestamp = Date.now()
+  }
+}
+</script>

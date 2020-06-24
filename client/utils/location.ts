@@ -12,18 +12,34 @@ import { degToRad } from "~/utils/math"
 export async function getLocationInRange(locations: Retailer[], startingPoint: string, range: number) {
   try {
     const startingAdress = startingPoint.match(/^\d/) ? startingPoint + ",germany" : startingPoint
-    console.log("startingAdress :>> ", startingAdress)
     const centralResult = await getSwitchedGeoCode(startingAdress)
     const central = centralResult.results[0].geometry.location
-    const inRange = locations.filter(coordinate => {
-      if (!coordinate.lat || !coordinate.lng) {
-        return false
-      }
-      const distance = getDistance(coordinate.lat, coordinate.lng, central.lat, central.lng)
-      return distance < range
-    })
+    const inRange = locations
+      .filter(location => {
+        if (!location.lat || !location.lng) {
+          return false
+        }
+        const distance = getDistance(location.lat, location.lng, central.lat, central.lng)
+        return distance < range
+      })
+      .map(filteredLocation => {
+        const distance = getDistance(filteredLocation.lat!, filteredLocation.lng!, central.lat, central.lng)
+        return { ...filteredLocation, distance }
+      })
+      .sort((a, b) => {
+        const distanceA = a.distance
+        const distanceB = b.distance
+        let comparison = 0
+        if (distanceA > distanceB) {
+          comparison = 1
+        } else if (distanceA < distanceB) {
+          comparison = -1
+        }
+        return comparison
+      })
     return inRange
   } catch (err) {
+    console.error(err)
     return []
   }
 }

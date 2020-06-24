@@ -72,7 +72,8 @@ a:hover {
 
 .icon {
   width: 2rem;
-  opacity: 0.67;
+  color: #007d52;
+  opacity: 0.8;
 }
 
 .content {
