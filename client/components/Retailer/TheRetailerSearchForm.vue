@@ -29,7 +29,7 @@
       </AppButton>
     </form>
 
-    <p v-if="retailerCount" class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
+    <p v-if="retailerCount > 0" class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
       Es wurden {{ retailerCount > 1 ? "wurden" : "wurde" }}
       <strong>{{ retailerCount }} CLASSEN Greenvinyl-Partner</strong> in Ihrer Nähe gefunden.
     </p>
@@ -75,7 +75,7 @@ export default class TheRetailerSearchForm extends Vue {
   }
 
   onSelectedRadiusChange(event: InputEvent) {
-    store.retailer.selectedRadius = (event.target as HTMLInputElement).value
+    store.retailer.selectedRadius = +(event.target as HTMLInputElement).value
     this.filterRetailer()
   }
 
@@ -85,19 +85,21 @@ export default class TheRetailerSearchForm extends Vue {
       store.retailer.userPosition,
       +store.retailer.selectedRadius
     )
-    store.retailer.mapCenter = {
-      lat: store.retailer.retailerInRange[0].lat!,
-      lng: store.retailer.retailerInRange[0].lng!
+    if (store.retailer.retailerInRange.length > 1) {
+      store.retailer.mapCenter = {
+        lat: store.retailer.retailerInRange[0].lat!,
+        lng: store.retailer.retailerInRange[0].lng!
+      }
     }
   }
 
-  beforeCreate() {
+  created() {
     if (!store.retailer.userPosition && process.client && "geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async pos => {
           const geoCodeData = await getSwitchedGeoCode(pos.coords)
           const addressComponents = geoCodeData.results[0].address_components
-          store.retailer.userPosition = addressComponents[1].long_name
+          store.retailer.userPosition = addressComponents[addressComponents.length - 1].long_name
           await this.filterRetailer()
         },
         err => {
