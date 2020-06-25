@@ -32,7 +32,7 @@
       </div>
 
       <div class="flex flex-col -mx-3 md:flex-row">
-        <div class="flex-1 px-3 mt-5 ">
+        <div class="flex-1 px-3 mt-5">
           <label for="form-input-country" class="sr-only">Land</label>
           <select id="form-input-country" class="w-full form-select" name="country">
             <option value="">Land wählen</option>
