@@ -14,12 +14,10 @@
           class="block"
           :to="`/products/${collection.collection}/${collection.name.toLowerCase()}-${collection.sap}`"
         >
+          <!-- eslint-disable max-len -->
           <div
             class="flex-1 block bg-center bg-cover image"
-            :style="
-              // eslint-disable-next-line max-len
-              `background-image: url(https://classen-group.com/assets/products/decors/_800x600_crop_center-center_90_none/${collection.featuredImage})`
-            "
+            :style="`background-image: url(https://classen-group.com/assets/products/decors/_800x600_crop_center-center_90_none/${collection.featuredImage})`"
           ></div>
           <div class="mt-1 text-sm text-gray-800">
             <h3 class="text-base">{{ collection.name }}</h3>
@@ -63,10 +61,10 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
-import { Brightness, Variant } from "@/components/UI/AppButton.vue"
-import { Icon } from "@/components/Icons/HeroIcons.vue"
-import { GeneralInformation, CollectionProperty, Product } from "@/models/product"
-import Products from "@/data/products.json"
+import { Brightness, Variant } from "~/components/UI/AppButton.vue"
+import { Icon } from "~/components/Icons/HeroIcons.vue"
+import { GeneralInformation, CollectionProperty, Product } from "~/models/product"
+import Products from "~/data/products.json"
 
 export enum Collection {
   BASE = "base",

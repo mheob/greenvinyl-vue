@@ -42,8 +42,8 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import { getLocationInRange, getSwitchedGeoCode } from "@/utils"
-import { store } from "@/store"
+import { getLocationInRange, getSwitchedGeoCode } from "~/utils"
+import { store } from "~/store"
 
 @Component
 export default class TheRetailerSearchForm extends Vue {

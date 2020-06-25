@@ -29,7 +29,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import { Brightness, Variant } from "~/components/UI/AppButton.vue"
 
 @Component
 export default class TheFooterCallToAction extends Vue {

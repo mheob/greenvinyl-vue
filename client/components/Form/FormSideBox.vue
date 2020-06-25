@@ -3,7 +3,7 @@
     <h3 class="text-base tracking-widest text-green-500 uppercase">{{ title }}</h3>
 
     <p v-if="type === SideBoxType.TEXT" class="mt-4 leading-relaxed">
-      <slot></slot>
+      <slot />
     </p>
 
     <div v-if="type === SideBoxType.LIST && list" class="mt-4">

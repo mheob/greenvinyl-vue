@@ -3,7 +3,7 @@
     class="relative py-20 bg-left bg-no-repeat bg-cover xl:bg-contain xl:bg-right"
     :style="`background-image: ${backgroundImageStyle};`"
   >
-    <div class="container px-5 md:px-0" style="overflow-x:auto;">
+    <div class="container px-5 md:px-0" style="overflow-x: auto;">
       <table class="lg:w-7/12">
         <thead>
           <tr>
@@ -56,7 +56,7 @@
       </table>
     </div>
 
-    <ProductLinkOnImage to="/produkte/base/weisseiche-48319" is-right-position>
+    <ProductLinkOnImage to="/products/base/weisseiche-48319" is-right-position>
       Vinylboden Base Weisseiche 48319
     </ProductLinkOnImage>
   </section>
@@ -65,7 +65,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import { Icon } from "@/components/Icons/HeroIcons.vue"
+import { Icon } from "~/components/Icons/HeroIcons.vue"
 
 @Component
 export default class TheLandingComparison extends Vue {

@@ -32,7 +32,7 @@
           alt="Greenvinyl, der hochwertige Vinylboden in ­puncto Optik, Haptik und Elastizität."
         />
 
-        <ProductLinkOnImage to="produkte/touch/risseiche-natur-49781" is-right-position>
+        <ProductLinkOnImage to="products/touch/risseiche-natur-49781" is-right-position>
           Vinylboden Touch Risseiche Natur 49781
         </ProductLinkOnImage>
       </div>

@@ -31,8 +31,8 @@
 <script lang="ts">
 import { Vue, Component, Watch } from "vue-property-decorator"
 
-import TheRetailerGMapInfoCard from "@/components/Retailer/TheRetailerGMapInfoCard.vue"
-import { store } from "@/store"
+import TheRetailerGMapInfoCard from "~/components/Retailer/TheRetailerGMapInfoCard.vue"
+import { store } from "~/store"
 
 @Component({ components: { TheRetailerGMapInfoCard } })
 export default class TheRetailerGMap extends Vue {
