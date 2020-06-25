@@ -61,10 +61,10 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator"
 
-import { Brightness, Variant } from "@/components/UI/AppButton.vue"
-import { Icon } from "@/components/Icons/HeroIcons.vue"
-import { GeneralInformation, CollectionProperty, Product } from "@/models/product"
-import Products from "@/data/products.json"
+import { Brightness, Variant } from "~/components/UI/AppButton.vue"
+import { Icon } from "~/components/Icons/HeroIcons.vue"
+import { GeneralInformation, CollectionProperty, Product } from "~/models/product"
+import Products from "~/data/products.json"
 
 export enum Collection {
   BASE = "base",

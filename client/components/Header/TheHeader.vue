@@ -11,9 +11,9 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import BrandLogo from "@/components/Icons/BrandLogo.vue"
-import TheHeaderNavigation from "@/components/Header/TheHeaderNavigation.vue"
-import TheHeaderCarts from "@/components/Header/TheHeaderCarts.vue"
+import BrandLogo from "~/components/Icons/BrandLogo.vue"
+import TheHeaderNavigation from "~/components/Header/TheHeaderNavigation.vue"
+import TheHeaderCarts from "~/components/Header/TheHeaderCarts.vue"
 
 @Component({ components: { BrandLogo, TheHeaderNavigation, TheHeaderCarts } })
 export default class TheHeader extends Vue {}

@@ -9,8 +9,8 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import TheContactForm from "@/components/Contact/TheContactForm.vue"
-import TheContactSideBoxes from "@/components/Contact/TheContactSideBoxes.vue"
+import TheContactForm from "~/components/Contact/TheContactForm.vue"
+import TheContactSideBoxes from "~/components/Contact/TheContactSideBoxes.vue"
 
 @Component({ components: { TheContactForm, TheContactSideBoxes } })
 export default class Contact extends Vue {}

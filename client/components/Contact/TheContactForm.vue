@@ -105,8 +105,8 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import FormInput, { FormInputType } from "@/components/Form/FormInput.vue"
-import { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import FormInput, { FormInputType } from "~/components/Form/FormInput.vue"
+import { Brightness, Variant } from "~/components/UI/AppButton.vue"
 
 @Component({ components: { FormInput } })
 export default class TheContactForm extends Vue {

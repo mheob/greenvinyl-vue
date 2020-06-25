@@ -30,12 +30,12 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import TheLandingHeader from "@/components/Landing/TheLandingHeader.vue"
-import TheLandingIntro from "@/components/Landing/TheLandingIntro.vue"
-import LandingImageBreaker from "@/components/Landing/LandingImageBreaker.vue"
-import LandingProducts from "@/components/Landing/LandingProducts.vue"
-import TheLandingFeatures from "@/components/Landing/TheLandingFeatures.vue"
-import TheLandingComparison from "@/components/Landing/TheLandingComparison.vue"
+import TheLandingHeader from "~/components/Landing/TheLandingHeader.vue"
+import TheLandingIntro from "~/components/Landing/TheLandingIntro.vue"
+import LandingImageBreaker from "~/components/Landing/LandingImageBreaker.vue"
+import LandingProducts from "~/components/Landing/LandingProducts.vue"
+import TheLandingFeatures from "~/components/Landing/TheLandingFeatures.vue"
+import TheLandingComparison from "~/components/Landing/TheLandingComparison.vue"
 
 @Component({
   components: {

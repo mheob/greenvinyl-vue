@@ -11,8 +11,8 @@
 <script lang="ts">
 import Vue from "vue"
 
-import TheHeader from "@/components/Header/TheHeader.vue"
-import TheFooter from "@/components/Footer/TheFooter.vue"
+import TheHeader from "~/components/Header/TheHeader.vue"
+import TheFooter from "~/components/Footer/TheFooter.vue"
 
 export default Vue.extend({
   components: {

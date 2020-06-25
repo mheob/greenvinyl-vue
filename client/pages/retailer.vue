@@ -18,10 +18,10 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import TheRetailerSearchForm from "@/components/Retailer/TheRetailerSearchForm.vue"
-import TheRetailerGMap from "@/components/Retailer/TheRetailerGMap.vue"
-import RetailerCard from "@/components/Retailer/RetailerCard.vue"
-import { store } from "@/store"
+import TheRetailerSearchForm from "~/components/Retailer/TheRetailerSearchForm.vue"
+import TheRetailerGMap from "~/components/Retailer/TheRetailerGMap.vue"
+import RetailerCard from "~/components/Retailer/RetailerCard.vue"
+import { store } from "~/store"
 
 @Component({ components: { TheRetailerSearchForm, TheRetailerGMap, RetailerCard } })
 export default class Retailer extends Vue {

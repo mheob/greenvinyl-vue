@@ -12,8 +12,8 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
 
-import FormSideBox, { SideBoxType } from "@/components/Form/FormSideBox.vue"
-import contactData from "@/data/contactData.json"
+import FormSideBox, { SideBoxType } from "~/components/Form/FormSideBox.vue"
+import contactData from "~/data/contactData.json"
 
 @Component({ components: { FormSideBox } })
 export default class TheContactSideBoxes extends Vue {
