@@ -94,19 +94,46 @@ export default class TheRetailerSearchForm extends Vue {
     }
   }
 
+  initLocalStorage() {
+    localStorage.setItem("mapCenter", JSON.stringify(this.$accessor.retailer.mapCenter))
+    localStorage.setItem("retailerInRange", JSON.stringify(this.$accessor.retailer.retailerInRange))
+    localStorage.setItem("selectedRadius", this.$accessor.retailer.selectedRadius.toString())
+    localStorage.setItem("userPosition", this.$accessor.retailer.userPosition)
+  }
+
   created() {
-    if (!this.$accessor.retailer.userPosition && process.client && "geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async pos => {
-          const geoCodeData = await getSwitchedGeoCode(pos.coords)
-          const addressComponents = geoCodeData.results[0].address_components
-          this.$accessor.retailer.setUserPosition(addressComponents[addressComponents.length - 1].long_name)
-          await this.filterRetailer()
-        },
-        err => {
-          throw new Error("Geolocation error: " + err)
-        }
-      )
+    if (process.client) {
+      if (localStorage.getItem("mapCenter")) {
+        this.$accessor.retailer.setMapCenter(JSON.parse(localStorage.getItem("mapCenter")!))
+      }
+      if (localStorage.getItem("retailerInRange")) {
+        this.$accessor.retailer.setRetailerInRange(JSON.parse(localStorage.getItem("retailerInRange")!))
+      }
+      if (localStorage.getItem("selectedRadius")) {
+        this.$accessor.retailer.setRadius(+localStorage.getItem("selectedRadius")!)
+      }
+      if (localStorage.getItem("userPosition")) {
+        this.$accessor.retailer.setUserPosition(localStorage.getItem("userPosition")!)
+      }
+
+      if (!this.$accessor.retailer.userPosition && "geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          async pos => {
+            const geoCodeData = await getSwitchedGeoCode(pos.coords)
+            const addressComponents = geoCodeData.results[0].address_components
+            this.$accessor.retailer.setUserPosition(addressComponents[addressComponents.length - 1].long_name)
+            await this.filterRetailer()
+            this.initLocalStorage()
+          },
+          err => {
+            throw new Error("Geolocation error: " + err)
+          }
+        )
+      } else {
+        this.filterRetailer()
+      }
+    } else {
+      this.filterRetailer()
     }
   }
 }

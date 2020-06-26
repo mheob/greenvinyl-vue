@@ -21,14 +21,26 @@ export const getters = getterTree(state, {
 export const mutations = mutationTree(state, {
   setMapCenter(state, value: { lat: number; lng: number }) {
     state.mapCenter = value
+    if (process.client) {
+      localStorage.setItem("mapCenter", JSON.stringify(value))
+    }
   },
   setRetailerInRange(state, value: Retailer[]) {
     state.retailerInRange = value
+    if (process.client) {
+      localStorage.setItem("retailerInRange", JSON.stringify(value))
+    }
   },
   setRadius(state, value: number) {
     state.selectedRadius = value
+    if (process.client) {
+      localStorage.setItem("selectedRadius", value.toString())
+    }
   },
   setUserPosition(state, value: string) {
     state.userPosition = value
+    if (process.client) {
+      localStorage.setItem("userPosition", value)
+    }
   }
 })

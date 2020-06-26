@@ -69,8 +69,15 @@ export default class TheRetailerGMap extends Vue {
     return this.$accessor.retailer.mapCenter
   }
 
+  set mapCenter(value) {
+    this.$accessor.retailer.setMapCenter(value)
+  }
+
   get retailerList() {
-    return this.$accessor.retailer.retailerInRange ?? [this.$accessor.retailer.mapCenter]
+    return (
+      this.$accessor.retailer.retailerInRange ??
+      JSON.parse(localStorage.getItem("retailerInRange")!) ?? [this.$accessor.retailer.mapCenter]
+    )
   }
 
   @Watch("retailerList") getTimestamp() {
