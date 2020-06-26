@@ -26,12 +26,14 @@
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "3.0.0-beta.20",
+    "@types/js-cookie": "^2.2.6",
     "axios": "^0.19.2",
+    "js-cookie": "^2.2.1",
     "nuxt": "^2.13.1",
     "nuxt-gmaps": "^1.2.4",
-    "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^9.0.0",
-    "vuex-class-component": "^2.3.3"
+    "nuxt-property-decorator": "^2.7.2",
+    "nuxt-typed-vuex": "^0.1.19",
+    "vue-class-component": "^7.2.3"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",

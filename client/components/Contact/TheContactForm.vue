@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator"
+import { Vue, Component } from "nuxt-property-decorator"
 
 import FormInput, { FormInputType } from "~/components/Form/FormInput.vue"
 import { Brightness, Variant } from "~/components/UI/AppButton.vue"
