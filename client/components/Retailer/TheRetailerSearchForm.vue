@@ -43,63 +43,64 @@
 import { Vue, Component } from "nuxt-property-decorator"
 
 import { getLocationInRange, getSwitchedGeoCode } from "~/utils"
-import { store } from "~/store"
 
 @Component
 export default class TheRetailerSearchForm extends Vue {
   radiuses = [10, 15, 30, 50, 75, 100]
 
   get selectedRadius() {
-    return store.retailer.selectedRadius
+    return this.$accessor.retailer.selectedRadius
   }
 
   set selectedRadius(value) {
-    store.retailer.selectedRadius = value
+    this.$accessor.retailer.setRadius(value)
   }
 
   get userPosition() {
-    return store.retailer.userPosition
+    return this.$accessor.retailer.userPosition
   }
 
   set userPosition(value) {
-    store.retailer.userPosition = value
+    this.$accessor.retailer.setUserPosition(value)
   }
 
   get retailerCount() {
-    return store.retailer.retailerCount
+    return this.$accessor.retailer.retailerCount
   }
 
   onUserPositionChange(event: InputEvent) {
-    store.retailer.userPosition = (event.target as HTMLInputElement).value
+    this.$accessor.retailer.setUserPosition((event.target as HTMLInputElement).value)
     this.filterRetailer()
   }
 
   onSelectedRadiusChange(event: InputEvent) {
-    store.retailer.selectedRadius = +(event.target as HTMLInputElement).value
+    this.$accessor.retailer.setRadius(+(event.target as HTMLInputElement).value)
     this.filterRetailer()
   }
 
   async filterRetailer() {
-    store.retailer.retailerInRange = await getLocationInRange(
-      store.retailer.retailerList,
-      store.retailer.userPosition,
-      +store.retailer.selectedRadius
+    this.$accessor.retailer.setRetailerInRange(
+      await getLocationInRange(
+        this.$accessor.retailer.retailerList,
+        this.$accessor.retailer.userPosition,
+        +this.$accessor.retailer.selectedRadius
+      )
     )
-    if (store.retailer.retailerInRange.length > 1) {
-      store.retailer.mapCenter = {
-        lat: store.retailer.retailerInRange[0].lat!,
-        lng: store.retailer.retailerInRange[0].lng!
-      }
+    if (this.$accessor.retailer.retailerInRange.length > 1) {
+      this.$accessor.retailer.setMapCenter({
+        lat: this.$accessor.retailer.retailerInRange[0].lat!,
+        lng: this.$accessor.retailer.retailerInRange[0].lng!
+      })
     }
   }
 
   created() {
-    if (!store.retailer.userPosition && process.client && "geolocation" in navigator) {
+    if (!this.$accessor.retailer.userPosition && process.client && "geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async pos => {
           const geoCodeData = await getSwitchedGeoCode(pos.coords)
           const addressComponents = geoCodeData.results[0].address_components
-          store.retailer.userPosition = addressComponents[addressComponents.length - 1].long_name
+          this.$accessor.retailer.setUserPosition(addressComponents[addressComponents.length - 1].long_name)
           await this.filterRetailer()
         },
         err => {

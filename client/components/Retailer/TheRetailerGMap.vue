@@ -32,7 +32,6 @@
 import { Vue, Component, Watch } from "nuxt-property-decorator"
 
 import TheRetailerGMapInfoCard from "~/components/Retailer/TheRetailerGMapInfoCard.vue"
-import { store } from "~/store"
 
 @Component({ components: { TheRetailerGMapInfoCard } })
 export default class TheRetailerGMap extends Vue {
@@ -67,11 +66,11 @@ export default class TheRetailerGMap extends Vue {
   ]
 
   get mapCenter() {
-    return store.retailer.mapCenter
+    return this.$accessor.retailer.mapCenter
   }
 
   get retailerList() {
-    return store.retailer.retailerInRange ?? [store.retailer.mapCenter]
+    return this.$accessor.retailer.retailerInRange ?? [this.$accessor.retailer.mapCenter]
   }
 
   @Watch("retailerList") getTimestamp() {
