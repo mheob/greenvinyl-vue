@@ -13,13 +13,13 @@
       Vinylboden Base Eiche Natur 48320
     </LandingImageBreaker>
 
-    <LandingProducts class="mt-12" is-base />
+    <ProductList class="mt-12" is-base />
 
     <LandingImageBreaker class="mt-12" :image="imageBreakerImage2" to="/products/touch/nimbus-beige-49784">
       Vinylboden Touch Nimbus Beige 49784
     </LandingImageBreaker>
 
-    <LandingProducts class="mt-12" />
+    <ProductList class="mt-12" />
 
     <TheLandingFeatures class="mt-12" />
 
@@ -33,16 +33,16 @@ import { Vue, Component } from "nuxt-property-decorator"
 import TheLandingHeader from "~/components/Landing/TheLandingHeader.vue"
 import TheLandingIntro from "~/components/Landing/TheLandingIntro.vue"
 import LandingImageBreaker from "~/components/Landing/LandingImageBreaker.vue"
-import LandingProducts from "~/components/Landing/LandingProducts.vue"
 import TheLandingFeatures from "~/components/Landing/TheLandingFeatures.vue"
 import TheLandingComparison from "~/components/Landing/TheLandingComparison.vue"
+import ProductList from "~/components/Product/ProductList.vue"
 
 @Component({
   components: {
     TheLandingHeader,
     TheLandingIntro,
     LandingImageBreaker,
-    LandingProducts,
+    ProductList,
     TheLandingFeatures,
     TheLandingComparison
   }

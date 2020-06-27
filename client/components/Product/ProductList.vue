@@ -12,13 +12,16 @@
       <div v-for="collection in collections" :key="collection.sap" class="px-5 mt-5 card">
         <nuxt-link
           class="block"
-          :to="`/products/${collection.collection}/${collection.name.toLowerCase()}-${collection.sap}`"
+          :to="`/products/${collection.collection}/${collection.name.toLowerCase().replace(' ', '-')}-${
+            collection.sap
+          }`"
         >
           <!-- eslint-disable max-len -->
           <div
             class="flex-1 block bg-center bg-cover image"
             :style="`background-image: url(https://classen-group.com/assets/products/decors/_800x600_crop_center-center_90_none/${collection.featuredImage})`"
           ></div>
+          <!-- eslint-enable max-len -->
           <div class="mt-1 text-sm text-gray-800">
             <h3 class="text-base">{{ collection.name }}</h3>
             <h4 class="text-sm">{{ collection.optics }}</h4>
@@ -72,7 +75,7 @@ export enum Collection {
 }
 
 @Component
-export default class LandingProducts extends Vue {
+export default class ProductList extends Vue {
   @Prop({ type: Boolean, default: false }) readonly isBase!: Boolean
 
   Brightness = Brightness

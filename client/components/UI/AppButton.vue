@@ -1,19 +1,43 @@
 <template>
-  <button v-if="isButton" class="btn" :class="[variantClass, brightnessClass, deactivateTransformation]">
+  <button
+    v-if="isButton"
+    class="btn"
+    :class="[
+      variantClass,
+      brightnessClass,
+      deactivateTransformation,
+      overwriteDisplay ? overwriteDisplay : 'inline-block'
+    ]"
+  >
     <slot />
   </button>
 
   <a
     v-else-if="to && (to.startsWith('http') || to.startsWith('//'))"
     class="btn"
-    :class="[variantClass, brightnessClass, deactivateTransformation]"
+    :class="[
+      variantClass,
+      brightnessClass,
+      deactivateTransformation,
+      overwriteDisplay ? overwriteDisplay : 'inline-block'
+    ]"
     :href="to"
     :target="openInNewTab ? '_blank' : '_self'"
   >
     <slot />
   </a>
 
-  <nuxt-link v-else class="btn" :class="[variantClass, brightnessClass, deactivateTransformation]" :to="to">
+  <nuxt-link
+    v-else
+    class="btn"
+    :class="[
+      variantClass,
+      brightnessClass,
+      deactivateTransformation,
+      overwriteDisplay ? overwriteDisplay : 'inline-block'
+    ]"
+    :to="to"
+  >
     <slot />
   </nuxt-link>
 </template>
@@ -41,6 +65,7 @@ export default class AppButton extends Vue {
   @Prop(String) readonly to?: String
   @Prop({ type: Boolean, default: false }) readonly noTransform!: Boolean
   @Prop({ type: Boolean, default: false }) readonly openInNewTab!: Boolean
+  @Prop(String) readonly overwriteDisplay?: String
 
   get variantClass(): string {
     return this.variant ? "btn-" + this.variant : ""
@@ -62,7 +87,6 @@ export default class AppButton extends Vue {
 }
 
 .btn {
-  display: inline-block;
   padding: 0.5rem 1rem;
 }
 
