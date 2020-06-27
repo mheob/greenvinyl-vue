@@ -51,7 +51,9 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     "@nuxtjs/stylelint-module",
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    "@nuxtjs/tailwindcss"
+    "@nuxtjs/tailwindcss",
+    // Doc: https://nuxt-typed-vuex.danielcroe.com
+    "nuxt-typed-vuex"
   ],
   /*
    ** Nuxt.js modules
@@ -84,7 +86,8 @@ export default {
      ** You can extend webpack config here
      */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    transpile: [/typed-vuex/]
   },
   srcDir: "client/"
 }

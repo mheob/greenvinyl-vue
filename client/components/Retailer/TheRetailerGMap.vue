@@ -1,6 +1,6 @@
 <template>
   <GMap
-    :key="timestamp"
+    :key="componentKey"
     :cluster="{ options: { styles: clusterStyle } }"
     :center="mapCenter"
     :options="{
@@ -29,14 +29,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch } from "vue-property-decorator"
+import { Vue, Component, Prop, Watch } from "nuxt-property-decorator"
 
 import TheRetailerGMapInfoCard from "~/components/Retailer/TheRetailerGMapInfoCard.vue"
-import { store } from "~/store"
 
 @Component({ components: { TheRetailerGMapInfoCard } })
 export default class TheRetailerGMap extends Vue {
-  timestamp = 1
+  @Prop(Number) timestamp?: number
+
+  componentKey = this.timestamp
   currentLocation = {}
   marker = {
     path:
@@ -67,15 +68,26 @@ export default class TheRetailerGMap extends Vue {
   ]
 
   get mapCenter() {
-    return store.retailer.mapCenter
+    return this.$accessor.retailer.mapCenter
+  }
+
+  set mapCenter(value) {
+    this.$accessor.retailer.setMapCenter(value)
   }
 
   get retailerList() {
-    return store.retailer.retailerInRange ?? [store.retailer.mapCenter]
+    return (
+      this.$accessor.retailer.retailerInRange ??
+      JSON.parse(localStorage.getItem("retailerInRange")!) ?? [this.$accessor.retailer.mapCenter]
+    )
+  }
+
+  created() {
+    this.componentKey = Date.now()
   }
 
   @Watch("retailerList") getTimestamp() {
-    this.timestamp = Date.now()
+    this.componentKey = Date.now()
   }
 }
 </script>

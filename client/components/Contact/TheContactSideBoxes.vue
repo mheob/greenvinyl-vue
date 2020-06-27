@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator"
+import { Vue, Component } from "nuxt-property-decorator"
 
 import FormSideBox, { SideBoxType } from "~/components/Form/FormSideBox.vue"
 import contactData from "~/data/contactData.json"

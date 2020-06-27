@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator"
+import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 // See for more types https://www.w3schools.com/html/html_form_input_types.asp
 export enum FormInputType {

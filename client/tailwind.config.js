@@ -83,5 +83,7 @@ module.exports = {
     borderWidth: ["responsive", "hover", "focus", "active"],
     translate: ["responsive", "hover", "focus", "active"]
   },
-  plugins: [customForms]
+  plugins: [customForms],
+  // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
+  purge: ["./**/*.vue", "../nuxt.config.js"]
 }

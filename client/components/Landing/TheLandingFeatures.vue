@@ -87,7 +87,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator"
+import { Vue, Component } from "nuxt-property-decorator"
 
 import { Brightness, Variant } from "~/components/UI/AppButton.vue"
 import { Icon } from "~/components/Icons/HeroIcons.vue"
