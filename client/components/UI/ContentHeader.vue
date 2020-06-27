@@ -3,15 +3,15 @@
     <div class="container">
       <div class="max-w-3xl text-white">
         <h1 class="text-4xl leading-tight md:text-6xl">{{ title }}</h1>
-        <p class="mt-4 leading-relaxed text-white md:text-lg"><slot></slot></p>
-        <slot name="additional"></slot>
+        <p class="mt-4 leading-relaxed text-white md:text-lg"><slot /></p>
+        <slot name="additional" />
       </div>
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator"
+import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 @Component
 export default class ContentHeader extends Vue {

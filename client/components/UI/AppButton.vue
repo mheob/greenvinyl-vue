@@ -1,6 +1,6 @@
 <template>
   <button v-if="isButton" class="btn" :class="[variantClass, brightnessClass, deactivateTransformation]">
-    <slot></slot>
+    <slot />
   </button>
 
   <a
@@ -10,16 +10,16 @@
     :href="to"
     :target="openInNewTab ? '_blank' : '_self'"
   >
-    <slot></slot>
+    <slot />
   </a>
 
   <nuxt-link v-else class="btn" :class="[variantClass, brightnessClass, deactivateTransformation]" :to="to">
-    <slot></slot>
+    <slot />
   </nuxt-link>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator"
+import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 export enum Variant {
   BUTTON = "",

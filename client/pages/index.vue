@@ -7,7 +7,7 @@
     <LandingImageBreaker
       class="mt-12"
       :image="imageBreakerImage1"
-      to="/produkte/base/eiche-natur-48320"
+      to="/products/base/eiche-natur-48320"
       is-right-position
     >
       Vinylboden Base Eiche Natur 48320
@@ -15,7 +15,7 @@
 
     <LandingProducts class="mt-12" is-base />
 
-    <LandingImageBreaker class="mt-12" :image="imageBreakerImage2" to="/produkte/touch/nimbus-beige-49784">
+    <LandingImageBreaker class="mt-12" :image="imageBreakerImage2" to="/products/touch/nimbus-beige-49784">
       Vinylboden Touch Nimbus Beige 49784
     </LandingImageBreaker>
 
@@ -28,14 +28,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator"
+import { Vue, Component } from "nuxt-property-decorator"
 
-import TheLandingHeader from "@/components/Landing/TheLandingHeader.vue"
-import TheLandingIntro from "@/components/Landing/TheLandingIntro.vue"
-import LandingImageBreaker from "@/components/Landing/LandingImageBreaker.vue"
-import LandingProducts from "@/components/Landing/LandingProducts.vue"
-import TheLandingFeatures from "@/components/Landing/TheLandingFeatures.vue"
-import TheLandingComparison from "@/components/Landing/TheLandingComparison.vue"
+import TheLandingHeader from "~/components/Landing/TheLandingHeader.vue"
+import TheLandingIntro from "~/components/Landing/TheLandingIntro.vue"
+import LandingImageBreaker from "~/components/Landing/LandingImageBreaker.vue"
+import LandingProducts from "~/components/Landing/LandingProducts.vue"
+import TheLandingFeatures from "~/components/Landing/TheLandingFeatures.vue"
+import TheLandingComparison from "~/components/Landing/TheLandingComparison.vue"
 
 @Component({
   components: {

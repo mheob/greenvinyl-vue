@@ -1,14 +1,14 @@
 <template>
   <section class="relative">
     <div class="w-full bg-green-500 bg-center bg-cover h-70vh" :style="{ backgroundImage: backgroundImageStyle }"></div>
-    <ProductLinkOnImage to="/produkte/base/eiche-natur-48320" :is-right-position="isRightPosition">
-      <slot></slot>
+    <ProductLinkOnImage to="/products/base/eiche-natur-48320" :is-right-position="isRightPosition">
+      <slot />
     </ProductLinkOnImage>
   </section>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator"
+import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 @Component
 export default class TheLandingImageBreaker extends Vue {

@@ -44,7 +44,7 @@
         <img class="h-16 md:h-24" :src="blueAngelImageUrl" alt="Blauer Engel" />
       </aside>
 
-      <ProductLinkOnImage to="produkte/touch/risseiche-natur-49781">
+      <ProductLinkOnImage to="products/touch/risseiche-natur-49781">
         Vinylboden Touch Risseiche Natur 49781
       </ProductLinkOnImage>
     </div>
@@ -52,9 +52,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator"
+import { Vue, Component } from "nuxt-property-decorator"
 
-import { Brightness, Variant } from "@/components/UI/AppButton.vue"
+import { Brightness, Variant } from "~/components/UI/AppButton.vue"
 
 @Component
 export default class TheLandingHeader extends Vue {
