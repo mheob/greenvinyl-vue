@@ -3,7 +3,7 @@
     <TheProductHeader :product="product" />
     <TheProductDetails class="mt-12" />
     <TheProjectSlider class="mt-12" />
-    <ProductList class="mt-12" :is-base="true" />
+    <ProductList class="mt-12" :is-base="isBaseCollection" />
   </div>
 </template>
 
@@ -28,5 +28,9 @@ import productsData from "~/data/products.json"
 })
 export default class ProductsCategoryId extends Vue {
   product: Product = {}
+
+  get isBaseCollection() {
+    return this.product.collection === "base"
+  }
 }
 </script>
