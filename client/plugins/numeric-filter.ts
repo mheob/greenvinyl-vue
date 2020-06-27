@@ -10,3 +10,8 @@ const digitsFilter = (value: number, digits: number) => {
   return value.toLocaleString("de", { minimumFractionDigits: digits, maximumFractionDigits: digits })
 }
 Vue.filter("digits", digitsFilter)
+
+const digitsLocaleFilter = (value: number, minDigits = 2, maxDigits = 2, locale = "de") => {
+  return value.toLocaleString(locale, { minimumFractionDigits: minDigits, maximumFractionDigits: maxDigits })
+}
+Vue.filter("digits", digitsLocaleFilter)
