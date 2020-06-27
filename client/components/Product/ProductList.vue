@@ -10,12 +10,7 @@
 
     <div class="flex flex-wrap mt-10 -mx-5">
       <div v-for="collection in collections" :key="collection.sap" class="px-5 mt-5 card">
-        <nuxt-link
-          class="block"
-          :to="`/products/${collection.collection}/${collection.name.toLowerCase().replace(' ', '-')}-${
-            collection.sap
-          }`"
-        >
+        <nuxt-link class="block" :to="productUrl(collection.collection, collection.name, collection.sap)">
           <!-- eslint-disable max-len -->
           <div
             class="flex-1 block bg-center bg-cover image"
@@ -66,7 +61,7 @@ import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 import { Brightness, Variant } from "~/components/UI/AppButton.vue"
 import { Icon } from "~/components/Icons/HeroIcons.vue"
-import { GeneralInformation, CollectionProperty, Product } from "~/models/product"
+import { GeneralInformation, CollectionProperty } from "~/models/product"
 import Products from "~/data/products.json"
 
 export enum Collection {
@@ -94,8 +89,12 @@ export default class ProductList extends Vue {
     return Products.collectionProperties[this.selectedCollection]
   }
 
-  get collections(): Product[] {
+  get collections() {
     return Products.articleList.filter(product => product.collection === this.selectedCollection)
+  }
+
+  productUrl(collection: string, name: string, sap: number) {
+    return `/products/${collection}/${name.toLowerCase().replace(" ", "-")}-${sap}`
   }
 }
 </script>

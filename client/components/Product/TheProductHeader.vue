@@ -14,10 +14,11 @@
       <div class="flex items-start justify-start h-full p-4 lg:p-16">
         <div class="max-w-lg">
           <header>
-            <h2 class="text-lg lg:text-xl">Base …DYN…</h2>
-            <h1 class="mt-1 text-4xl leading-none text-green-500 lg:text-6xl">Traubeneiche …DYN…</h1>
+            <h2 class="text-lg lg:text-xl">{{ product.collection | upperFirstChar }}</h2>
+            <h1 class="mt-1 text-4xl leading-none text-green-500 lg:text-6xl">{{ product.name }}</h1>
             <p class="mt-4 text-xl lg:text-2xl">
-              Landhausdiele / 1290 x 173 x 3,8 mm / umlaufende Fase / NK31/AC3 …DYN…
+              {{ product.optics }} / {{ product.length }} x {{ product.width }} x {{ product.thickness }} mm /
+              {{ product.fase }} / {{ product.stressClass }}
             </p>
           </header>
 
@@ -28,8 +29,8 @@
                 <div
                   class="flex items-center justify-end w-1/2 whitespace-no-wrap border-4 border-r-2 border-green-500 xl:w-auto"
                 >
-                  <span class="w-20 px-0 text-xl text-right cursor-default">19,90 …DYN…</span>
-                  <span class="pl-2 pr-3 cursor-default">€/m²</span>
+                  <span class="w-20 px-0 text-xl text-right cursor-default">{{ product.basePriceGross }}</span>
+                  <span class="pl-2 pr-3 cursor-default">€/{{ product.basePriceUnit }}</span>
                 </div>
                 <!-- eslint-enable max-len -->
 
@@ -43,7 +44,7 @@
                     autofocus
                     value="…DYN…"
                   />
-                  <span class="pl-2 pr-3">m²</span>
+                  <span class="pl-2 pr-3">{{ product.packagingUnitUnit }}</span>
                 </div>
                 <!-- eslint-enable max-len -->
 
@@ -61,7 +62,10 @@
               </div>
             </form>
 
-            <div class="mt-3 text-sm">Paket à 46,90 € (ca. 2,357 m²)<span class="font-semibold"></span> …DYN…</div>
+            <div class="mt-3 text-sm">
+              {{ product.packagingUnit }} à {{ pricePerPackagingUnit | digits(2) }} € (ca.
+              {{ product.packagingUnitContent }} {{ product.packagingUnitUnit }}) <span class="font-semibold"></span>
+            </div>
           </section>
 
           <section class="flex mt-12">
@@ -90,17 +94,27 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator"
+import { Vue, Component, Prop } from "vue-property-decorator"
 
 import { Brightness, Variant } from "~/components/UI/AppButton.vue"
+import { Product } from "~/models"
 
 @Component
 export default class TheProductHeader extends Vue {
+  @Prop({ type: Object, required: true }) readonly product!: Product
+
   Brightness = Brightness
   Variant = Variant
 
   get blueAngelImageUrl() {
     return require("~/assets/images/products/certificates/blauer-engel-uz120d.svg")
+  }
+
+  get pricePerPackagingUnit() {
+    if (!this.product.basePriceGross || !this.product.packagingUnitContent) return 0
+    const basePrice = +this.product.basePriceGross.replace(",", ".")
+    const packagingUnitContent = +this.product.packagingUnitContent.replace(",", ".")
+    return basePrice * packagingUnitContent
   }
 }
 </script>
