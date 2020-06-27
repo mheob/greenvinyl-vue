@@ -1,5 +1,4 @@
 import { getterTree, mutationTree } from "nuxt-typed-vuex"
-// import Cookie from "js-cookie"
 
 import { Retailer } from "~/models"
 import retailerData from "~/data/retailer.json"
