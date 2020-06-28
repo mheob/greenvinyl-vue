@@ -2,7 +2,9 @@
   <section id="greenvinyl-base" class="container px-5 py-16 md:px-0">
     <header>
       <p v-if="isProductPage" class="text-gray-600">Weitere Dekore aus der Kollektion:</p>
-      <h2 class="text-6xl text-green-500">{{ generalInformation.title }}</h2>
+      <h2 class="text-6xl text-green-500">
+        {{ generalInformation.title ? generalInformation.title.toUpperCase() : "" }}
+      </h2>
       <div class="flex flex-col justify-between lg:flex-row">
         <p class="mt-0 text-2xl">{{ generalInformation.subTitle }}</p>
         <p class="mt-0 text-2xl">{{ generalInformation.dimensions }}</p>

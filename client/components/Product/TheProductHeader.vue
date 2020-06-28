@@ -14,7 +14,7 @@
       <div class="flex items-start justify-start h-full p-4 lg:p-16">
         <div class="max-w-xl">
           <header>
-            <h2 class="text-lg lg:text-xl">{{ product.collection | upperFirstChar }}</h2>
+            <h2 class="text-lg lg:text-xl">{{ product.collection ? product.collection.toUpperCase() : "" }}</h2>
             <h1 class="mt-1 text-4xl leading-none text-green-500 lg:text-6xl">{{ product.name }}</h1>
             <p class="mt-4 text-xl lg:text-2xl">
               {{ product.optics }} / {{ product.length }} x {{ product.width }} x {{ product.thickness }} mm /
