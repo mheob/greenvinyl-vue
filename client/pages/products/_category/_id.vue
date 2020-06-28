@@ -2,7 +2,7 @@
   <div class="pb-12 bg-white lg:pt-20">
     <TheProductHeader :product="product" />
     <TheProductDetails :product="product" />
-    <TheProductSlider class="mt-12" />
+    <TheProductSlider :sap="product.sap" class="mt-12" />
     <ProductList :is-base="isBaseCollection" is-product-page />
   </div>
 </template>
