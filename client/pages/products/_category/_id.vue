@@ -1,7 +1,7 @@
 <template>
   <div class="pb-12 bg-white lg:pt-20">
     <TheProductHeader :product="product" />
-    <TheProductDetails class="mt-12" />
+    <TheProductDetails :product="product" />
     <TheProjectSlider class="mt-12" />
     <ProductList class="mt-12" :is-base="isBaseCollection" />
   </div>

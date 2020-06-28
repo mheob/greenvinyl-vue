@@ -102,7 +102,6 @@ export default class TheProductReservation extends Vue {
   }
 
   validateInput(event: KeyboardEvent) {
-    console.log(event)
     validateNumericInput(event)
   }
 
