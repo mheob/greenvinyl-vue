@@ -28,6 +28,39 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: "#007d52", height: "3px" },
+  router: {
+    // eslint-disable-next-line space-before-function-paren, @typescript-eslint/no-unused-vars
+    scrollBehavior: async (to, from, savedPosition) => {
+      if (savedPosition) {
+        return savedPosition
+      }
+
+      const findElement = (hash, x = 0) => {
+        return (
+          document.querySelector(hash) ||
+          new Promise(resolve => {
+            if (x > 50) {
+              return resolve(document.querySelector("#app"))
+            }
+            setTimeout(() => {
+              resolve(findElement(hash, ++x || 1))
+            }, 100)
+          })
+        )
+      }
+
+      if (to.hash) {
+        const element = await findElement(to.hash)
+        if ("scrollBehavior" in document.documentElement.style) {
+          return window.scrollTo({ top: element.offsetTop, behavior: "smooth" })
+        } else {
+          return window.scrollTo(0, element.offsetTop)
+        }
+      }
+
+      return { x: 0, y: 0 }
+    }
+  },
   /*
    ** Global CSS
    */
@@ -42,7 +75,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~plugins/core-components.ts", "~plugins/numeric-filter.ts"],
+  plugins: [
+    "~plugins/core-components.ts",
+    "~plugins/numeric-filter.ts",
+    "~plugins/string-filter.ts",
+    { src: "~plugins/flickity.ts", ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
