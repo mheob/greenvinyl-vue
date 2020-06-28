@@ -41,9 +41,14 @@ module.exports = {
         "8xl": "100rem"
       },
       height: {
+        "30vh": "30vh",
+        "40vh": "40vh",
         "50vh": "50vh",
         "70vh": "70vh",
         "80vh": "80vh"
+      },
+      inset: {
+        "-16": "-4rem"
       }
     },
     customForms: theme => ({

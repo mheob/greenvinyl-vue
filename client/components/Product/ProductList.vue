@@ -1,6 +1,7 @@
 <template>
   <section id="greenvinyl-base" class="container px-5 py-16 md:px-0">
     <header>
+      <p v-if="isProductPage" class="text-gray-600">Weitere Dekore aus der Kollektion:</p>
       <h2 class="text-6xl text-green-500">{{ generalInformation.title }}</h2>
       <div class="flex flex-col justify-between lg:flex-row">
         <p class="mt-0 text-2xl">{{ generalInformation.subTitle }}</p>
@@ -10,15 +11,13 @@
 
     <div class="flex flex-wrap mt-10 -mx-5">
       <div v-for="collection in collections" :key="collection.sap" class="px-5 mt-5 card">
-        <nuxt-link
-          class="block"
-          :to="`/products/${collection.collection}/${collection.name.toLowerCase()}-${collection.sap}`"
-        >
+        <nuxt-link class="block" :to="productUrl(collection.collection, collection.name, collection.sap)">
           <!-- eslint-disable max-len -->
           <div
             class="flex-1 block bg-center bg-cover image"
             :style="`background-image: url(https://classen-group.com/assets/products/decors/_800x600_crop_center-center_90_none/${collection.featuredImage})`"
           ></div>
+          <!-- eslint-enable max-len -->
           <div class="mt-1 text-sm text-gray-800">
             <h3 class="text-base">{{ collection.name }}</h3>
             <h4 class="text-sm">{{ collection.optics }}</h4>
@@ -63,7 +62,7 @@ import { Vue, Component, Prop } from "nuxt-property-decorator"
 
 import { Brightness, Variant } from "~/components/UI/AppButton.vue"
 import { Icon } from "~/components/Icons/HeroIcons.vue"
-import { GeneralInformation, CollectionProperty, Product } from "~/models/product"
+import { GeneralInformation, CollectionProperty } from "~/models/product"
 import Products from "~/data/products.json"
 
 export enum Collection {
@@ -72,8 +71,9 @@ export enum Collection {
 }
 
 @Component
-export default class LandingProducts extends Vue {
+export default class ProductList extends Vue {
   @Prop({ type: Boolean, default: false }) readonly isBase!: Boolean
+  @Prop({ type: Boolean, default: false }) readonly isProductPage!: Boolean
 
   Brightness = Brightness
   Variant = Variant
@@ -91,8 +91,12 @@ export default class LandingProducts extends Vue {
     return Products.collectionProperties[this.selectedCollection]
   }
 
-  get collections(): Product[] {
+  get collections() {
     return Products.articleList.filter(product => product.collection === this.selectedCollection)
+  }
+
+  productUrl(collection: string, name: string, sap: number) {
+    return `/products/${collection}/${name.toLowerCase().replace(" ", "-")}-${sap}`
   }
 }
 </script>

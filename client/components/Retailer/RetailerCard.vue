@@ -2,7 +2,7 @@
   <article class="bg-green-200">
     <h2 class="text-2xl">
       {{ retailer.name }}
-      <span class="text-xl text-gray-700 whitespace-no-wrap">({{ retailer.distance | digits }} km)</span>
+      <span class="text-xl text-gray-700 whitespace-no-wrap">({{ retailer.distance | digitsRange }} km)</span>
     </h2>
     <div>
       <div class="flex mt-4">

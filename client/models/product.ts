@@ -32,10 +32,10 @@ export interface CollectionProperty {
 }
 
 export interface Product {
-  sap: number
+  sap?: number
   artnr?: string
   ean?: string
-  name: string
+  name?: string
   name2?: string
   nameEn?: string
   name2En?: string

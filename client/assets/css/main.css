@@ -17,6 +17,37 @@ a {
   z-index: 9999;
 }
 
+/* Change Chrome Autofill BG-Color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Hide spinner in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Position the spinner to the left */
+input[type="number"]::-webkit-textfield-decoration-container {
+  flex-direction: row-reverse;
+}
+
+/* ".hide-spinner" class to hide spinner */
+input[type="number"].hide-spinner::-webkit-outer-spin-button,
+input[type="number"].hide-spinner::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
 @screen lg {
   .container {
     padding-right: 2rem;
