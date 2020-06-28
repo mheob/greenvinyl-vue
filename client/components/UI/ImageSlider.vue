@@ -33,9 +33,9 @@ export default class ImageSlider extends Vue {
 
 <style>
 .flickity-prev-next-button {
-  @apply bg-transparent;
   width: 75px;
   height: 75px;
+  background-color: transparent;
 }
 
 .flickity-prev-next-button .arrow {
@@ -43,6 +43,6 @@ export default class ImageSlider extends Vue {
 }
 
 .flickity-prev-next-button:hover {
-  @apply bg-transparent;
+  background-color: transparent;
 }
 </style>

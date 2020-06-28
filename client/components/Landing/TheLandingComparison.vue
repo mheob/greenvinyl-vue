@@ -8,8 +8,8 @@
         <thead>
           <tr>
             <th></th>
-            <th>Base</th>
-            <th>Touch</th>
+            <th>BASE</th>
+            <th>TOUCH</th>
           </tr>
         </thead>
         <tbody>
