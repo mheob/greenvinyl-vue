@@ -1,5 +1,5 @@
 <template>
-  <section id="more-info" class="px-4 pt-4 lg:pt-8 lg:px-8">
+  <section class="px-4 pt-4 lg:pt-8 lg:px-8">
     <AccordionFrame>
       <TheProductDetailsTechnical :product="product" />
       <TheProductDetailsDownloads />

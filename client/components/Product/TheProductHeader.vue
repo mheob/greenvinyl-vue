@@ -24,21 +24,10 @@
 
           <TheProductReservation :product="product" />
 
-          <section class="flex mt-12">
-            <AppButton
-              to="#more-info"
-              class="mr-10"
-              overwrite-display="hidden md:inline-block"
-              :brightness="Brightness.DARK"
-              :variant="Variant.LINK"
-            >
-              Details zeigen
-            </AppButton>
-
-            <AppButton :brightness="Brightness.DARK" :variant="Variant.LINK" is-button>
-              Muster anfordern
-            </AppButton>
-          </section>
+          <!-- TODO: Implement the samples action -->
+          <AppButton class="flex mt-12" :brightness="Brightness.DARK" :variant="Variant.LINK" is-button>
+            Muster anfordern
+          </AppButton>
         </div>
       </div>
 
