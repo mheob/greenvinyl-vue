@@ -15,6 +15,7 @@
             to="https://classen-group.com/assets/mediacenter/catalogues/Greenvinyl2020.pdf"
             :variant="Variant.OUTLINE"
             :brightness="Brightness.DARK"
+            open-in-new-tab
           >
             <HeroIcons class="inline-block" :type="Icon.DOCUMENT_DOWNLOAD" width-class="w-5" /> Download
           </AppButton>
@@ -29,6 +30,7 @@
             to="https://classen-group.com/assets/mediacenter/laying-instructions/va_classen_vinylboden_02_2018.pdf"
             :variant="Variant.OUTLINE"
             :brightness="Brightness.DARK"
+            open-in-new-tab
           >
             <HeroIcons class="inline-block" :type="Icon.DOCUMENT_DOWNLOAD" width-class="w-5" /> Download
           </AppButton>
@@ -43,6 +45,7 @@
             to="https://www.youtube.com/embed/jWp23yf0Fu4?start=3&amp;feature=oembed?"
             :variant="Variant.OUTLINE"
             :brightness="Brightness.DARK"
+            open-in-new-tab
           >
             <HeroIcons class="inline-block" :type="Icon.PLAY" width-class="w-5" /> Abspielen
           </AppButton>
@@ -57,6 +60,7 @@
             to="ttps://www.youtube.com/embed/kqod3bSsdy4?feature=oembed?"
             :variant="Variant.OUTLINE"
             :brightness="Brightness.DARK"
+            open-in-new-tab
           >
             <HeroIcons class="inline-block" :type="Icon.PLAY" width-class="w-5" /> Abspielen
           </AppButton>
