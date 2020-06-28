@@ -31,7 +31,8 @@
     "nuxt-gmaps": "^1.2.4",
     "nuxt-property-decorator": "^2.7.2",
     "nuxt-typed-vuex": "^0.1.19",
-    "vue-class-component": "^7.2.3"
+    "vue-class-component": "^7.2.3",
+    "vue-flickity": "^1.2.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",

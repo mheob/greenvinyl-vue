@@ -75,7 +75,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~plugins/core-components.ts", "~plugins/numeric-filter.ts", "~plugins/string-filter.ts"],
+  plugins: [
+    "~plugins/core-components.ts",
+    "~plugins/numeric-filter.ts",
+    "~plugins/string-filter.ts",
+    { src: "~plugins/flickity.ts", ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
