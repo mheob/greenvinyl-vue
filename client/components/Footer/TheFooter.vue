@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import TheFooterCallToAction from "~/components/Footer/TheFooterCallToAction.vue"
-import TheFooterNavigation from "~/components/Footer/TheFooterNavigation.vue"
-import BrandLogo from "~/components/Icons/BrandLogo.vue"
+import TheFooterCallToAction from '~/components/Footer/TheFooterCallToAction.vue'
+import TheFooterNavigation from '~/components/Footer/TheFooterNavigation.vue'
+import BrandLogo from '~/components/Icons/BrandLogo.vue'
 
 @Component({ components: { TheFooterCallToAction, BrandLogo, TheFooterNavigation } })
 export default class TheFooter extends Vue {}

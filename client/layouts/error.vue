@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import Vue from 'vue'
 export default Vue.extend({
   // eslint-disable-next-line vue/require-prop-types
-  props: ["error"]
+  props: ['error']
 })
 </script>

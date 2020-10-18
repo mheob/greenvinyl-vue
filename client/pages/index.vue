@@ -28,14 +28,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import TheLandingHeader from "~/components/Landing/TheLandingHeader.vue"
-import TheLandingIntro from "~/components/Landing/TheLandingIntro.vue"
-import LandingImageBreaker from "~/components/Landing/LandingImageBreaker.vue"
-import TheLandingFeatures from "~/components/Landing/TheLandingFeatures.vue"
-import TheLandingComparison from "~/components/Landing/TheLandingComparison.vue"
-import ProductList from "~/components/Product/ProductList.vue"
+import TheLandingHeader from '~/components/Landing/TheLandingHeader.vue'
+import TheLandingIntro from '~/components/Landing/TheLandingIntro.vue'
+import LandingImageBreaker from '~/components/Landing/LandingImageBreaker.vue'
+import TheLandingFeatures from '~/components/Landing/TheLandingFeatures.vue'
+import TheLandingComparison from '~/components/Landing/TheLandingComparison.vue'
+import ProductList from '~/components/Product/ProductList.vue'
 
 @Component({
   components: {
@@ -49,11 +49,11 @@ import ProductList from "~/components/Product/ProductList.vue"
 })
 export default class Index extends Vue {
   get imageBreakerImage1() {
-    return require("~/assets/images/home/greenvinyl-frau.jpg")
+    return require('~/assets/images/home/greenvinyl-frau.jpg')
   }
 
   get imageBreakerImage2() {
-    return require("~/assets/images/home/greenvinyl-mann-frau.jpg")
+    return require('~/assets/images/home/greenvinyl-mann-frau.jpg')
   }
 }
 </script>

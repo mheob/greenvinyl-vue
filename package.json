@@ -9,6 +9,7 @@
     "dev": "nuxt-ts",
     "generate": "nuxt-ts generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
     "start": "nuxt-ts start",
     "test": "jest"
   },

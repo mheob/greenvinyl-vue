@@ -5,19 +5,19 @@ module.exports = {
     node: true
   },
   extends: [
-    "@nuxtjs/eslint-config-typescript",
-    "prettier",
-    "prettier/vue",
-    "plugin:prettier/recommended",
-    "plugin:nuxt/recommended"
+    '@nuxtjs/eslint-config-typescript',
+    'prettier',
+    'prettier/vue',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended'
   ],
-  plugins: ["prettier"],
+  plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    "max-len": ["error", { code: 120 }],
-    "no-console": "off",
-    quotes: ["error", "double"],
-    semi: ["error", "never"],
-    "space-before-function-paren": ["error", "never"]
+    'max-len': ['error', { code: 120 }],
+    'no-console': 'off',
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    'space-before-function-paren': ['error', 'never']
   }
 }

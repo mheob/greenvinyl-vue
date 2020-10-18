@@ -79,10 +79,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "nuxt-property-decorator"
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
-import AccordionItem from "~/components/UI/Accordion/AccordionItem.vue"
-import { Product } from "~/models"
+import AccordionItem from '~/components/UI/Accordion/AccordionItem.vue'
+import { Product } from '~/models'
 
 @Component({ components: { AccordionItem } })
 export default class TheProductDetailsTechnical extends Vue {

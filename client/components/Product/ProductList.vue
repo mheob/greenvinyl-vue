@@ -3,7 +3,7 @@
     <header>
       <p v-if="isProductPage" class="text-gray-600">Weitere Dekore aus der Kollektion:</p>
       <h2 class="text-6xl text-green-500">
-        {{ generalInformation.title ? generalInformation.title.toUpperCase() : "" }}
+        {{ generalInformation.title ? generalInformation.title.toUpperCase() : '' }}
       </h2>
       <div class="flex flex-col justify-between lg:flex-row">
         <p class="mt-0 text-2xl">{{ generalInformation.subTitle }}</p>
@@ -60,16 +60,16 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "nuxt-property-decorator"
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
-import { Brightness, Variant } from "~/components/UI/AppButton.vue"
-import { Icon } from "~/components/Icons/HeroIcons.vue"
-import { GeneralInformation, CollectionProperty } from "~/models/product"
-import Products from "~/data/products.json"
+import { Brightness, Variant } from '~/components/UI/AppButton.vue'
+import { Icon } from '~/components/Icons/HeroIcons.vue'
+import { GeneralInformation, CollectionProperty } from '~/models/product'
+import Products from '~/data/products.json'
 
 export enum Collection {
-  BASE = "base",
-  TOUCH = "touch"
+  BASE = 'base',
+  TOUCH = 'touch'
 }
 
 @Component
@@ -98,7 +98,7 @@ export default class ProductList extends Vue {
   }
 
   productUrl(collection: string, name: string, sap: number) {
-    return `/products/${collection}/${name.toLowerCase().replace(" ", "-")}-${sap}`
+    return `/products/${collection}/${name.toLowerCase().replace(' ', '-')}-${sap}`
   }
 }
 </script>

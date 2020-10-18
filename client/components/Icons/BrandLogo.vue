@@ -77,11 +77,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "nuxt-property-decorator"
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class BrandLogo extends Vue {
   @Prop({ type: Boolean, default: false }) readonly useBrandColor!: Boolean
-  @Prop({ type: String, default: "w-auto" }) readonly widthClass!: String
+  @Prop({ type: String, default: 'w-auto' }) readonly widthClass!: String
 }
 </script>

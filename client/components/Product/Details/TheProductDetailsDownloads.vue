@@ -71,11 +71,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import AccordionItem from "~/components/UI/Accordion/AccordionItem.vue"
-import { Variant, Brightness } from "~/components/UI/AppButton.vue"
-import { Icon } from "~/components/Icons/HeroIcons.vue"
+import AccordionItem from '~/components/UI/Accordion/AccordionItem.vue'
+import { Variant, Brightness } from '~/components/UI/AppButton.vue'
+import { Icon } from '~/components/Icons/HeroIcons.vue'
 
 @Component({ components: { AccordionItem } })
 export default class TheProductDetailsTechnical extends Vue {

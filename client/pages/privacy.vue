@@ -673,7 +673,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class Privacy extends Vue {}
@@ -689,12 +689,12 @@ h2 {
 }
 
 h2::before {
-  content: counter(privacy-main-section, upper-roman) ". ";
+  content: counter(privacy-main-section, upper-roman) '. ';
   counter-increment: privacy-main-section;
 }
 
 h3::before {
-  content: counter(privacy-sub-section) ". ";
+  content: counter(privacy-sub-section) '. ';
   counter-increment: privacy-sub-section;
 }
 </style>

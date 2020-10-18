@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "nuxt-property-decorator"
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 export enum Icon {
   CHECK,
@@ -72,7 +72,7 @@ export enum Icon {
 export default class HeroIcons extends Vue {
   @Prop(String) readonly colorClass?: String
   @Prop({ type: Number, required: true }) readonly type!: Icon
-  @Prop({ type: String, default: "w-auto" }) readonly widthClass!: String
+  @Prop({ type: String, default: 'w-auto' }) readonly widthClass!: String
 
   Icon = Icon
 }

@@ -95,9 +95,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import { Brightness, Variant } from "~/components/UI/AppButton.vue"
+import { Brightness, Variant } from '~/components/UI/AppButton.vue'
 
 @Component
 export default class TheLandingHeader extends Vue {
@@ -111,17 +111,17 @@ export default class TheLandingHeader extends Vue {
   }
 
   get backgroundImageStyle1() {
-    const url = require("~/assets/images/home/greenvinyl-home-header-2.jpg")
+    const url = require('~/assets/images/home/greenvinyl-home-header-2.jpg')
     return `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(${url})`
   }
 
   get backgroundImageStyle2() {
-    const url = require("~/assets/images/home/greenvinyl-home-header.jpg")
+    const url = require('~/assets/images/home/greenvinyl-home-header.jpg')
     return `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(${url})`
   }
 
   get blueAngelImageUrl() {
-    return require("~/assets/images/products/certificates/blauer-engel-uz120d.svg")
+    return require('~/assets/images/products/certificates/blauer-engel-uz120d.svg')
   }
 }
 </script>

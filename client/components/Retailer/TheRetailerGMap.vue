@@ -29,9 +29,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from "nuxt-property-decorator"
+import { Vue, Component, Prop, Watch } from 'nuxt-property-decorator'
 
-import TheRetailerGMapInfoCard from "~/components/Retailer/TheRetailerGMapInfoCard.vue"
+import TheRetailerGMapInfoCard from '~/components/Retailer/TheRetailerGMapInfoCard.vue'
 
 @Component({ components: { TheRetailerGMapInfoCard } })
 export default class TheRetailerGMap extends Vue {
@@ -42,11 +42,11 @@ export default class TheRetailerGMap extends Vue {
   marker = {
     path:
       // eslint-disable-next-line max-len
-      "M40 0C26.191 0 15 11.194 15 25c0 23.87 25 55 25 55s25-31.13 25-55C65 11.194 53.807 0 40 0zm0 38.8c-7.457 0-13.5-6.044-13.5-13.5S32.543 11.8 40 11.8c7.455 0 13.5 6.044 13.5 13.5S47.455 38.8 40 38.8z",
-    fillColor: "#ecc94b",
+      'M40 0C26.191 0 15 11.194 15 25c0 23.87 25 55 25 55s25-31.13 25-55C65 11.194 53.807 0 40 0zm0 38.8c-7.457 0-13.5-6.044-13.5-13.5S32.543 11.8 40 11.8c7.455 0 13.5 6.044 13.5 13.5S47.455 38.8 40 38.8z',
+    fillColor: '#ecc94b',
     fillOpacity: 0.6,
     scale: 0.5,
-    strokeColor: "#030104",
+    strokeColor: '#030104',
     strokeWeight: 1
   }
 
@@ -60,10 +60,10 @@ export default class TheRetailerGMap extends Vue {
 
   clusterStyle = [
     {
-      url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png",
+      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png',
       width: 56,
       height: 56,
-      textColor: "#000"
+      textColor: '#000'
     }
   ]
 
@@ -78,7 +78,7 @@ export default class TheRetailerGMap extends Vue {
   get retailerList() {
     return (
       this.$accessor.retailer.retailerInRange ??
-      JSON.parse(localStorage.getItem("retailerInRange")!) ?? [this.$accessor.retailer.mapCenter]
+      JSON.parse(localStorage.getItem('retailerInRange')!) ?? [this.$accessor.retailer.mapCenter]
     )
   }
 
@@ -86,7 +86,7 @@ export default class TheRetailerGMap extends Vue {
     this.componentKey = Date.now()
   }
 
-  @Watch("retailerList") getTimestamp() {
+  @Watch('retailerList') getTimestamp() {
     this.componentKey = Date.now()
   }
 }

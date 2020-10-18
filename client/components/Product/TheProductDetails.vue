@@ -8,12 +8,12 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "nuxt-property-decorator"
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
-import AccordionFrame from "~/components/UI/Accordion/AccordionFrame.vue"
-import TheProductDetailsTechnical from "~/components/Product/Details/TheProductDetailsTechnical.vue"
-import TheProductDetailsDownloads from "~/components/Product/Details/TheProductDetailsDownloads.vue"
-import { Product } from "~/models"
+import AccordionFrame from '~/components/UI/Accordion/AccordionFrame.vue'
+import TheProductDetailsTechnical from '~/components/Product/Details/TheProductDetailsTechnical.vue'
+import TheProductDetailsDownloads from '~/components/Product/Details/TheProductDetailsDownloads.vue'
+import { Product } from '~/models'
 
 @Component({ components: { AccordionFrame, TheProductDetailsTechnical, TheProductDetailsDownloads } })
 export default class TheProductDetails extends Vue {

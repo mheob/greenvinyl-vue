@@ -47,11 +47,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from "nuxt-property-decorator"
+import { Vue, Component, Prop, Watch } from 'nuxt-property-decorator'
 
-import { Brightness, Variant } from "~/components/UI/AppButton.vue"
-import { localeNumberFormat, validateNumericInput } from "~/utils"
-import { Product } from "~/models"
+import { Brightness, Variant } from '~/components/UI/AppButton.vue'
+import { localeNumberFormat, validateNumericInput } from '~/utils'
+import { Product } from '~/models'
 
 @Component
 export default class TheProductReservation extends Vue {
@@ -60,29 +60,29 @@ export default class TheProductReservation extends Vue {
   Brightness = Brightness
   Variant = Variant
 
-  quantity: number | string = ""
+  quantity: number | string = ''
   isInCart = false
   canOrder = false
 
   get packagingUnit() {
     if (!this.product.packagingUnit) return
-    return this.product.packagingUnit.split("|")[0]
+    return this.product.packagingUnit.split('|')[0]
   }
 
   get pricePerPackagingUnit() {
     if (!this.product.basePriceGross || !this.product.packagingUnitContent) return
-    const basePrice = +this.product.basePriceGross.replace(",", ".")
-    const packagingUnitContent = +this.product.packagingUnitContent.replace(",", ".")
+    const basePrice = +this.product.basePriceGross.replace(',', '.')
+    const packagingUnitContent = +this.product.packagingUnitContent.replace(',', '.')
     return basePrice * packagingUnitContent
   }
 
   get priceTotalInformation() {
     if (!this.quantity || this.quantity < 1 || this.quantity > 999) return
     if (!this.product.packagingUnitContent || !this.product.packagingUnit || !this.product.basePriceGross) return
-    const unitContent = +this.product.packagingUnitContent.replace(",", ".")
-    const basePrice = +this.product.basePriceGross.replace(",", ".")
+    const unitContent = +this.product.packagingUnitContent.replace(',', '.')
+    const basePrice = +this.product.basePriceGross.replace(',', '.')
     const itemOrderQuantity = Math.ceil(+this.quantity / unitContent)
-    const itemUnit = this.product.packagingUnit.split("|")
+    const itemUnit = this.product.packagingUnit.split('|')
     const unit = itemOrderQuantity > 1 ? itemUnit[2] : itemUnit[0]
     const contentValueTotal = localeNumberFormat(itemOrderQuantity * unitContent)
     const itemPriceTotal = localeNumberFormat(basePrice * unitContent * itemOrderQuantity)
@@ -92,12 +92,12 @@ export default class TheProductReservation extends Vue {
   get buttonText() {
     if (this.canOrder) {
       if (this.quantity! < 1) {
-        return "Aus Warenkorb entfernen"
+        return 'Aus Warenkorb entfernen'
       } else {
-        return this.isInCart ? "Menge aktualisieren" : "In den Warenkorb"
+        return this.isInCart ? 'Menge aktualisieren' : 'In den Warenkorb'
       }
     } else {
-      return "Menge eingeben"
+      return 'Menge eingeben'
     }
   }
 
@@ -105,9 +105,9 @@ export default class TheProductReservation extends Vue {
     validateNumericInput(event)
   }
 
-  @Watch("quantity") onQuantityChange() {
+  @Watch('quantity') onQuantityChange() {
     // TODO: Check if the article is in cart.
-    if (this.quantity === "") this.canOrder = false
+    if (this.quantity === '') this.canOrder = false
     else this.canOrder = (this.quantity > 0 && this.quantity <= 999) || (this.quantity < 1 && this.isInCart)
   }
 }

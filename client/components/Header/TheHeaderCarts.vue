@@ -28,7 +28,7 @@
 
 <script lang="ts">
 // TODO: Make the bubbles dynamic
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class TheHeaderCarts extends Vue {}

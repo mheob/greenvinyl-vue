@@ -31,7 +31,7 @@
 
     <client-only>
       <p v-if="retailerCount > 0" class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
-        Es wurden {{ retailerCount > 1 ? "wurden" : "wurde" }}
+        Es wurden {{ retailerCount > 1 ? 'wurden' : 'wurde' }}
         <strong>{{ retailerCount }} CLASSEN Greenvinyl-Partner</strong> in Ihrer Nähe gefunden.
       </p>
       <p v-else class="mt-2 text-sm leading-normal tracking-wide md:mt-4">
@@ -42,9 +42,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import { getLocationInRange, getSwitchedGeoCode } from "~/utils"
+import { getLocationInRange, getSwitchedGeoCode } from '~/utils'
 
 @Component
 export default class TheRetailerSearchForm extends Vue {
@@ -97,28 +97,28 @@ export default class TheRetailerSearchForm extends Vue {
   }
 
   initLocalStorage() {
-    localStorage.setItem("mapCenter", JSON.stringify(this.$accessor.retailer.mapCenter))
-    localStorage.setItem("retailerInRange", JSON.stringify(this.$accessor.retailer.retailerInRange))
-    localStorage.setItem("selectedRadius", this.$accessor.retailer.selectedRadius.toString())
-    localStorage.setItem("userPosition", this.$accessor.retailer.userPosition)
+    localStorage.setItem('mapCenter', JSON.stringify(this.$accessor.retailer.mapCenter))
+    localStorage.setItem('retailerInRange', JSON.stringify(this.$accessor.retailer.retailerInRange))
+    localStorage.setItem('selectedRadius', this.$accessor.retailer.selectedRadius.toString())
+    localStorage.setItem('userPosition', this.$accessor.retailer.userPosition)
   }
 
   created() {
     if (process.client) {
-      if (localStorage.getItem("mapCenter")) {
-        this.$accessor.retailer.setMapCenter(JSON.parse(localStorage.getItem("mapCenter")!))
+      if (localStorage.getItem('mapCenter')) {
+        this.$accessor.retailer.setMapCenter(JSON.parse(localStorage.getItem('mapCenter')!))
       }
-      if (localStorage.getItem("retailerInRange")) {
-        this.$accessor.retailer.setRetailerInRange(JSON.parse(localStorage.getItem("retailerInRange")!))
+      if (localStorage.getItem('retailerInRange')) {
+        this.$accessor.retailer.setRetailerInRange(JSON.parse(localStorage.getItem('retailerInRange')!))
       }
-      if (localStorage.getItem("selectedRadius")) {
-        this.$accessor.retailer.setRadius(+localStorage.getItem("selectedRadius")!)
+      if (localStorage.getItem('selectedRadius')) {
+        this.$accessor.retailer.setRadius(+localStorage.getItem('selectedRadius')!)
       }
-      if (localStorage.getItem("userPosition")) {
-        this.$accessor.retailer.setUserPosition(localStorage.getItem("userPosition")!)
+      if (localStorage.getItem('userPosition')) {
+        this.$accessor.retailer.setUserPosition(localStorage.getItem('userPosition')!)
       }
 
-      if (!this.$accessor.retailer.userPosition && "geolocation" in navigator) {
+      if (!this.$accessor.retailer.userPosition && 'geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
           async pos => {
             const geoCodeData = await getSwitchedGeoCode(pos.coords)
@@ -128,7 +128,7 @@ export default class TheRetailerSearchForm extends Vue {
             this.initLocalStorage()
           },
           err => {
-            throw new Error("Geolocation error: " + err)
+            throw new Error('Geolocation error: ' + err)
           }
         )
       } else {

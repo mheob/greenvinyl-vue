@@ -43,18 +43,18 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "nuxt-property-decorator"
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 export enum Variant {
-  BUTTON = "",
-  LINK = "link",
-  OUTLINE = "outline"
+  BUTTON = '',
+  LINK = 'link',
+  OUTLINE = 'outline'
 }
 
 export enum Brightness {
-  DEFAULT = "",
-  DARK = "dark",
-  LIGHT = "light"
+  DEFAULT = '',
+  DARK = 'dark',
+  LIGHT = 'light'
 }
 
 @Component
@@ -68,15 +68,15 @@ export default class AppButton extends Vue {
   @Prop(String) readonly overwriteDisplay?: String
 
   get variantClass(): string {
-    return this.variant ? "btn-" + this.variant : ""
+    return this.variant ? 'btn-' + this.variant : ''
   }
 
   get brightnessClass(): string {
-    return !this.brightness ? "" : `btn-${this.variant ? this.variant + "-" : ""}-${this.brightness}`
+    return !this.brightness ? '' : `btn-${this.variant ? this.variant + '-' : ''}-${this.brightness}`
   }
 
   get deactivateTransformation(): string {
-    return this.noTransform ? "btn--no-transform" : ""
+    return this.noTransform ? 'btn--no-transform' : ''
   }
 }
 </script>

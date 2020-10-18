@@ -63,25 +63,25 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import { Icon } from "~/components/Icons/HeroIcons.vue"
+import { Icon } from '~/components/Icons/HeroIcons.vue'
 
 @Component
 export default class TheLandingComparison extends Vue {
   Icon = Icon
 
   get backgroundImageStyle() {
-    const imageUrl = require("~/assets/images/home/greenvinyl-family-2zu1.jpg")
+    const imageUrl = require('~/assets/images/home/greenvinyl-family-2zu1.jpg')
     return `linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url(${imageUrl})`
   }
 
   get baseImageUrl() {
-    return require("~/assets/images/products/features/ico-gv-nk-31.svg")
+    return require('~/assets/images/products/features/ico-gv-nk-31.svg')
   }
 
   get touchImageUrl() {
-    return require("~/assets/images/products/features/ico-gv-nk-32.svg")
+    return require('~/assets/images/products/features/ico-gv-nk-32.svg')
   }
 }
 </script>

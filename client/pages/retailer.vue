@@ -25,11 +25,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
-import TheRetailerSearchForm from "~/components/Retailer/TheRetailerSearchForm.vue"
-import TheRetailerGMap from "~/components/Retailer/TheRetailerGMap.vue"
-import RetailerCard from "~/components/Retailer/RetailerCard.vue"
+import TheRetailerSearchForm from '~/components/Retailer/TheRetailerSearchForm.vue'
+import TheRetailerGMap from '~/components/Retailer/TheRetailerGMap.vue'
+import RetailerCard from '~/components/Retailer/RetailerCard.vue'
 
 @Component({
   components: { TheRetailerSearchForm, TheRetailerGMap, RetailerCard }

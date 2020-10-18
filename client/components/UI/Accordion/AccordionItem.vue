@@ -21,11 +21,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Inject } from "nuxt-property-decorator"
+import { Vue, Component, Inject } from 'nuxt-property-decorator'
 
 @Component
 export default class AccordionItem extends Vue {
-  @Inject("accordion") accordion!: { count: number; active: number | null }
+  @Inject('accordion') accordion!: { count: number; active: number | null }
 
   index: number | null = null
 
@@ -38,11 +38,11 @@ export default class AccordionItem extends Vue {
   }
 
   start(element: HTMLElement) {
-    element.style.height = element.scrollHeight + "px"
+    element.style.height = element.scrollHeight + 'px'
   }
 
   end(element: HTMLElement) {
-    element.style.height = ""
+    element.style.height = ''
   }
 
   created() {
@@ -58,7 +58,7 @@ export default class AccordionItem extends Vue {
   color: #ffffff;
   font-size: 52px;
   line-height: 52px;
-  content: "\002B";
+  content: '\002B';
 }
 
 .accordion__trigger_active {
@@ -66,7 +66,7 @@ export default class AccordionItem extends Vue {
 }
 
 .accordion__trigger_active:after {
-  content: "\2212";
+  content: '\2212';
 }
 
 .accordion-enter-active,

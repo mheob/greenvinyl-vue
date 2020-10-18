@@ -41,20 +41,20 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class TheLandingIntro extends Vue {
   get featureImageUrl() {
-    return require("~/assets/images/products/features/ico-gv-ohne-pvc.svg")
+    return require('~/assets/images/products/features/ico-gv-ohne-pvc.svg')
   }
 
   get certificateImageUrl() {
-    return require("~/assets/images/products/certificates/eco-institut-id-0816-33664-002.svg")
+    return require('~/assets/images/products/certificates/eco-institut-id-0816-33664-002.svg')
   }
 
   get sideImageUrl() {
-    return require("~/assets/images/home/greenvinyl-sofa.jpg")
+    return require('~/assets/images/home/greenvinyl-sofa.jpg')
   }
 }
 </script>
