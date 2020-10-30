@@ -7,7 +7,7 @@
       <TheRetailerSearchForm slot="additional" class="mt-10" />
     </ContentHeader>
 
-    <client-only style="display: block; min-height: 50vh;">
+    <client-only style="display: block; min-height: 50vh">
       <TheRetailerGMap :timestamp="Date.now()" />
 
       <section

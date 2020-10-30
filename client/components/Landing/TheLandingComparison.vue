@@ -3,7 +3,7 @@
     class="relative py-20 bg-left bg-no-repeat bg-cover xl:bg-contain xl:bg-right"
     :style="`background-image: ${backgroundImageStyle};`"
   >
-    <div class="container px-5 md:px-0" style="overflow-x: auto;">
+    <div class="container px-5 md:px-0" style="overflow-x: auto">
       <table class="lg:w-7/12">
         <thead>
           <tr>

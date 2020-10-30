@@ -20,9 +20,7 @@
             <img class="h-24 mx-3 mt-5" :src="certificateImageUrl" alt="ECO Institut" />
           </div>
 
-          <p class="mt-4 text-xs italic font-hairline text-left">
-            *aus umweltgerechtem Polymergemisch
-          </p>
+          <p class="mt-4 text-xs italic font-hairline text-left">*aus umweltgerechtem Polymergemisch</p>
         </div>
       </div>
 
