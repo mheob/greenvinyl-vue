@@ -71,16 +71,16 @@ export default class TheProductReservation extends Vue {
 
   get pricePerPackagingUnit() {
     if (!this.product.basePriceGross || !this.product.packagingUnitContent) return
-    const basePrice = +this.product.basePriceGross.replace(',', '.')
-    const packagingUnitContent = +this.product.packagingUnitContent.replace(',', '.')
+    const basePrice = +this.product.basePriceGross.replace(/,/i, '.')
+    const packagingUnitContent = +this.product.packagingUnitContent.replace(/,/i, '.')
     return basePrice * packagingUnitContent
   }
 
   get priceTotalInformation() {
     if (!this.quantity || this.quantity < 1 || this.quantity > 999) return
     if (!this.product.packagingUnitContent || !this.product.packagingUnit || !this.product.basePriceGross) return
-    const unitContent = +this.product.packagingUnitContent.replace(',', '.')
-    const basePrice = +this.product.basePriceGross.replace(',', '.')
+    const unitContent = +this.product.packagingUnitContent.replace(/,/i, '.')
+    const basePrice = +this.product.basePriceGross.replace(/,/i, '.')
     const itemOrderQuantity = Math.ceil(+this.quantity / unitContent)
     const itemUnit = this.product.packagingUnit.split('|')
     const unit = itemOrderQuantity > 1 ? itemUnit[2] : itemUnit[0]
