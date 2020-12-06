@@ -98,7 +98,7 @@ export default class ProductList extends Vue {
   }
 
   productUrl(collection: string, name: string, sap: number) {
-    return `/products/${collection}/${name.toLowerCase().replace(' ', '-')}-${sap}`
+    return `/products/${collection}/${name.toLowerCase().replace(/ /i, '-')}-${sap}`
   }
 }
 </script>
