@@ -28,7 +28,7 @@
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/pwa": "3.3.2",
     "axios": "0.21.0",
-    "nuxt": "2.14.9",
+    "nuxt": "2.14.12",
     "nuxt-gmaps": "1.2.10",
     "nuxt-property-decorator": "2.8.8",
     "nuxt-typed-vuex": "0.1.22",
