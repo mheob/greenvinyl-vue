@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "2.0.0",
-    "@nuxtjs/axios": "5.12.4",
+    "@nuxtjs/axios": "5.12.5",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/pwa": "3.3.3",
     "axios": "0.21.1",
