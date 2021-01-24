@@ -23,7 +23,7 @@
     "*.{js, ts,vue}": "yarn lint"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "2.0.0",
+    "@nuxt/typescript-runtime": "2.0.1",
     "@nuxtjs/axios": "5.12.5",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/pwa": "3.3.4",
