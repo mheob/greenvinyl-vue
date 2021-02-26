@@ -70,7 +70,7 @@ export default {
    */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    googleApi: process.env.GOOGLE_API || 'AIzaSyAilqM_KE-kgLAX8LVTht-gJ1hm_X9fHcw'
+    googleApi: process.env.GOOGLE_API || ''
   },
   /*
    ** Plugins to load before mounting the App
