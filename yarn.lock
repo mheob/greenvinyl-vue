@@ -1632,11 +1632,6 @@
     ts-node "^9.1.1"
     typescript "~4.1"
 
-"@nuxt/ufo@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@nuxt/ufo/-/ufo-0.5.2.tgz#cb40e4b3001739baebddfd65d0f03d6070e2c0e5"
-  integrity sha512-nnKFQ4NA5id5ekyQWHTdOfirIZRQzfEHMB9T0T6NZdWy4+3Nrw0GTBQ3J9Am0gg8kvqR0mMQTn1wK6ya3i/XmA==
-
 "@nuxt/utils@2.15.4":
   version "2.15.4"
   resolved "https://registry.yarnpkg.com/@nuxt/utils/-/utils-2.15.4.tgz#1c84dfa964357224a79d402797c9feab2040991c"
@@ -1819,19 +1814,19 @@
     consola "^2.12.1"
     stylelint-webpack-plugin "^2.0.0"
 
-"@nuxtjs/tailwindcss@3.4.2":
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-3.4.2.tgz#2376877b7e3fff35c044e99828d5e7cacfec5621"
-  integrity sha512-Hv1b/4zYaffNc0JHss3jqKLZoPRQfG7upxGguP749Zx2VgMyFExeT3NMAxntLHctKvv/ohN+5kFGiewZGI5n2A==
+"@nuxtjs/tailwindcss@3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-3.4.3.tgz#8239b11857d395000d9ff5df52b18644d631629d"
+  integrity sha512-W2FIB5zzvkPkNayQ3mTy7jcP0rTDwnrjv79v96/CRTptFbY5TxvZVJI7N0r8ova/IWPSdkgjdCb7wbzolzzgjg==
   dependencies:
-    "@nuxt/ufo" "^0.5.2"
     chalk "^4.1.0"
     clear-module "^4.1.1"
-    consola "^2.15.0"
+    consola "^2.15.3"
     defu "^3.2.2"
-    fs-extra "^9.0.1"
-    tailwind-config-viewer "^1.4.0"
+    fs-extra "^9.1.0"
+    tailwind-config-viewer "^1.5.0"
     tailwindcss "^1.9.6"
+    ufo "^0.6.9"
 
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
@@ -12094,22 +12089,19 @@ table@^6.0.7:
     slice-ansi "^4.0.0"
     string-width "^4.2.0"
 
-tailwind-config-viewer@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/tailwind-config-viewer/-/tailwind-config-viewer-1.4.0.tgz#a1c185b647181a4e51b5d6372a748e5904de35af"
-  integrity sha512-FM4cOxHiI1cW+096XVuDEkbRfJppIXERm58QAPJK/t7+85zRpndXLF++206iNQdmVL/gKw/OI7QOp1cSxgFRAw==
+tailwind-config-viewer@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/tailwind-config-viewer/-/tailwind-config-viewer-1.5.1.tgz#c8ba81593ae8bc64d3625be983ebcf25aea3cc30"
+  integrity sha512-vlrZjC+sJMgtj5Pz9GsJsJMVVWi1Pv/F3xU54OuOHM8fD+Pb8KSB3Ja2lFVD8KN//wsvkpuJST8OctbApb3mMw==
   dependencies:
     "@koa/router" "^9.0.1"
     commander "^6.0.0"
-    core-js "^2.6.5"
     fs-extra "^9.0.1"
     koa "^2.12.0"
     koa-static "^5.0.0"
     open "^7.0.4"
     portfinder "^1.0.26"
     replace-in-file "^6.1.0"
-    vue "^2.6.10"
-    vue-draggable-resizable "^2.2.0"
 
 tailwindcss@^1.9.6:
   version "1.9.6"
@@ -12580,7 +12572,7 @@ ua-parser-js@^0.7.26:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.26.tgz#b3731860e241419abd5b542b1a0881070d92e0ce"
   integrity sha512-VwIvGlFNmpKbjzRt51jpbbFTrKIEgGHxIwA8Y69K1Bqc6bTIV7TaGGABOkghSFQWsLmcRB4drGvpfv9z2szqoQ==
 
-ufo@^0.6.10:
+ufo@^0.6.10, ufo@^0.6.9:
   version "0.6.10"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.6.10.tgz#c7ace9b8f72cb08c35e3a8c8edc76f062fbaa7d0"
   integrity sha512-sMbJnrBcKKsbVyr6++hb0n9lCmrMqkJrNnJIOJ3sckeqY6NMfAULcRGbBWcASSnN1HDV3YqiGCPzi9RVs511bw==
@@ -12993,11 +12985,6 @@ vue-client-only@^2.0.0:
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.0.0.tgz#ddad8d675ee02c761a14229f0e440e219de1da1c"
   integrity sha512-arhk1wtWAfLsJyxGMoEYhoBowM87/i6HLSG2LH/03Yog6i2d9JEN1peMP0Ceis+/n9DxdenGYZZTxbPPJyHciA==
 
-vue-draggable-resizable@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/vue-draggable-resizable/-/vue-draggable-resizable-2.3.0.tgz#94c433ca748bc1a4d0959ba1c5c0e1c3536cee5b"
-  integrity sha512-77CLRj1TPwB30pwsjOf3pkd1UzYanCdKXbqhILJ0Oo5QQl50lvBfyQCXxMFzwWwTc3sbBbQH3FfWSV+BkoSElA==
-
 vue-eslint-parser@^7.1.1, vue-eslint-parser@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.2.0.tgz#1e17ae94ca71e617025e05143c8ac5593aacb6ef"
@@ -13115,7 +13102,7 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.10, vue@^2.6.12:
+vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
